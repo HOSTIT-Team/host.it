@@ -1,3 +1,11 @@
+<% if @event.banner.attached? %>
+  <%#= cl_image_path @event.banner.key %>  
+  <div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @event.banner.key, height: 500, crop: :fill %>')"> 
+  </div>
+<% else %>
+  UPLOAD BANNER
+<% end %>
+
 <h1><%= @event.title %></h1>
 <h2><%= @event.location %></h2>
 <p><%= @event.scheduled_at %></p>

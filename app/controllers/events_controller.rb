@@ -29,6 +29,7 @@ class EventsController < ApplicationController
 
   def update
     authorize @event
+    @event.update(strong_params)
     if @event.update(strong_params)
       redirect_to event_path(@event)
       flash.alert = "Event updated"
@@ -55,6 +56,6 @@ class EventsController < ApplicationController
   end
 
   def strong_params
-    params.require(:event).permit(:title, :time, :location, :description)
+    params.require(:event).permit(:title, :time, :location, :description, :banner)
   end
 end
