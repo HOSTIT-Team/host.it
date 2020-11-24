@@ -1,0 +1,17 @@
+<%= simple_form_for @event do |f| %>
+  <%= f.input :title %>
+  <%= f.input :location %>
+  <%= f.input :time, as: :datetime %>
+  <%= f.input :description %>
+  <%= f.submit "Create Event" %>
+<% end %>
+
+<%# create_table "events", force: :cascade do |t|
+    t.time "time"
+    t.string "location"
+    t.string "title"
+    t.text "description"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_events_on_user_id" %>
