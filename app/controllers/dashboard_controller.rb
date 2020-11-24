@@ -1,11 +1,17 @@
 class DashboardController < ApplicationController
-  # def index
-  #   @invitations = Invitation.where(sender_id: current_user.id).or(Invitation.where(receiver_id: current_user.id)))
-  # end
-
   def index
-    @events_as_host = policy_scope(Event).where(user: current_user).order(time: :desc)
-    @events_as_guest = policy_scope(Invitation).where(receiver_id: current_user).order(time: :desc)
-    # @host = current_user.events.any?
+    @events_as_host = policy_scope(Event).where(user: current_user)
+    @invitations_as_guest = policy_scope(Invitation).where(receiver_id: current_user).includes(:event)
+
+    @all_events = []
+    @invitations_as_guest.each do |invitation|
+      @all_events << invitation.event
+    end
+    @events_as_host.each do |event|
+      @all_events << event
+    end
+
+    @all_events_sorted = @all_events.sort_by { |event| event.scheduled_at }
+
   end
 end
