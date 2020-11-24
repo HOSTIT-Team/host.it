@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_23_163216) do
+ActiveRecord::Schema.define(version: 2020_11_24_112901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,17 @@ ActiveRecord::Schema.define(version: 2020_11_23_163216) do
     t.index ["sender_id"], name: "index_invitations_on_sender_id"
   end
 
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.bigint "event_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "status", default: "Unassigned"
+    t.index ["event_id"], name: "index_items_on_event_id"
+    t.index ["user_id"], name: "index_items_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -60,4 +71,6 @@ ActiveRecord::Schema.define(version: 2020_11_23_163216) do
   add_foreign_key "invitations", "events"
   add_foreign_key "invitations", "users", column: "receiver_id"
   add_foreign_key "invitations", "users", column: "sender_id"
+  add_foreign_key "items", "events"
+  add_foreign_key "items", "users"
 end
