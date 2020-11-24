@@ -1,7 +1,8 @@
 <%= simple_form_for @event do |f| %>
+  <%= f.input :banner, as: :file %>
   <%= f.input :title %>
   <%= f.input :location %>
-  <%= f.input :time, as: :datetime %>
+  <%= f.input :scheduled_at %>
   <%= f.input :description %>
   <% if current_page?(new_event_path) %>
     <%= f.submit "Create Event" %>
