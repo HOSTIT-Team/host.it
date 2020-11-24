@@ -16,7 +16,7 @@ User.destroy_all
 
     10.times do
         event = Event.new(user: user)
-        event.time = Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :short)
+        event.scheduled_at = Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :short)
         event.title = Faker::Hipster.sentence(word_count: rand(3))
         event.location = Faker::Address.street_address
         event.description = 'sdfasdfsdfasdfa'
