@@ -1,17 +1,12 @@
 <%= simple_form_for @event do |f| %>
+  <%= f.input :banner, as: :file %>
   <%= f.input :title %>
   <%= f.input :location %>
-  <%= f.input :time, as: :datetime %>
+  <%= f.input :scheduled_at %>
   <%= f.input :description %>
-  <%= f.submit "Create Event" %>
+  <% if current_page?(new_event_path) %>
+    <%= f.submit "Create Event" %>
+  <% else %>
+    <%= f.submit "Update Event" %>
+  <% end %>
 <% end %>
-
-<%# create_table "events", force: :cascade do |t|
-    t.time "time"
-    t.string "location"
-    t.string "title"
-    t.text "description"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_events_on_user_id" %>
