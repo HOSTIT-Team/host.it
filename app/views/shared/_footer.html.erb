@@ -5,7 +5,7 @@
   <p>You not logged</p>
 <% end %>
 <%= link_to "Home", root_path %>
-<%#= link_to "Dashboard", dashboard_path %>
+<%= link_to "Dashboard", dashboard_index_path %>
 <%= link_to "Log in", new_user_session_path %>
 <%= link_to "register", new_user_registration_path %>
 <%= link_to "Log out", destroy_user_session_path, method: :delete %>
