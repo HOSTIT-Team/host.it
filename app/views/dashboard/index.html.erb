@@ -1,13 +1,18 @@
 <div class="container">
   <h1>USER DASHBOARD</h1>
-  <div class="day-section">
-    <% @events_as_host.each do |event| %>
+  <div class="host-section">
+    <h2><strong>EVENTS AS HOST</strong></h2>
+    <hr>
+    <% @all_events_sorted.each do |event| %>
       <div class="event-card">
         <h4><%= event.title %></h4>
-        <p><i class="far fa-calendar-alt"></i> <%= event.time %></i></p>
-        <p><i class="far fa-calendar-alt"></i> <%= event.description %></i></p>
+        <p><i class="far fa-calendar-alt"></i> <%= event.scheduled_at%></i></p>
+        <p><i class="far fa-clock"></i> <%= event.scheduled_at %></i></p>
+        <p><i class="fas fa-info-circle"></i></i> <%= event.description %></i></p>
         <p><i class="fas fa-map-marker-alt"></i> <%= event.location %></i></p>
       </div>
+      <hr>
     <% end %>
   </div>
 </div>
+<%= render "shared/footer" %>
