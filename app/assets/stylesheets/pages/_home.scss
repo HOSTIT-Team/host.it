@@ -1,1 +1,59 @@
 // Specific CSS for your home-page
+#headers {
+    margin-left: 60px;
+    padding-top: 200px;
+}
+
+h1 {
+    font-size: 45px;
+    font-weight: Bold;
+}
+
+h2 {
+    font-size: 35px;
+    font-weight: Medium;
+    color: white;
+}
+
+#header-buttons {
+    padding-top: 40px;
+    padding-left: 60px;
+}
+
+#banner {
+    background-image: image-url('homepage_banner.jpg')
+}
+
+* {
+    box-sizing: border-box;
+  }
+
+div.container {
+    padding-top: 30px;
+    padding-left: 60px;
+    display: inline-flex;
+    width: 100vw;
+  }
+
+div.column {
+    padding: 5px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;;
+  }
+
+  div.textblock {
+    padding: 60px;
+  }
+
+section.desctiption {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+html,body {
+    padding:0;
+    margin:0;
+    height:100%;
+    min-height:100%;
+  }
