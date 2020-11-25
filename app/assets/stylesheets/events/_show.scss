@@ -1,9 +1,52 @@
+.event-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #E7DDB4;
+  padding: 0 5%;
+
+  .event-details {
+    width: 100%;
+    margin: 80px;
+    background-color: $light-gray;
+    padding: 48px;
+    position: relative;
+
+    #event-title {
+      font-size: 3rem;
+    }
+
+    #event-time-location {
+      font-size: 1rem;
+      color: rgba(0, 0, 0, 0.40);
+    }
+
+    #event-description {
+      font-size: 1.5rem;
+    }
+
+    #event-edit-delete {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      a {
+        color: black;
+        padding: 0 5px;
+        &:hover {
+         text-decoration: none;
+        }
+      }
+    }
+  }
+
+}
+
 .event-banner {
   width: 100%;
-  height: 500px;
+  height: 70vh;
   background-size: cover;
   background-color: gray;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-end;
 }
