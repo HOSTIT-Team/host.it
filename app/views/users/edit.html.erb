@@ -8,7 +8,7 @@
     <%= f.input :email %>
     <%= f.input :phone_number %>
     <%= f.input :avatar, as: :file, label: "Add a profile picture" %>
-     <%= f.button :submit, 'Submit' %>
+     <%= f.button :submit, 'Save changes', data: { confirm: "Confrim changes?" }, class: 'button-main' %>
     <%= link_to "Confirm changes", user_path(@user), method: :patch, data: { confirm: "Confrim changes?" }, class: 'button-main' %>
     
   <% end %>
