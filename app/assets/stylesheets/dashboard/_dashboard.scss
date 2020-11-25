@@ -2,33 +2,92 @@
   text-align: right;
 }
 
-.event-card-section {
-  display: flex;
-  justify-content: start;
+.dashboard-container {
+  padding: 40px;
 }
-
-.event-card {
-  border-color: black;
-  border: solid;
-  background-color: beige;
-  margin-bottom: 10px;
-  margin-right: 10px;
-}
-
-
-// .day-section {
-//   background-color: beige;
-//   display: flex;
-//   height: 400px;
-// }
 
 .date-box {
   background-color: black;
   color: white;
   height: 30px;
-  // width: 80px;
   text-align: center;
   padding: 4px 4px;
+  p {
+    margin: 0px;
+  }
+}
+
+.event-card-section {
+  display: flex;
+  justify-content: start;
+  background-color: beige;
+  margin-bottom: 40px;
+  padding: 40px 30px 40px 30px;
+  flex-wrap: wrap;
+}
+
+.event-card {
+  border-color: black;
+  border: solid;
+  background-color: white;
+  // margin-bottom: 40px;
+  margin-right: 10px;
+  width: 200px;
+  height: 250px;
+  }
+
+
+.event-card-header {
+  background-color: black;
+  color: white;
+  text-align: center;
+  height: 80px;
+  padding: 20px 4px;
+  position: relative;
+  p {
+    margin: 0px;
+  }
+}
+
+.event-card-status-circle-host {
+  background-color: violet;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  border: solid;
+  border-color: black;
+  position: absolute;
+  top: -22px;
+  left: 78px;
+}
+
+.event-card-status-circle-guest {
+  background-color: green;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  border: solid;
+  border-color: black;
+  position: absolute;
+  top: -22px;
+  left: 78px;
+}
+
+.event-card-status-circle-invitation {
+  background-color: white;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  border: solid;
+  border-color: black;
+  position: absolute;
+  top: -22px;
+  left: 78px;
+}
+
+.event-card-body {
+  padding: 10px;
+  background-image:
   p {
     margin: 0px;
   }

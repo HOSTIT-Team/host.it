@@ -1,15 +1,30 @@
-<h1>Dashboard</h1>
+<div class="headline">
+  <h1>Dashboard</h1>
+</div>
+<div class="dashboard-container">
   <% @created_ats.each do |day| %>
-    <div class="date-box"> <%= day[0] %> </div>
+    <div class="date-box"> <%= day[0].strftime("%A, %b %d") %> </div>
     <div class="event-card-section">
     <% day[1].each do |day_event| %>
       <div class="event-card">
-        <p>TITLE: <%=  day_event.title %></p>
-        <p>TIME: <%= day_event.scheduled_at %></p>
-        <p>LOCATION: <%=  day_event.location %></p>
-        <p>ABOUT: <%= day_event.description %></p>
+        <div class="event-card-header"><p> <%=  day_event.title %></p>
+          <% if day_event.user == current_user %>
+            <div class="event-card-status-circle-host"></div>
+          <% elsif @invitations_data.include?([day_event.id, "accepted"]) %>
+            <div class="event-card-status-circle-guest"></div>
+          <% elsif @invitations_data.include?([day_event.id, "pending"]) %>
+            <div class="event-card-status-circle-invitation"></div>
+          <% end %>
+        </div>
+        <div class="event-card-body">
+          <p><i class="far fa-clock"></i><%= day_event.scheduled_at.strftime("%l:%M %p") %></p>
+          <p><i class="fas fa-map-marker-alt"></i> <%= day_event.location %></p>
+          <p><i class="fas fa-info"></i><%= day_event.description %></p>
+        </div>
       </div>
     <% end %>
     </div>
   <% end %>
+</div>
+<%= render "shared/footer" %>
 

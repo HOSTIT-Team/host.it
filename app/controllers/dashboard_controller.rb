@@ -1,7 +1,15 @@
 class DashboardController < ApplicationController
   def index
+    # @invitation = current_user.invitations
+    # raise
     @events_as_host = policy_scope(Event).where(user: current_user)
     @invitations_as_guest = policy_scope(Invitation).where(receiver_id: current_user).includes(:event)
+
+
+    @invitations_data = @invitations_as_guest.map do |invitation|
+      [invitation.event_id, invitation.status]
+    end
+      # raise
 
     @all_events = []
     @invitations_as_guest.each do |invitation|
@@ -15,6 +23,14 @@ class DashboardController < ApplicationController
 
     @created_ats = @all_events_sorted.group_by { |date| date.scheduled_at.to_date }
 
-    # raise
+
+  # private
+
+  # def invited?(event)
+  #   @invitations_ids = @invitations_as_guest.map do |invitation|
+  #     invitation.event_id
+  #   end
+  #   @invitations_ids.include?(event.id)
+  # end
   end
 end
