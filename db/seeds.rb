@@ -4,7 +4,7 @@ Item.destroy_all
 User.destroy_all
 
 
-10.times do 
+10.times do
     first_name = Faker::Name.first_name
     last_name = Faker::Name.last_name
     email = Faker::Internet.safe_email(name: "#{first_name}.#{last_name}")
@@ -33,13 +33,13 @@ User.destroy_all
 end
 
 User.all.each do |user|
-    10.times do 
+    10.times do
         event = Event.all.sample
         first_name = Faker::Name.first_name
         last_name = Faker::Name.last_name
         receiver = User.where.not(id: user.id).sample
-        email = Faker::Internet.safe_email(name: "#{first_name}.#{last_name}") 
-        invitation = Invitation.new(event:event, sender: user, receiver: receiver, receiver_email: email, status: 'invited' )
+        email = Faker::Internet.safe_email(name: "#{first_name}.#{last_name}")
+        invitation = Invitation.new(event:event, sender: user, receiver: receiver, receiver_email: email)
         invitation.save!
     end
 end

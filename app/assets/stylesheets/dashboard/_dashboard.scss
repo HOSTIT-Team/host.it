@@ -1,0 +1,109 @@
+.headline {
+  text-align: right;
+  margin-top: 80px;
+  margin-bottom: 60px;
+}
+
+.dashboard-container {
+  padding: 40px;
+}
+
+.date-box {
+  background-color: black;
+  color: white;
+  height: 30px;
+  text-align: center;
+  padding: 4px 4px 4px 8px;
+  width: 170px;
+  position: absolute;
+  top: -16px;
+  left: -20px;
+  text-align: left;
+  p {
+    margin: 0px;
+  }
+}
+
+.event-card-section {
+  display: flex;
+  justify-content: start;
+  background-color: $beige;
+  margin-bottom: 40px;
+  padding: 40px 30px 10px 30px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.event-card {
+  border-color: black;
+  border: solid;
+  background-color: white;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  margin-right: 10px;
+  width: 200px;
+  // height: 250px;
+  }
+
+.event-card-header {
+  background-color: black;
+  color: white;
+  text-align: center;
+  height: 80px;
+  padding: 20px 4px;
+  position: relative;
+  p {
+    margin: 0px;
+    font-size: 13px;
+    font-weight: bold;
+  }
+}
+
+.event-card-status-circle-host {
+  background-color: $violet;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  border: solid;
+  border-color: black;
+  position: absolute;
+  top: -22px;
+  left: 78px;
+}
+
+.event-card-status-circle-guest {
+  background-color: $green;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  border: solid;
+  border-color: black;
+  position: absolute;
+  top: -22px;
+  left: 78px;
+}
+
+.event-card-status-circle-invitation {
+  background-color: $magenta;
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  border: solid;
+  border-color: black;
+  position: absolute;
+  top: -22px;
+  left: 78px;
+}
+
+.event-card-body {
+  padding: 10px 10px;
+  height: 150px;
+  text-align: center;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  p {
+    margin: 0px;
+    color: white;
+  }
+}

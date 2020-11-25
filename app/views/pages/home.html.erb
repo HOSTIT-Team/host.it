@@ -5,13 +5,15 @@
     </div>
 </div>
 
-<div id="drawing-area" style="background-color:#E8DDB5; width:50%; height:50%; float:right">
-    <%= javascript_pack_tag 'script.js' %>
+<div style="background-color:#E8DDB5; width:50%; height:50%; float:right">
+    <div id="content">
+        <%= content_tag(:iframe,'', src: "https://random-placement-26.superhi.com/") %>
+    </div>
 </div>
 
-<div style="background-color:#E8DDB5; width:50%; height:50%; float:left">
+<div id="button-area" style="background-color:#FFFDF7; width:50%; height:50%; float:left">
     <div id="header-buttons">
-        <a href="#launch" class="button-main">Learn More</a> 
+        <a href="#learn-more" class="button-main">Learn More</a> 
         <a href="#launch" class="button-main">Launch</a>
     </div>
 </div>
@@ -19,44 +21,44 @@
 <div id="banner" style="background-color: #DD1155; width:50%; height:50%; float:right">
 </div>
 
+<section id="learn-more">
+    <div class="container">
+        <div class="column">
+            <%= image_tag "homepage-image-1.jpg"  %>
+        </div>
+        <div class="column">
+            <%= image_tag "homepage-image-2.jpg" %>
+        </div>
+        <div class="column">
+            <%= image_tag "homepage-image-3.jpg" %>
+        </div>
+    </div>
 
-<div class="container">
-    <div class="column">
-        <%= image_tag "homepage-image-1.jpg" %>
+    <div class="textblock">
+        <h1> Plan. Create. Invite. Track. </h1>
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est 
+        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
     </div>
-    <div class="column">
-        <%= image_tag "homepage-image-2.jpg" %>
-    </div>
-    <div class="column">
-        <%= image_tag "homepage-image-3.jpg" %>
-    </div>
-</div>
-
-<div class="textblock">
-    <h1> Plan. Create. Invite. Track. </h1>
-     <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
-     At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est 
-     Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
-     At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-</div>
+</section>
 
 <section id="launch">
     <div class= "launch-form">
       <%= simple_form_for @event do |f| %>
           <div class="field">
-              <%= f.input :title %>
+            <%= f.input :title, label: false, input_html: { placeholder: "What?"} %>
           </div>
 
           <div class= "field">
-              <%= f.input :location %>
+            <%= f.input :location, label: false, input_html: { placeholder: "Where?"} %>
           </div>
 
           <div class="field">
-              <%= f.input :scheduled_at %>
+            <%= f.input :scheduled_at, as: :string, label: false, input_html: {class: "datepicker", placeholder: "When?" } %>
           </div><br>
           <%= f.submit "Create", class: "button-create-home" %> 
       <% end %>
     </div>
 </section>
-
 <%= render "shared/footer" %>

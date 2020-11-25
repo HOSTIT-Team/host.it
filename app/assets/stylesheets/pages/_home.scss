@@ -20,6 +20,14 @@ h2 {
     padding-left: 60px;
 }
 
+#button-area {
+  margin-left:0;
+  background-image: image-url('background-buttons.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
 #banner {
     background-image: image-url('homepage_banner.jpg')
 }
@@ -39,7 +47,7 @@ div.column {
     padding: 5px;
     flex-direction: column;
     align-items: center;
-    text-align: center;;
+    text-align: center;
   }
 
   div.textblock {
@@ -58,6 +66,13 @@ html,body {
     min-height:100%;
   }
 
+div#content iframe {
+    position: absolute;
+    width:50%; 
+    height:50%; 
+    float:right
+}
+
  div.launch-form {
    padding-top: 150px;
    padding-bottom: 150px;
@@ -73,7 +88,7 @@ html,body {
  }
 
  div.field {
-  width:400px;
+  width:300px;
   margin-left: 200px;
   margin-right: 200px;
   padding: 10px;

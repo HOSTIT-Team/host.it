@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_24_154240) do
+ActiveRecord::Schema.define(version: 2020_11_25_143047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2020_11_24_154240) do
 
   create_table "invitations", force: :cascade do |t|
     t.bigint "event_id", null: false
-    t.string "status"
+    t.string "status", default: "pending"
     t.string "link"
     t.string "receiver_email"
     t.bigint "sender_id"
