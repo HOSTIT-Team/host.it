@@ -4,14 +4,19 @@ class UserPolicy < ApplicationPolicy
       scope.all
     end
     def show?
-      true
+      user
     end
+    
     def edit?
-      record.user == user
+     true
     end
 
     def update?
-      record.user == user
+      true
+    end
+
+    def new?
+      true
     end
   end
 end
