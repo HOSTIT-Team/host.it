@@ -1,18 +1,23 @@
-<%= simple_form_for @event do |f| %>
-<div class="event-banner">
-  <%= f.input :banner, as: :file, label: false, input_html: { hidden: true, class: "real-upload" } %>
-  <div class="button-create" id="upload-button">
-   Upload Banner
+ <div class="form-container">
+  <%= simple_form_for @event do |f| %>
+  <div class="event-banner">
+    <%= f.input :banner, as: :file, label: false, input_html: { hidden: true, class: "real-upload" } %>
+    <div class="button-create" id="upload-button">
+    Upload Banner
+    </div>
   </div>
-</div>
-  
-  <%= f.input :title, label: false, input_html: { value: "What is going to happen"} %>
-  <%= f.input :location, label: false, input_html: { value: "Where is it going to happen"} %>
-  <%= f.input :scheduled_at, as: :string, label: false, input_html: {class: "datepicker", placeholder: "When do you want to host" } %>
-  <%= f.input :description,label: false, input_html: {placeholder: "Describe what your event is about and what people can expect at the event" } %>
-  <% if current_page?(new_event_path) %>
-    <%= f.submit "Create Event", class: "button-create" %>
-  <% else %>
-    <%= f.submit "Update Event", class: "button-create" %>
+    <div class="form-inputs-container">
+    <div class="main-input">
+      <%= f.input :title, label: false, input_html: { placeholder: "What?"} %>
+      <%= f.input :location, label: false, input_html: { placeholder: "Where?"} %>
+      <%= f.input :scheduled_at, as: :string, label: false, input_html: {class: "datepicker", placeholder: "When?" } %>
+    </div>
+    <%= f.input :description,label: false, input_html: {placeholder: "Describe what your event is about and what people can expect at the event" } %>
+    <% if current_page?(new_event_path) %>
+      <%= f.submit "Create Event", class: "button-create" %>
+    <% else %>
+      <%= f.submit "Update Event", class: "button-create" %>
+    <% end %>
+    </div>
   <% end %>
-<% end %>
+</div>
