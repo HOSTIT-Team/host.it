@@ -40,4 +40,23 @@
      At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 </div>
 
+<section id="launch">
+    <div class= "launch-form">
+      <%= simple_form_for @event do |f| %>
+          <div class="field">
+              <%= f.input :title %>
+          </div>
+
+          <div class= "field">
+              <%= f.input :location %>
+          </div>
+
+          <div class="field">
+              <%= f.input :scheduled_at %>
+          </div><br>
+          <%= link_to "Create", new_event_path, class: "button-create-home" %> 
+      <% end %>
+    </div>
+</section>
+
 <%= render "shared/footer" %>
