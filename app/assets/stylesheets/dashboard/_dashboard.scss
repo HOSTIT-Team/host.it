@@ -42,8 +42,7 @@
   margin-bottom: 40px;
   margin-right: 10px;
   width: 200px;
-  // height: 250px;
-  }
+}
 
 .event-card-header {
   background-color: black;
@@ -99,11 +98,23 @@
   padding: 10px 10px;
   height: 150px;
   text-align: center;
-  // display: flex;
-  // align-items: center;
-  // justify-content: center;
   p {
     margin: 0px;
     color: white;
   }
+}
+
+.event-card-footer-empty {
+  background-color: black;
+  height: 30px;
+}
+
+.event-card-footer-symbols {
+  background-color: black;
+  height: 30px;
+}
+
+#accept-invitation, #decline-invitation, #maybe-invitation {
+  text-decoration: none;
+  color: $magenta;
 }
