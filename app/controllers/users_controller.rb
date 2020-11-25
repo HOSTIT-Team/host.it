@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-    before_action :find_user, only: [:show, :edit]
+    before_action :find_user, only: [:show, :edit, :update]
 
     def show
         @user = current_user
@@ -12,8 +12,9 @@ class UsersController < ApplicationController
 
     end
     def update
-        if @user == current_user
-        @user.update(user_params)
+    
+       authorize @user
+        if @user.update(user_params)
         redirect_to user_path(@user)
         end
     end
@@ -27,4 +28,12 @@ class UsersController < ApplicationController
     def find_user
         @user = User.find(params[:id])
     end
+    def user_params
+        params.require(:user).permit(:first_name, :last_name, :phone_number, :email, :avatar)
+    end
 end
+    # def user_params
+    #     accessible = [ :first_name, :last_name, :phone_number, :avatar] # EXTEND!
+    #     accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
+    #     params.require(:user).permit(accessible)
+    #   end
