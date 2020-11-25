@@ -1,0 +1,35 @@
+.headline {
+  text-align: right;
+}
+
+.event-card-section {
+  display: flex;
+  justify-content: start;
+}
+
+.event-card {
+  border-color: black;
+  border: solid;
+  background-color: beige;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+
+// .day-section {
+//   background-color: beige;
+//   display: flex;
+//   height: 400px;
+// }
+
+.date-box {
+  background-color: black;
+  color: white;
+  height: 30px;
+  // width: 80px;
+  text-align: center;
+  padding: 4px 4px;
+  p {
+    margin: 0px;
+  }
+}

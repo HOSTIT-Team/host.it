@@ -13,5 +13,8 @@ class DashboardController < ApplicationController
 
     @all_events_sorted = @all_events.sort_by { |event| event.scheduled_at }
 
+    @created_ats = @all_events_sorted.group_by { |date| date.scheduled_at.to_date }
+
+    # raise
   end
 end
