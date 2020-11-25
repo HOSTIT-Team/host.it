@@ -7,6 +7,7 @@ class EventsController < ApplicationController
   end
 
   def new
+    raise
     @event = Event.new
     authorize @event
   end
@@ -15,7 +16,7 @@ class EventsController < ApplicationController
     @event = Event.new(strong_params)
     @event.user = current_user
     authorize @event
-    if @event.save!
+    if @event.save
       redirect_to event_path(@event)
       flash.alert = "Event created"
     else

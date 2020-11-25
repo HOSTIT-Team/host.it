@@ -11,8 +11,8 @@
 
 <div style="background-color:#E8DDB5; width:50%; height:50%; float:left">
     <div id="header-buttons">
-        <a href="#search" class="button-main">Learn More</a> 
-        <a href="#search" class="button-main">Launch</a>
+        <a href="#launch" class="button-main">Learn More</a> 
+        <a href="#launch" class="button-main">Launch</a>
     </div>
 </div>
 
@@ -54,7 +54,7 @@
           <div class="field">
               <%= f.input :scheduled_at %>
           </div><br>
-          <%= link_to "Create", new_event_path, class: "button-create-home" %> 
+          <%= f.submit "Create", class: "button-create-home" %> 
       <% end %>
     </div>
 </section>
