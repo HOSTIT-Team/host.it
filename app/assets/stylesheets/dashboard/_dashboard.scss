@@ -22,7 +22,7 @@
   justify-content: start;
   background-color: beige;
   margin-bottom: 40px;
-  padding: 40px 30px 40px 30px;
+  padding: 40px 30px 10px 30px;
   flex-wrap: wrap;
 }
 
@@ -30,7 +30,7 @@
   border-color: black;
   border: solid;
   background-color: white;
-  // margin-bottom: 40px;
+  margin-bottom: 40px;
   margin-right: 10px;
   width: 200px;
   height: 250px;
@@ -46,11 +46,13 @@
   position: relative;
   p {
     margin: 0px;
+    font-size: 13px;
+    font-weight: bold;
   }
 }
 
 .event-card-status-circle-host {
-  background-color: violet;
+  background-color: $violet;
   height: 40px;
   width: 40px;
   border-radius: 20px;
@@ -62,7 +64,7 @@
 }
 
 .event-card-status-circle-guest {
-  background-color: green;
+  background-color: $green;
   height: 40px;
   width: 40px;
   border-radius: 20px;
@@ -74,7 +76,7 @@
 }
 
 .event-card-status-circle-invitation {
-  background-color: white;
+  background-color: $magenta;
   height: 40px;
   width: 40px;
   border-radius: 20px;

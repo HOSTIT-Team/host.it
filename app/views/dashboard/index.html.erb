@@ -7,7 +7,7 @@
     <div class="event-card-section">
     <% day[1].each do |day_event| %>
       <div class="event-card">
-        <div class="event-card-header"><p> <%=  day_event.title %></p>
+        <div class="event-card-header"><p><%= link_to "#{day_event.title}", event_path(day_event.id) %></p>
           <% if day_event.user == current_user %>
             <div class="event-card-status-circle-host"></div>
           <% elsif @invitations_data.include?([day_event.id, "accepted"]) %>
@@ -27,4 +27,9 @@
   <% end %>
 </div>
 <%= render "shared/footer" %>
+
+
+
+
+
 
