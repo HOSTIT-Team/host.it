@@ -1,12 +1,14 @@
 .navbar {
-  background-color: rgba(255, 255, 255, 0.15);
-  position: fixed;
+  float: left;
+  height: 0;
+  position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  width: 150px;
+  z-index: 30;
 
   img {
-    margin-top: 10px;
-    margin-left: 60px;
+    margin-top: 4px;
+    margin-left: 20px;
+    z-index: 1;
   }
 }
