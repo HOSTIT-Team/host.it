@@ -1,5 +1,7 @@
 .headline {
   text-align: right;
+  margin-top: 80px;
+  margin-bottom: 60px;
 }
 
 .dashboard-container {
@@ -11,7 +13,12 @@
   color: white;
   height: 30px;
   text-align: center;
-  padding: 4px 4px;
+  padding: 4px 4px 4px 8px;
+  width: 170px;
+  position: absolute;
+  top: -16px;
+  left: -20px;
+  text-align: left;
   p {
     margin: 0px;
   }
@@ -20,22 +27,23 @@
 .event-card-section {
   display: flex;
   justify-content: start;
-  background-color: beige;
+  background-color: $beige;
   margin-bottom: 40px;
   padding: 40px 30px 10px 30px;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .event-card {
   border-color: black;
   border: solid;
   background-color: white;
+  margin-top: 20px;
   margin-bottom: 40px;
   margin-right: 10px;
   width: 200px;
-  height: 250px;
+  // height: 250px;
   }
-
 
 .event-card-header {
   background-color: black;
@@ -88,9 +96,14 @@
 }
 
 .event-card-body {
-  padding: 10px;
-  background-image:
+  padding: 10px 10px;
+  height: 150px;
+  text-align: center;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
   p {
     margin: 0px;
+    color: white;
   }
 }
