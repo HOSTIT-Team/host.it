@@ -8,7 +8,7 @@
     <%= link_to "Show an Event", event_path(Event.all.sample) %>
   <% end %>
 <% else %>
-  <p>You not logged</p>
+  <p>You're not logged in</p>
   <%= link_to "Log in", new_user_session_path %>
   <%= link_to "register", new_user_registration_path %>
 <% end %>
