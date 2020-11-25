@@ -11,10 +11,7 @@ const bannerUpload = () => {
           // console.log(event.currentTarget.result);
       };
       reader.readAsDataURL(input.files[0]);
-      uploadButton.innerHTML = "Change"
-      eventBanner.style.justifyContent = "flex-end";
-      eventBanner.style.alignItems = "flex-end";
-      uploadButton.classList.add("upload-button");
+      uploadButton.innerHTML = "Change";
     }
   };
 
