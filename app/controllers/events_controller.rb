@@ -7,7 +7,6 @@ class EventsController < ApplicationController
   end
 
   def new
-    raise
     @event = Event.new
     authorize @event
   end
