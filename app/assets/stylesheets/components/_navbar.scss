@@ -1,8 +1,12 @@
 .navbar {
-  justify-content: space-between;
-  background: white;
-}
+  background-color: rgba(255, 255, 255, 0.15);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 
-.navbar img {
-  width: 100px;
+  img {
+    margin-top: 10px;
+    margin-left: 60px;
+  }
 }

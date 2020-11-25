@@ -15,7 +15,7 @@ class EventsController < ApplicationController
     @event = Event.new(strong_params)
     @event.user = current_user
     authorize @event
-    if @event.save!
+    if @event.save
       redirect_to event_path(@event)
       flash.alert = "Event created"
     else
@@ -56,6 +56,6 @@ class EventsController < ApplicationController
   end
 
   def strong_params
-    params.require(:event).permit(:title, :time, :location, :description, :banner)
+    params.require(:event).permit(:title, :scheduled_at, :location, :description, :banner)
   end
 end
