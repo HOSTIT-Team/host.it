@@ -11,6 +11,7 @@ class UsersController < ApplicationController
         authorize @user
 
     end
+    
     def update
     
        authorize @user
@@ -18,6 +19,7 @@ class UsersController < ApplicationController
         redirect_to user_path(@user)
         end
     end
+    
     def new
         @user = User.new
         authorize @user
@@ -28,12 +30,8 @@ class UsersController < ApplicationController
     def find_user
         @user = User.find(params[:id])
     end
+    
     def user_params
         params.require(:user).permit(:first_name, :last_name, :phone_number, :email, :avatar)
     end
 end
-    # def user_params
-    #     accessible = [ :first_name, :last_name, :phone_number, :avatar] # EXTEND!
-    #     accessible << [ :password, :password_confirmation ] unless params[:user][:password].blank?
-    #     params.require(:user).permit(accessible)
-    #   end
