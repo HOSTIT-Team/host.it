@@ -28,10 +28,12 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { bannerUpload } from "events/edit";
 import { init_flatpickr } from "../plugins/flatpickr"
+import { init_tilt } from "../plugins/tilt"
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   bannerUpload();
   init_flatpickr();
+  init_tilt();
 });
