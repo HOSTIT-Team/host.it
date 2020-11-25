@@ -2,13 +2,4 @@
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "logo_host.it.svg" %>
   <% end %>
-
-  <div class="nav-form">
-    <% simple_form_for Event.new do |f| %>
-      <%= f.input :title %>
-      <%= f.input :time %>
-      <%= f.input :location %>
-      <%= f.submit "Host it!" %>
-    <% end %>
-  </div>
 </div>
