@@ -43,18 +43,19 @@
     padding: 48px;
     width: 100%;
     display: flex;
+    margin-bottom: 80px;
 
     .guest-list {
-      background-color: $white;
+      background-color: $black;
       padding: 42px;
       display: flex;
       flex-direction: column;
       .guest-cards {
-        background-color: $black;
+        background-color: $white;
         height: 500px;
         width: 400px;
-
-        color: $white;
+        // temporary
+        color: $black;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -66,11 +67,16 @@
       margin: 42px;
       align-self: center;
       font-size: 1.5rem;
+      color: $white;
     }
 
-    .button-create {
+    .list-button {
       width: fit-content;
       align-self: center;
+      &:hover {
+        background-color: $white;
+        color: $black;
+      }
     }
 
     .invite-modal {
@@ -120,6 +126,72 @@
     justify-content: center;
     align-items: center;
     font-size: 5rem;
+  }
+
+  .event-items-playlist {
+    background-color: $beige;
+    padding: 48px;
+    width: 100%;
+    display: flex;
+
+    .bring-list {
+      background-color: $black;
+      height: 500px;
+      width: 60%;
+      padding: 42px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .items {
+        height: 80%;
+        background-color: $white;
+        width: 100%;
+        margin-bottom: auto;
+      }
+
+      .bring-form {
+        display: flex;
+        width: 100%;
+        #item-input  {
+          border: none;
+          height: 48px;
+          width: 90%;
+          padding: 8px 16px;
+          font-size: 1.3rem;
+        }
+        .add-item {
+          background-color: $white;
+          width: 10%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          a {
+            width: 100%;
+            height: 100%;
+            font-size: 2.5rem;
+            color: $black;
+            &:hover {
+              text-decoration: none;
+            }
+          }
+          
+        }
+      }
+    }
+
+    .playlist {
+      background-color: $black;
+      height: 500px;
+      width: 30%;
+      margin-left: auto;
+      // This si temporary until we have the playlist
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $white;
+      font-size: 3rem;
+    }
   }
 }
 
