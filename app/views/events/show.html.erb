@@ -1,6 +1,6 @@
 <div class="event-container">
   <% if @event.banner.attached? %>
-    <div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("<%= cl_image_path @event.banner.key %>")"> 
+    <div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @event.banner.key %>')"> 
   </div>
   <% else %>
     <div class="event-banner">
@@ -34,14 +34,27 @@
     </div>
     
     <div id="map"
-      style"width: 100%; height: 600px;"
+      style="width: 100%; height: 600px;"
       data-markers="<%= @marker.to_json %>"
-      data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"] %>">
+      data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"]%>">
     </div>
 
     <div class="invite-modal">
       <div class="invite-content">
-        Ask Mersad to add something here :)
+        <div class="invite-email-input">
+          <%= simple_form_for([@event, @invitation]) do |f| %>
+            <%= f.input :receiver_email, label: false %>
+            <%= button_tag type: :submit, class: "invite-button" do %>
+              <i class="far fa-paper-plane"></i>
+            <% end %>
+          <% end %>
+        </div>
+        <% @invitations.each do |invitation| %>
+          <div class="invitee">
+            <%= invitation.receiver_email %>
+            <%= invitation.status %>
+          </div>
+        <% end %>
         <button id="close-button"><i class="far fa-window-close"></i></button>
       </div>
     </div>
