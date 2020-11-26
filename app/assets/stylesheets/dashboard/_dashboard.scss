@@ -98,20 +98,16 @@
   padding: 10px 10px;
   height: 150px;
   text-align: center;
+  position: relative;
   p {
     margin: 0px;
     color: white;
   }
 }
 
-.event-card-footer-empty {
-  background-color: black;
-  height: 30px;
-}
-
 .event-card-footer-symbols {
-  background-color: black;
-  height: 30px;
+  position: absolute;
+  // left: 95px;
 }
 
 #accept-invitation, #decline-invitation, #maybe-invitation {
