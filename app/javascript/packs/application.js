@@ -27,9 +27,10 @@ import "bootstrap";
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { bannerUpload } from "events/edit";
-import { init_flatpickr } from "../plugins/flatpickr"
-import { init_tilt } from "../plugins/tilt"
+import { init_flatpickr } from "../plugins/flatpickr";
+import { init_tilt } from "../plugins/tilt";
 import { inviteModal } from "events/show";
+import { initMapbox } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -38,4 +39,5 @@ document.addEventListener('turbolinks:load', () => {
   init_flatpickr();
   init_tilt();
   inviteModal();
+  initMapbox();
 });
