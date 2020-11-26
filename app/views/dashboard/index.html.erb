@@ -27,13 +27,10 @@
           </div>
           <% if @invitations_data.include?([day_event.id, "pending"]) %>
             <div class="event-card-footer-symbols">
-              <%= link_to event_path(day_event.id), title: "Accept invitation", id: "accept-invitation" do %>
+              <%= link_to(invitation_path(day_event.id, status: "accepted"), method: :patch) do %>
                 <i class="fas fa-check-circle"></i>
               <% end %>
-              <%= link_to event_path(day_event.id), title: "Maybe joining", id: "maybe-invitation" do %>
-                <i class="fas fa-question-circle"></i>
-              <% end %>
-              <%= link_to event_path(day_event.id), title: "Decline invitation", id: "decline-invitation" do %>
+              <%= link_to(invitation_path(day_event.id, status: "declined"), method: :patch) do  %>
                 <i class="fas fa-times-circle"></i>
               <% end %>
             </div>

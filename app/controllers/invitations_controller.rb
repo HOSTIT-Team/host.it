@@ -1,15 +1,12 @@
 class InvitationsController < ApplicationController
   before_action :authenticate_user!
-  before_action :find_invitation, only: [:accept, :decline]
+  before_action :find_invitation, only: [:update]
 
-  def accept
-    @invitation.status = "Accepted"
-    if @invitation.save
-      redirect_to dashboard_index_path
-    else
-      redirect_to dashboard_index_path
-      flash.alert = "Invitation could not be accepted"
-    end
+  def update
+    authorize @invitation
+    @invitation.status = params[:status]
+    @invitation.save
+    redirect_to dashboard_index_path
   end
 
   private
