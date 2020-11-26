@@ -30,7 +30,7 @@
         USER AVATARS
       </div>
       <div class="guest-name">Guest name</div>
-      <a href="" class="list-button button-create">See list</a>
+      <a href="" class="list-button button-invite">See list</a>
     </div>
     <div class="location-map">
       style="width: 100%; height: 600px;"
@@ -43,5 +43,37 @@
         <button id="close-button"><i class="far fa-window-close"></i></button>
       </div>
     </div>
+  </div>
+
+  <div class="event-items-playlist">
+    <div class="bring-list">
+      <div class="items">
+
+      </div>
+      <div class="bring-form">
+          <input id="item-input" type="text" placeholder="Add what you will bring!">
+          <div class="add-item" >
+            <%= link_to do %>
+                <i class="far fa-plus-square"></i>
+            <% end %>
+          </div>
+      </div>
+    </div>
+    <div class="playlist">
+      I AM THE DJ!
+    </div>
+  </div>
+
+  <div class="event-chat"> 
+    <div class="chat-box">
+    </div>
+    <div class="chat-form">
+      <input id="chat-input" type="text" placeholder="Talk to the other guests here...">
+            <div class="send-button" >
+              <%= link_to do %>
+                  <i class="far fa-paper-plane"></i>
+              <% end %>
+            </div>
+      </div>
   </div>
 </div>
