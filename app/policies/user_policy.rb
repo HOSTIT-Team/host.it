@@ -3,8 +3,9 @@ class UserPolicy < ApplicationPolicy
     def resolve
       scope.all
     end
+  end
     def show?
-      user
+      true
     end
     
     def edit?
@@ -19,4 +20,6 @@ class UserPolicy < ApplicationPolicy
       true
     end
   end
-end
+
+
+
