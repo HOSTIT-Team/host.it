@@ -1,5 +1,66 @@
 div.footer {
-    padding: 70px;
-    background-image: image-url("footer-area.png");
-    background-repeat: cover;
+    height: 160px;
+    background-color: red;
+   }
+
+#beige-bar {
+    height: 20px;
+    // display: flex;
+    width: 100%;
+    // align-items: center; 
+    background-color: #E8DDB5;
+     }
+
+#purple-bar {
+    display: flex;
+    height: 100px;
+    width: 100%;
+align-items: center; 
+justify-content: space-around;
+text-align: center;
+background-color: #AB99FB;;
 }
+
+#black-bar {
+    height: 40px;
+    width: 100%;
+    color: white;
+    // display: flex;
+    padding-top: 9px;
+    align-items: center;
+    text-align: center;
+    background-color: black;
+}
+
+ul {
+list-style: none;
+padding: 0;
+}
+li{
+display: inline;
+margin: 0px 10px;
+font-size: 30px;
+}     
+p:hover { text-decoration: underline;}
+#socials-fb, #socials-in, #socials-sp, #socials-ln, #socials-tw { transition: all .2s ease-in-out; }
+
+#socials-fb:hover {
+    color: #3B5998;
+    transform: scale(1.2);
+  }
+  #socials-tw:hover {
+    color: #3d98a9;
+    transform: scale(1.2);
+  }
+  #socials-in:hover {
+    color: #9a55a3;
+    transform: scale(1.2);
+  }
+  #socials-sp:hover {
+    color: #65983b;
+    transform: scale(1.2);
+  }
+  #socials-ln:hover {
+    color: #eeeeee;
+    transform: scale(1.2);
+  }
