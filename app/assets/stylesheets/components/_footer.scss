@@ -41,7 +41,9 @@ display: inline;
 margin: 0px 10px;
 font-size: 30px;
 }     
-p:hover { text-decoration: underline;}
+#purple-bar { 
+  p:hover{text-decoration: underline;}
+}
 #socials-fb, #socials-in, #socials-sp, #socials-ln, #socials-tw { transition: all .2s ease-in-out; }
 
 #socials-fb:hover {
