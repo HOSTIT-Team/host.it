@@ -56,3 +56,27 @@
       color: white;
     }
 }
+
+p:hover { text-decoration: underline;}
+#socials-fb, #socials-in, #socials-sp, #socials-ln, #socials-tw { transition: all .2s ease-in-out; }
+
+#socials-fb:hover {
+    color: #3B5998;
+    transform: scale(1.2);
+  }
+  #socials-tw:hover {
+    color: #3d98a9;
+    transform: scale(1.2);
+  }
+  #socials-in:hover {
+    color: #9a55a3;
+    transform: scale(1.2);
+  }
+  #socials-sp:hover {
+    color: #65983b;
+    transform: scale(1.2);
+  }
+  #socials-ln:hover {
+    color: #eeeeee;
+    transform: scale(1.2);
+  }
