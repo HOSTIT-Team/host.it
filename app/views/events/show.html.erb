@@ -50,9 +50,11 @@
       </div>
       <div class="bring-form">
           <input id="item-input" type="text" placeholder="Add what you will bring!">
-          <%= link_to do , class: "add-item" %>
-              <i class="far fa-plus-square"></i>
-          <% end %>
+          <div class="add-item" >
+            <%= link_to do %>
+                <i class="far fa-plus-square"></i>
+            <% end %>
+          </div>
       </div>
     </div>
     <div class="playlist">
@@ -60,4 +62,16 @@
     </div>
   </div>
 
+  <div class="event-chat"> 
+    <div class="chat-box">
+    </div>
+    <div class="chat-form">
+      <input id="chat-input" type="text" placeholder="Talk to the other guests here...">
+            <div class="send-button" >
+              <%= link_to do %>
+                  <i class="far fa-paper-plane"></i>
+              <% end %>
+            </div>
+      </div>
+  </div>
 </div>
