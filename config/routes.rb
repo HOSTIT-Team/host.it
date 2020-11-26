@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   resources :events, only: [:show, :new, :create, :edit, :update, :destroy ]
   resources :dashboard, only: [:index]
   resources :users, only: [:show, :edit, :update, :new]
+  resources :invitations, only: [:accept, :decline]
 end
