@@ -18,7 +18,7 @@
             <% end %>
           </div>
           <div class="dropdown-content">
-            <% if !current_user.first_name.empty? || !current_user.last_name.empty? %>
+            <% if current_user.first_name || current_user.last_name %>
               <div id="user-name"><%= "#{current_user.first_name} #{current_user.last_name}"  %></div>
             <% end %>
             <div class="dropdown-links"><i class="far fa-user"></i><%= link_to "Profile", user_path(current_user) %></div>
