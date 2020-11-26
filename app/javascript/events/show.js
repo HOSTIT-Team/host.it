@@ -5,7 +5,6 @@ const inviteModal = () => {
 
  if (openList) {
   openList.addEventListener("click", (event) => {
-    console.log("button clicked")
     event.preventDefault();
     modal.style.display = "flex";
   });

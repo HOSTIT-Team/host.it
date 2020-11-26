@@ -4,6 +4,8 @@ class EventsController < ApplicationController
 
   def show
     authorize @event
+    @invitation = Invitation.new
+    @invitations = Invitation.where(event: @event)
   end
 
   def new

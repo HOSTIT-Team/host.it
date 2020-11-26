@@ -37,7 +37,20 @@
     </div>
     <div class="invite-modal">
       <div class="invite-content">
-        Ask Mersad to add something here :)
+        <div class="invite-email-input">
+          <%= simple_form_for([@event, @invitation]) do |f| %>
+            <%= f.input :receiver_email, label: false %>
+            <%= button_tag type: :submit, class: "invite-button" do %>
+              <i class="far fa-paper-plane"></i>
+            <% end %>
+          <% end %>
+        </div>
+        <% @invitations.each do |invitation| %>
+          <div class="invitee">
+            <%= invitation.receiver_email %>
+            <%= invitation.status %>
+          </div>
+        <% end %>
         <button id="close-button"><i class="far fa-window-close"></i></button>
       </div>
     </div>
