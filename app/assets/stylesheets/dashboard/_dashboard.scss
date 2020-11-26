@@ -115,7 +115,21 @@
     margin: 0px;
     font-size: 13px;
     font-weight: bold;
+    text-decoration: none;
   }
+}
+
+.link-to-text {
+  text-decoration: none;
+  color: white;
+  font-weight: normal;
+}
+
+.link-to-text:hover {
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
+
 }
 
 .event-card-status-circle-host {
@@ -169,10 +183,29 @@
   position: absolute;
   right: 12px;
   bottom: 6px;
-  // align-items: center;
   i {
     color: $white;
     font-size: 25px;
   }
+  i:hover {
+    color: $magenta;
+    font-size: 30px;
+  }
+}
+
+.overlay {
+  position: absolute;
+  background-color: rgba(254, 234, 52, 0.7);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  padding: 15px;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.event-card-body:hover .overlay {
+  opacity: 1;
 }
 
