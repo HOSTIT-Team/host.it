@@ -1,12 +1,17 @@
 .login-container {
-  padding: 130px 5% 0;
-  height: 100%;
+  margin: 0 auto 80px;
+  height: max-content;
+  width: max-content;
   background-color: $beige;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 48px;
 
+  h2 {
+    color: $black;
+  }
   form {
-    width: 50%;
+    width: 30vw;
   }
 }
