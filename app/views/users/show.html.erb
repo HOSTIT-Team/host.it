@@ -4,9 +4,9 @@
     <div id="profile-container">
         <div id="avatar-rectangle">
             <% if @user.avatar.attached? %>
-                <%= cl_image_tag @user.avatar.key%>
+              <%= cl_image_tag @user.avatar.key%>
             <% else %>
-                No picture uploaded. 
+              <div id="no-picture"><p>?</p></div>
             <% end %>
         </div>
         <div id="profile-text">
@@ -14,16 +14,15 @@
             <p><%= @user.email %> </p>
             <p> <%= @user.phone_number %> </p>
             <ul> 
-       <li><i id ="socials-fb" class="fab fa-facebook"></i></li>
-            <li><i id ="socials-in" class="fab fa-instagram-square"></i></li>
-            <li><i id ="socials-tw" class="fab fa-twitter-square"></i></li>
-            <li><i id ="socials-ln" class="fab fa-linkedin"></i></li>
-            <li><i id ="socials-sp" class="fab fa-spotify"></i></li>
-
+                <li><i id ="socials-fb" class="fab fa-facebook"></i></li>
+                <li><i id ="socials-in" class="fab fa-instagram-square"></i></li>
+                <li><i id ="socials-tw" class="fab fa-twitter-square"></i></li>
+                <li><i id ="socials-ln" class="fab fa-linkedin"></i></li>
+                <li><i id ="socials-sp" class="fab fa-spotify"></i></li>
             </ul>
-        <%= link_to "Edit", edit_user_path, class:"button-edit" %> 
+            <% if @user == current_user %>
+                <%= link_to "Edit", edit_user_path(current_user), class:"button-edit" %> 
+            <% end %>
         </div>
     </div>
 </div>
-
-
