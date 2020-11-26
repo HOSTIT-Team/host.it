@@ -23,6 +23,25 @@
     <p id="event-time-location"><i class="fas fa-map-marker-alt"></i> <%= @event.location %> <i class="fas fa-clock"></i> <%= @event.scheduled_at.strftime("%d %b %Y") %> at <%= @event.scheduled_at.strftime("%H:%M %p") %></p>
     <p id="event-description"><%= @event.description %></p>
   </div>
+
+  <div class="event-guest-map">
+    <div class="guest-list">
+      <div class="guest-cards">
+        USER AVATARS
+      </div>
+      <div class="guest-name">Guest name</div>
+      <a href="" class="list-button button-create">See list</a>
+    </div>
+    <div class="location-map">
+      MAP
+    </div>
+    <div class="invite-modal">
+      <div class="invite-content">
+        Ask Mersad to add something here :)
+        <button id="close-button"><i class="far fa-window-close"></i></button>
+      </div>
+    </div>
+  </div>
 </div>
 
 
