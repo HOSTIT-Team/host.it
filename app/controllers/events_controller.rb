@@ -4,6 +4,13 @@ class EventsController < ApplicationController
 
   def show
     authorize @event
+
+    @markers = @event.geocoded.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude,
+      }
+    end
   end
 
   def new
