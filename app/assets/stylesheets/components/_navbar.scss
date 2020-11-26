@@ -1,15 +1,17 @@
 .navbar-home {
-  float: left;
-  height: 0;
   position: absolute;
+  float: left;
   top: 0;
-  width: 150px;
   z-index: 30;
-
+  height: 120px;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   img {
-    margin-top: 4px;
-    margin-left: 20px;
-    z-index: 1;
+    height: 100px;
+    margin-top: -25%;
   }
 }
 
