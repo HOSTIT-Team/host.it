@@ -13,7 +13,4 @@ class Event < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_event_location?
 
-  def will_save_change_to_event_location?
-    event_location_changed?
-  end
 end
