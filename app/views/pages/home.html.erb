@@ -13,7 +13,7 @@
 
 <div id="button-area" style="background-color:#FFFDF7; width:50%; height:50%; float:left">
     <div id="header-buttons">
-        <a href="#learn-more" class="button-main">Learn More</a> 
+        <a href="#learnmore" class="button-main">Learn More</a> 
         <a href="#launch" class="button-main">Launch</a>
     </div>
 </div>
@@ -21,29 +21,30 @@
 <div id="banner" style="background-color: #DD1155; width:50%; height:50%; float:right">
 </div>
 
-<section id="learn-more">
+<section id="learnmore">
     <div class="container">
         <div class="column">
-            <%= image_tag "homepage-image-1.jpg"  %>
+            <%= image_tag "homepage-image-1.jpg" , class: "tilt" %>
         </div>
         <div class="column">
-            <%= image_tag "homepage-image-2.jpg" %>
+            <%= image_tag "homepage-image-2.jpg", class: "tilt"%>
         </div>
         <div class="column">
-            <%= image_tag "homepage-image-3.jpg" %>
+            <%= image_tag "homepage-image-3.jpg", class: "tilt" %>
         </div>
     </div>
 
     <div class="textblock">
-        <h1> Plan. Create. Invite. Track. </h1>
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
-        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est 
-        Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
-        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+        <h1> Plan <i class="fas fa-angle-right"></i> Create <i class="fas fa-angle-right"></i> Invite <i class="fas fa-angle-right"></i> Track <i class="fas fa-angle-right"></i> <b style="color: #DD1155">Host</b> </h1>
+        <p>
+            Host.it is the event planner all of us always wanted. Designed to make the task of organizing house-parties, movie-nights, BBQ afternoons and sleepovers more fun and hustle-free. 
+            All you need is to set the time and place, add some basic info and start inviting your guests by text or email. Once your guests start accepting their invitations, you will be able to track who is joining and what they are bringing, send them updates, and even allow them 
+            to add music to a playlist co-curated by everyone. <br><br> Leave the mess of chat-groups and social media platforms behind and just ... host it! </p>
     </div>
 </section>
 
 <section id="launch">
+<h1 id="headers2"> Let&apos;s throw a kick-ass event! </h1>
     <div class= "launch-form">
       <%= simple_form_for @event do |f| %>
           <div class="field">

@@ -1,6 +1,6 @@
 <div class="event-container">
   <% if @event.banner.attached? %>
-    <div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @event.banner.key %>')"> 
+    <div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("<%= cl_image_path @event.banner.key %>")"> 
   </div>
   <% else %>
     <div class="event-banner">
@@ -32,9 +32,13 @@
       <div class="guest-name">Guest name</div>
       <a href="" class="list-button button-invite">See list</a>
     </div>
-    <div class="location-map">
-      MAP
+    
+    <div id="map"
+      style"width: 100%; height: 600px;"
+      data-markers="<%= @marker.to_json %>"
+      data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"] %>">
     </div>
+
     <div class="invite-modal">
       <div class="invite-content">
         Ask Mersad to add something here :)
