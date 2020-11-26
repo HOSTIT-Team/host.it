@@ -17,7 +17,7 @@
   
     img {
       height: 80vh;
-    }
+       }
     object-fit: cover;
   }
   #profile-text {
@@ -57,8 +57,7 @@
     }
 }
 
-p:hover { text-decoration: underline;}
-#socials-fb, #socials-in, #socials-sp, #socials-ln, #socials-tw { transition: all .2s ease-in-out; }
+p:hover #socials-fb, #socials-in, #socials-sp, #socials-ln, #socials-tw { transition: all .2s ease-in-out; }
 
 #socials-fb:hover {
     color: #3B5998;
@@ -79,4 +78,15 @@ p:hover { text-decoration: underline;}
   #socials-ln:hover {
     color: #eeeeee;
     transform: scale(1.2);
+  }
+
+  #no-picture {
+    height: 80vh;
+    width: 30vw;
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    font-size: 200px;
+    
   }
