@@ -39,7 +39,8 @@ User.all.each do |user|
         last_name = Faker::Name.last_name
         receiver = User.where.not(id: user.id).sample
         email = Faker::Internet.safe_email(name: "#{first_name}.#{last_name}")
-        invitation = Invitation.new(event:event, sender: user, receiver: receiver, receiver_email: email)
+        status = ['Pending', 'accepted'].sample
+        invitation = Invitation.new(event:event, sender: user, receiver: receiver, receiver_email: email, status: status)
         invitation.save!
     end
 end
