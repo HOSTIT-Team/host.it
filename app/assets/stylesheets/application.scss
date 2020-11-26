@@ -13,6 +13,9 @@
 @import "components/index";
 @import "pages/index";
 @import "events/index";
-@import "dashboard/dashboard"
+@import "dashboard/dashboard";
 
-
+.main-wraper {
+  padding-top: 130px;
+  background-color: $white;
+}

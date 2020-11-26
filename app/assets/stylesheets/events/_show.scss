@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: $beige;
+  background-color: $white;
   padding: 130px 5% 0;
 
   .event-details {
@@ -40,13 +40,13 @@
   }
 
   .event-guest-map {
-    background-color: $white;
+    background-color: $beige;
     padding: 48px;
     width: 100%;
     display: flex;
 
     .guest-list {
-      background-color: $beige;
+      background-color: $white;
       padding: 42px;
       display: flex;
       flex-direction: column;
@@ -99,7 +99,7 @@
       position: relative;
 
       #close-button {
-        background-color: $white;
+        background-color: $beige;
         border: none;
         position: absolute;
         top: 8px;
