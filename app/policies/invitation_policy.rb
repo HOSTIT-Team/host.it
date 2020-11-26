@@ -4,4 +4,8 @@ class InvitationPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def update?
+    record.receiver == user || user.admin?
+  end
 end

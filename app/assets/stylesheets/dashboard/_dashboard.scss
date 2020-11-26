@@ -3,6 +3,67 @@
   margin-bottom: 60px;
 }
 
+.legend {
+  display: flex;
+  margin-bottom: 4px;
+  justify-content: flex-end;
+}
+
+.hosting, .attending {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+  p {
+    margin: 0px;
+    text-decoration: none;
+  }
+}
+
+.pending, {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    margin: 0px;
+    text-decoration: none;
+  }
+}
+
+.host-circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: $violet;
+  border-color: black;
+  border: solid;
+  border-width: 1px;
+  margin-right: 4px;
+}
+
+.guest-circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: $green;
+  border-color: black;
+  border: solid;
+  border-width: 1px;
+  margin-right: 4px;
+}
+
+.invitation-circle {
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: $magenta;
+  border-color: black;
+  border: solid;
+  border-width: 1px;
+  margin-right: 4px;
+}
+
+
 .dashboard-container {
   padding: 0 40px 40px;
 }
@@ -106,10 +167,12 @@
 
 .event-card-footer-symbols {
   position: absolute;
-  // left: 95px;
+  right: 12px;
+  bottom: 6px;
+  // align-items: center;
+  i {
+    color: $white;
+    font-size: 25px;
+  }
 }
 
-#accept-invitation, #decline-invitation, #maybe-invitation {
-  text-decoration: none;
-  color: $magenta;
-}
