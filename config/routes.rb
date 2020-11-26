@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   end
   resources :dashboard, only: [:index]
   resources :users, only: [:show, :edit, :update, :new]
+  resources :invitations, only: [:update]
 end
