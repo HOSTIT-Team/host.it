@@ -1,4 +1,4 @@
-.navbar {
+.navbar-home {
   float: left;
   height: 0;
   position: absolute;
@@ -9,5 +9,130 @@
   img {
     margin-top: 4px;
     margin-left: 20px;
+  }
+}
+
+.navbar-hostit {
+  position: fixed;
+  float: left;
+  top: 0;
+  z-index: 30;
+  height: 120px;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  img {
+    height: 100px;
+    margin-top: -25%;
+  }
+
+  .nav-line {
+    height: 30%;
+    padding: 0 5%;
+    background-color: black;
+    display: flex;
+
+    .nav-right {
+      margin-left: auto;
+      display: flex;
+    }
+
+    i {
+      color: $white;
+      font-size: 1.5rem;
+      align-self: center;
+      margin-right: 10px;
+    }
+
+    .avatar-card {
+      margin: -20px 0;
+      justify-self: flex-end;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .no-avatar {
+        font-size: 3rem;
+      }
+    }
+
+    .avatar-dropdown {
+      display: flex;
+      flex-direction: column;
+      height: fit-content;
+      align-items: flex-end;
+
+      #nav-right-bell {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+      }
+
+      &:hover {
+        .dropdown-content {
+          display: flex;
+        }
+      }
+
+      .dropdown-content {
+        background-color: $white;
+        border: 1.5px solid black;
+        display: none;
+        flex-direction: column;
+        margin-top: 25px;
+        padding: 16px 24px;
+        font-size: 1.3rem;
+
+        .dropdown-links {
+          padding: 3px 5px;
+          border-left: solid 3px $white;
+          &:hover {
+            background-color: $beige;
+            border-left: 3px solid;
+          }
+        }
+
+        i {
+          color: $black;
+          font-size: 1.2rem;
+        }
+
+        #user-name {
+          border-bottom: solid 1px rgba(0, 0, 0, 0.15);
+          padding-bottom: 4px;
+          margin-bottom: 8px;
+        }
+
+        #log-out-link {
+          border-top: solid 1px rgba(0, 0, 0, 0.15);
+          padding-top: 4px;
+          margin-top: 8px;
+        }
+
+        a {
+          color: $black;
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    #sign-in-link, #sign-up-link {
+      color: $white;
+      align-self: center;
+      font-size: 1.5rem;
+      margin-left: auto;
+      &:hover {
+        text-decoration: none;
+        color: $violet;
+      }
+    }
+
+    #sign-up-link {
+      margin-left: 12px;
+    }
   }
 }

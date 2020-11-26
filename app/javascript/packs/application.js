@@ -29,6 +29,7 @@ import "bootstrap";
 import { bannerUpload } from "events/edit";
 import { init_flatpickr } from "../plugins/flatpickr"
 import { init_tilt } from "../plugins/tilt"
+import { inviteModal } from "events/show";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -36,4 +37,5 @@ document.addEventListener('turbolinks:load', () => {
   bannerUpload();
   init_flatpickr();
   init_tilt();
+  inviteModal();
 });
