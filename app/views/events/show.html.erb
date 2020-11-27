@@ -63,6 +63,9 @@
   <div class="event-items-playlist">
     <div class="bring-list">
       <div class="items">
+      <% @event.items.each do |item| %>
+      <%= item.name %>
+      <% end %>
       </div>
       <div class="bring-form">
           <input id="item-input" type="text" placeholder="Add what you will bring!">
@@ -91,3 +94,4 @@
     </div>
   </div>
 </div>
+
