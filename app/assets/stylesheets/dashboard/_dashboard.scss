@@ -1,5 +1,5 @@
 .headline {
-  text-align: right;
+  text-align: left;
   margin-bottom: 60px;
 }
 
@@ -8,6 +8,24 @@
   margin-bottom: 4px;
   justify-content: flex-end;
 }
+
+.no-events {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 40px;
+  margin: 80px 0px;
+}
+
+.no-events-message {
+  text-align: center;
+  width: 500px;
+}
+
+#no-events-message-text {
+    color: $green;
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
 
 // .hosting, .attending {
 //   display: flex;
@@ -143,7 +161,9 @@
 
 
 .dashboard-container {
-  padding: 0 40px 40px;
+  padding-top: 40px;
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
 .date-box {
@@ -164,7 +184,7 @@
 
 .event-card-section {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: $beige;
   margin-bottom: 40px;
   padding: 40px 30px 10px 30px;
@@ -187,11 +207,18 @@
   color: white;
   text-align: center;
   height: 80px;
-  padding: 20px 4px;
+  padding-top: 20px;
+  padding-bottom: 6px;
+  padding-left: 3px;
+  padding-right: 3px;
   position: relative;
+  justify-content: center;
+}
+
+.event-card-header-title {
   p {
-    margin: 0px;
-    font-size: 13px;
+    margin: auto;
+    font-size: 15px;
     font-weight: bold;
     text-decoration: none;
   }
