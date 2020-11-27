@@ -58,7 +58,7 @@
       <div class="invite-content">
         <div class="invite-email-input">
           <%= simple_form_for([@event, @invitation]) do |f| %>
-            <%= f.input :receiver_email, label: false %>
+            <%= f.input :receiver_email, label: false, placeholder: "Enter the email of your guest" %>
             <%= button_tag type: :submit, class: "invite-button" do %>
               <i class="far fa-paper-plane"></i>
             <% end %>
