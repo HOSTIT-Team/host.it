@@ -5,7 +5,9 @@
     <div class="event-banner">
   <% end %>
   <% if @event.user == current_user || current_user.admin? %>
-      <%= link_to "Add banner", edit_event_path(@event), class: "button-create upload-button" %>
+      <%= link_to edit_event_path(@event), class: "button-create upload-button" do %>
+        <i class="far fa-edit"></i>
+      <% end %>
   <% end %>
     </div>
 
