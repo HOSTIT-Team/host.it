@@ -1,14 +1,15 @@
 <div class="event-container">
   <% if @event.banner.attached? %>
     <div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @event.banner.key %>')"> 
-  </div>
   <% else %>
-    <% if @event.user == current_user || current_user.admin? %>
     <div class="event-banner">
-      <%= link_to "Add banner", edit_event_path(@event), class: "button-create upload-button" %>
-    </div>
-    <% end %>
   <% end %>
+  <% if @event.user == current_user || current_user.admin? %>
+      <%= link_to edit_event_path(@event), class: "button-create upload-button" do %>
+        <i class="far fa-edit"></i>
+      <% end %>
+  <% end %>
+    </div>
 
   <div class="event-details">
     <div class="event-info">
