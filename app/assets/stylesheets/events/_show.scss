@@ -73,6 +73,7 @@
 
   .event-guest-map {
     background-color: $beige;
+    border-radius: 2px;
     padding: 48px;
     width: 75%;
     display: flex;
@@ -85,8 +86,10 @@
       flex-direction: column;
       .guest-cards {
         background-color: $white;
+        border-radius: 2px;
         height: 400px;
         width: 300px;
+        position:relative;
         // temporary
         color: $black;
         display: flex;
@@ -96,11 +99,26 @@
       }
     }
 
+    div.guest-cards img {
+      position: absolute;
+      object-fit: cover;
+      top: 0;
+      left: 0;
+      height: 400px;
+      width: 300px;
+    }
+
     .guest-name {
       margin: 12px 42px;
       align-self: center;
       font-size: 1.5rem;
       color: $white;
+    }
+
+    .mapboxgl-canvas {
+      padding-left:15px;
+      height:800px;
+      border-radius: 2px;
     }
 
     .list-button {
