@@ -51,10 +51,25 @@
             <% end %>
           <% end %>
         </div>
+        <hr>
         <% @invitations.each do |invitation| %>
           <div class="invitee">
-            <%= invitation.receiver_email %>
-            <%= invitation.status %>
+            <div class="invitee-mail"><%= invitation.receiver_email %></div>
+            <div class="invitee-status">
+              <% case invitation.status %>
+              <% when "accepted" %>
+                <div class="invitation-status-accepted"></div>
+              <% when "pending" %>
+                <div class="invitation-status-pending">?</div>
+              <% when "declined" %>
+                <div class="invitation-status-declined"></div>
+              <% end %>
+            </div>
+            <div class="invite-delete">
+              <%= link_to invitation_path(invitation), title: "Delete invitation", method: "delete" do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
+            </div>
           </div>
         <% end %>
         <button id="close-button"><i class="far fa-window-close"></i></button>

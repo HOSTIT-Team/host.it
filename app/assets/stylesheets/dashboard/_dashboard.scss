@@ -189,12 +189,28 @@
     font-size: 25px;
   }
   i:hover {
-    color: $magenta;
+    // color: $magenta;
     font-size: 30px;
   }
 }
 
-.overlay {
+.overlay-host {
+  position: absolute;
+<<<<<<< HEAD
+  background-color: rgba(87, 136, 108, 0.6);
+=======
+  background-color: rgba(171, 153, 251, 0.6);
+>>>>>>> main
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  padding: 15px;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlay-guest {
   position: absolute;
   background-color: rgba(87, 136, 108, 0.6);
   top: 0;
@@ -206,7 +222,27 @@
   transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.event-card-body:hover .overlay {
+.overlay-invitation {
+  position: absolute;
+  background-color: rgba(221, 17, 85, 0.6);
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  padding: 15px;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.event-card-body:hover .overlay-host {
+  opacity: 1;
+}
+
+.event-card-body:hover .overlay-guest {
+  opacity: 1;
+}
+
+.event-card-body:hover .overlay-invitation {
   opacity: 1;
 }
 
