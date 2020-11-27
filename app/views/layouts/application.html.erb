@@ -13,10 +13,10 @@
 
   <body>
     <% if current_page?(root_path) %>
-      <%= render 'shared/home_navbar' %>
+      <%= render "shared/navbar" %>
       <%= yield %>
     <% else %>
-      <%= render 'shared/navbar' %>
+      <%= render "shared/navbar" %>
       <div class="main-wraper">
         <%= yield %>
       </div>
