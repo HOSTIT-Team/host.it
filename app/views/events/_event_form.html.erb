@@ -1,6 +1,10 @@
  <div class="form-container">
   <%= simple_form_for @event do |f| %>
-  <div class="event-banner">
+  <% if @event.banner.attached? %>
+    <div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @event.banner.key %>')">
+  <% else %>
+    <div class="event-banner">
+  <% end %>
     <%= f.input :banner, as: :file, label: false, input_html: { hidden: true, class: "real-upload" } %>
     <div class="button-create upload-button" id="upload-button">
     Upload Banner
