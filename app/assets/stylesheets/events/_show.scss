@@ -82,7 +82,7 @@
     .invite-modal {
       display: none; /* Hidden by default */
       position: fixed; /* Stay in place */
-      z-index: 1; /* Sit on top */
+      z-index: 3; /* Sit on top */
       left: 0;
       top: 0;
       width: 100%; /* Full width */
@@ -105,18 +105,81 @@
       border: solid 1.5px black;
 
       .invite-email-input {
-        form {
+        border: 1.5px solid black;
+        background-color: $white;
+        margin-bottom: 16px;
+
+        .simple_form {
           display: flex;
         }
+
         .invitation_receiver_email {
           width: 90%;
+          margin: 0;
         }
+
+        .form-control {
+          border: none;
+          border-radius: 0;
+          background-color: $white;
+        }
+
         .invite-button {
           padding: 0;
-          height: 100%;
           width: 10%;
           border: none;
           background-color: $white;
+        }
+      }
+
+      .invitee {
+        display: flex;
+        margin-bottom: 8px;
+
+        .invitee-mail {
+          font-size: 1.2rem;
+          flex-grow: 1;
+        }
+
+        .invitee-status {
+          align-self: center;
+
+          .invitation-status-pending,
+          .invitation-status-accepted,
+          .invitation-status-declined {
+            border-radius: 50%;
+            border: 1.5px solid black;
+            width: 1rem;
+            height: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.9rem;
+          }
+
+          .invitation-status-pending {
+            background-color: $white;
+            padding-top: 2px;
+            padding-left: 1px;
+          }
+
+          .invitation-status-accepted {
+            background-color: $green;
+          }
+
+          .invitation-status-declined {
+            background-color: $red;
+          }
+        }
+
+        .invite-delete {
+          display: flex;
+          align-items: center;
+          a {
+            color: $black;
+            align-self: center;
+            margin-left: 12px;
+          }
         }
       }
 
@@ -135,9 +198,9 @@
   .playlist {
     display: flex;
     flex-grow: 1;
-    width:100%;
-    height:100%;
-    }
+    width: 100%;
+    height: 100%;
+  }
 
   .location-map {
     width: 100%;

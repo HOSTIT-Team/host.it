@@ -1,7 +1,7 @@
 class InvitationsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_invitation, only: [:update, :destroy]
-  before_action :find_event, only: [:index, :create, :update, :destroy]
+  before_action :find_event, only: [:index, :create, :destroy]
 
   def index
     @invitations = Invitation.where(event: @event)
@@ -11,10 +11,10 @@ class InvitationsController < ApplicationController
     authorize @invitation
     @invitation.status = params[:status]
     if @invitation.save
-      render "dashboard/index"
+      redirect_to dashboard_path
       flash.alert = "Invitation status changed"
     else
-      render "dashboard/index"
+      redirect_to dashboard_path
       flash.alert = "Error changing invitation status"
     end
   end
@@ -24,10 +24,14 @@ class InvitationsController < ApplicationController
     authorize @invitation
     @invitation.sender = current_user
     @invitation.event = @event
-    @invited_already = Invitation.find_by(receiver_email: @invitation.receiver_email)
+    @invitation.receiver = User.find_by(email: @invitation.receiver_email)
+    @invited_already = Invitation.where(event: @event).find_by(receiver_email: @invitation.receiver_email)
     if @invited_already
       redirect_to event_path(@event)
       flash.alert = "Invitation failed: Guest already invited"
+    elsif @invitation.receiver_email == current_user.email
+      redirect_to event_path(@event)
+      flash.alert = "Invitation failed: You can't invite yourself"
     else
       if @invitation.save
         redirect_to event_path(@event)
@@ -36,6 +40,17 @@ class InvitationsController < ApplicationController
         redirect_to event_path(@event)
         flash.alert = "Invitation failed"
       end
+    end
+  end
+
+  def destroy
+    @invitation = Invitation.find(params[:id])
+    if @invitation.destroy
+      redirect_to event_path(@event)
+      flash.alert = "Invitation deleted"
+    else
+      redirect_to event_path(@event)
+      flash.alert = "Invitation deletion failed"
     end
   end
 
