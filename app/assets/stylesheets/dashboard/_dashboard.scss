@@ -169,6 +169,7 @@
 }
 
 .event-card-body {
+  background-size: cover;
   padding: 10px 10px;
   height: 150px;
   text-align: center;
@@ -195,7 +196,7 @@
 
 .overlay {
   position: absolute;
-  background-color: rgba(254, 234, 52, 0.7);
+  background-color: rgba(87, 136, 108, 0.6);
   top: 0;
   left: 0;
   height: 100%;

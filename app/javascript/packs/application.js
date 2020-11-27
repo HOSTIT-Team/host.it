@@ -26,16 +26,19 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { bannerUpload } from "events/edit";
 import { init_flatpickr } from "../plugins/flatpickr";
-import { init_tilt } from "../plugins/tilt";
+import { initTilt } from "../plugins/tilt";
 import { inviteModal } from "events/show";
-import { initMapbox } from '../plugins/init_mapbox';
+import { initMapbox } from "../plugins/init_mapbox";
+import { initSlides } from "../plugins/slides";
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   bannerUpload();
   init_flatpickr();
-  init_tilt();
+  initTilt();
   inviteModal();
   initMapbox();
+  initSlides();
 });

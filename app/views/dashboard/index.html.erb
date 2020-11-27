@@ -26,9 +26,11 @@
           <% else %>
             <div class="event-card-body" style="background-image: url(https://images.unsplash.com/photo-1605478328994-f93e98217da7?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDV8fHBhdHRlcm4lMjBkYXJrfGVufDB8fDB8&auto=format&fit=crop&w=800&q=60)">
           <% end %>
+          <div class="overlay">
             <p><i class="far fa-clock"></i> <%= day_event.scheduled_at.strftime("%l:%M %p") %></p>
             <p><i class="fas fa-map-marker-alt"></i> <%= day_event.location %></p>
             <p><i class="fas fa-info"></i> <%= day_event.description %></p>
+          </div>
             <% if @invitations_data.include?([day_event.id, "pending"]) %>
               <div class="event-card-footer-symbols">
                 <%= link_to(invitation_path(day_event.invitations.where(receiver_id: current_user.id).first, status: "accepted"), method: :patch) do %>
