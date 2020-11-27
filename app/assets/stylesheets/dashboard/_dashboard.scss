@@ -22,66 +22,10 @@
 }
 
 #no-events-message-text {
-    color: $green;
+    color: $magenta;
     font-size: 30px;
     margin-bottom: 30px;
   }
-
-// .hosting, .attending {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   margin-right: 15px;
-//   p {
-//     margin: 0px;
-//     text-decoration: none;
-//   }
-// }
-
-// .pending, {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   p {
-//     margin: 0px;
-//     text-decoration: none;
-//   }
-// }
-
-// .host-circle {
-//   width: 16px;
-//   height: 16px;
-//   border-radius: 8px;
-//   background-color: $violet;
-//   border-color: black;
-//   border: solid;
-//   border-width: 1px;
-//   margin-right: 4px;
-// }
-
-// .guest-circle {
-//   width: 16px;
-//   height: 16px;
-//   border-radius: 8px;
-//   background-color: $green;
-//   border-color: black;
-//   border: solid;
-//   border-width: 1px;
-//   margin-right: 4px;
-// }
-
-// .invitation-circle {
-//   width: 16px;
-//   height: 16px;
-//   border-radius: 8px;
-//   background-color: $magenta;
-//   border-color: black;
-//   border: solid;
-//   border-width: 1px;
-//   margin-right: 4px;
-// }
-
-// buttons ----------------
 
 .host-button {
   width: 100px;
@@ -157,8 +101,6 @@
   background-color: black;
 }
 
-// buttons ----------------
-
 
 .dashboard-container {
   padding-top: 40px;
@@ -184,7 +126,7 @@
 
 .event-card-section {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   background-color: $beige;
   margin-bottom: 40px;
   padding: 40px 30px 10px 30px;
@@ -199,6 +141,7 @@
   background-color: white;
   margin-top: 20px;
   margin-bottom: 40px;
+  margin-right: 30px;
   width: 200px;
 }
 
@@ -207,18 +150,11 @@
   color: white;
   text-align: center;
   height: 80px;
-  padding-top: 20px;
-  padding-bottom: 6px;
-  padding-left: 3px;
-  padding-right: 3px;
+  padding: 20px 4px;
   position: relative;
-  justify-content: center;
-}
-
-.event-card-header-title {
   p {
-    margin: auto;
-    font-size: 15px;
+    margin: 0px;
+    font-size: 13px;
     font-weight: bold;
     text-decoration: none;
   }
