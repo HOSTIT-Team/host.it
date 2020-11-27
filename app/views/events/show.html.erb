@@ -66,6 +66,10 @@
             <% end %>
           <% end %>
         </div>
+        <div class="invite-link-container">
+          <div class="event-url"><%=  %></div>
+          <div class="event-url-copy">Copy link</div>
+        </div>
         <hr>
         <% @invitations.each do |invitation| %>
           <div class="invitee">
@@ -73,11 +77,11 @@
             <div class="invitee-status">
               <% case invitation.status %>
               <% when "accepted" %>
-                <div class="invitation-status-accepted"></div>
+                <div class="invitation-status-accepted">Accepted</div>
               <% when "pending" %>
-                <div class="invitation-status-pending">?</div>
+                <div class="invitation-status-pending">Pending</div>
               <% when "declined" %>
-                <div class="invitation-status-declined"></div>
+                <div class="invitation-status-declined">Declined</div>
               <% end %>
             </div>
             <div class="invite-delete">

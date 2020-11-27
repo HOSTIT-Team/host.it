@@ -18,12 +18,12 @@
       #event-title {
         font-size: 3rem;
       }
-  
+
       #event-time-location {
         font-size: 1rem;
         color: rgba(0, 0, 0, 0.4);
       }
-  
+
       #event-description {
         font-size: 1.5rem;
       }
@@ -37,7 +37,7 @@
       .host-title {
         font-size: 3rem;
       }
-    
+
       .host-avatar {
         width: 250px;
         height: 320px;
@@ -89,7 +89,7 @@
         border-radius: 2px;
         height: 400px;
         width: 300px;
-        position:relative;
+        position: relative;
         // temporary
         color: $black;
         display: flex;
@@ -116,8 +116,8 @@
     }
 
     .mapboxgl-canvas {
-      padding-left:15px;
-      height:800px;
+      padding-left: 15px;
+      height: 800px;
       border-radius: 2px;
     }
 
@@ -173,6 +173,9 @@
           border: none;
           border-radius: 0;
           background-color: $white;
+          &:focus {
+            box-shadow: none;
+          }
         }
 
         .invite-button {
@@ -180,6 +183,10 @@
           width: 10%;
           border: none;
           background-color: $white;
+          outline: 0;
+          &:hover {
+            font-size: 1.2rem;
+          }
         }
       }
 
@@ -198,20 +205,17 @@
           .invitation-status-pending,
           .invitation-status-accepted,
           .invitation-status-declined {
-            border-radius: 50%;
             border: 1.5px solid black;
-            width: 1rem;
-            height: 1rem;
+            width: 90px;
             display: flex;
             justify-content: center;
-            align-items: center;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
+            color: $black;
+            font-weight: 700;
           }
 
           .invitation-status-pending {
             background-color: $white;
-            padding-top: 2px;
-            padding-left: 1px;
           }
 
           .invitation-status-accepted {
