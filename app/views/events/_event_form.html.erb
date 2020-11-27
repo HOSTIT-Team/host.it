@@ -6,9 +6,15 @@
     <div class="event-banner">
   <% end %>
     <%= f.input :banner, as: :file, label: false, input_html: { hidden: true, class: "real-upload" } %>
-    <div class="button-create upload-button" id="upload-button">
-    Upload Banner
-    </div>
+    <% if @event.banner.attached? %>
+      <div class="button-create upload-button" id="upload-button">
+      <i class="far fa-edit"></i>
+      </div>
+    <% else %>
+      <div class="button-create upload-button" id="upload-button">
+      Upload Banner
+      </div>
+    <% end %>
   </div>
     <div class="form-inputs-container">
     <div class="main-input">
