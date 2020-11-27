@@ -3,9 +3,9 @@
     <h1>Dashboard</h1>
   </div>
   <div class="legend">
-    <div class="hosting"><div class="host-circle"></div><p>= Event that I am hosting</p></div>
-    <div class="attending"><div class="guest-circle"></div><p>= Event that I am attending</p></div>
-    <div class="pending"><div class="invitation-circle"></div><p>= Pending invitation</p></div>
+    <div class="host-button"><p>Hosting</p></div>
+    <div class="guest-button"><p>Attending</p></div>
+    <div class="invitation-button"><p>Pending</p></div>
   </div>
   <div class="event-card-section">
     <% @created_ats.each do |day| %>
@@ -33,9 +33,9 @@
           <% elsif @invitations_data.include?([day_event.id, "pending"]) %>
             <div class="overlay-invitation">
             <% end %>
-            <p><i class="far fa-clock"></i> <%= day_event.scheduled_at.strftime("%l:%M %p") %></p>
-            <p><i class="fas fa-map-marker-alt"></i> <%= day_event.location %></p>
-            <p><i class="fas fa-info"></i> <%= day_event.description %></p>
+            <p><i class="far fa-clock"></i> <strong><%= day_event.scheduled_at.strftime("%l:%M %p") %></strong></p>
+            <p><i class="fas fa-map-marker-alt"></i> <strong><%= day_event.location %></strong></p>
+            <p><%= day_event.description %></p>
           </div>
             <% if @invitations_data.include?([day_event.id, "pending"]) %>
               <div class="event-card-footer-symbols">
