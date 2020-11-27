@@ -1,18 +1,5 @@
 .navbar-home {
-  position: absolute;
-  float: left;
-  top: 0;
-  z-index: 30;
-  height: 120px;
-  width: 100%;
-  background-color: transparent;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  img {
-    height: 100px;
-    margin-top: -25%;
-  }
+  position: absolute!important;
 }
 
 .navbar-hostit {
@@ -26,6 +13,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+
   img {
     height: 100px;
     margin-top: -25%;
