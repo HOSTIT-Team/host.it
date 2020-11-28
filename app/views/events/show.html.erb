@@ -59,6 +59,7 @@
 
     <div class="invite-modal">
       <div class="invite-content">
+        <% if current_user == @event.user %>
         <div class="invite-email-input">
           <%= simple_form_for([@event, @invitation]) do |f| %>
             <%= f.input :receiver_email, label: false, placeholder: "Enter the email of your guest" %>
@@ -72,6 +73,7 @@
           <div class="event-url-copy">Copy link</div>
         </div>
         <hr>
+        <% end %>
         <% @invitations.each do |invitation| %>
           <div class="invitee">
             <div class="invitee-mail"><%= invitation.receiver_email %></div>
@@ -85,11 +87,13 @@
                 <div class="invitation-status-declined">Declined</div>
               <% end %>
             </div>
+            <% if @event.user == current_user %>
             <div class="invite-delete">
               <%= link_to invitation_path(invitation), title: "Delete invitation", method: "delete" do %>
                 <i class="far fa-trash-alt"></i>
               <% end %>
             </div>
+            <% end %>
           </div>
         <% end %>
         <button id="close-button"><i class="far fa-window-close"></i></button>
