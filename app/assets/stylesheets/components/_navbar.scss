@@ -6,7 +6,7 @@
   position: fixed;
   float: left;
   top: 0;
-  z-index: 30;
+  z-index: 3000;
   height: 120px;
   width: 100%;
   background-color: transparent;
@@ -43,6 +43,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      border-radius: 2px;
 
       .no-avatar {
         font-size: 3rem;
@@ -70,6 +71,7 @@
       .dropdown-content {
         background-color: $white;
         border: 1.5px solid black;
+        border-radius: 2px;
         display: none;
         flex-direction: column;
         margin-top: 25px;
@@ -128,7 +130,3 @@
   }
 }
 
-
-.navbar-hostit{
-  z-index: 3000;
-}

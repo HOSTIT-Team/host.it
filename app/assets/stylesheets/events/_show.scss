@@ -11,6 +11,7 @@
     padding: 48px;
     position: relative;
     display: flex;
+    border-radius: 2px;
 
     .event-info {
       width: 80%;
@@ -43,6 +44,7 @@
         height: 320px;
         background-color: $white;
         border: solid 1.5px black;
+        border-radius: 2px;
         background-size: cover;
         margin-bottom: 24px;
         display: flex;
@@ -87,12 +89,22 @@
     width: 75%;
     display: flex;
     margin-bottom: 80px;
+    border-radius: 2px;
 
     .guest-list {
       background-color: $black;
-      padding: 42px;
+      padding: 0 42px 42px 42px;
       display: flex;
       flex-direction: column;
+      border-radius: 2px;
+
+      .guest-list-header {
+        align-self: center;
+        font-size: 1.5rem;
+        color: $white;
+        padding: 6px 0;
+      }
+
       .guest-cards {
         background-color: $white;
         border-radius: 2px;
@@ -115,6 +127,7 @@
       left: 0;
       height: 400px;
       width: 300px;
+      border-radius: 2px;
     }
 
     .guest-name {
@@ -124,9 +137,11 @@
       color: $white;
     }
 
-    .mapboxgl-canvas {
-      padding-left: 15px;
-      height: 800px;
+    #map {
+      width: 100%;
+      height: 500px;
+      margin-left: 48px;
+      border: solid 1.5px black;
       border-radius: 2px;
     }
 
@@ -163,9 +178,11 @@
       width: 30%;
       position: relative;
       border: solid 1.5px black;
+      border-radius: 2px;
 
       .invite-email-input {
         border: 1.5px solid black;
+        border-radius: 2px;
         background-color: $white;
         margin-bottom: 16px;
 
@@ -216,6 +233,7 @@
           .invitation-status-accepted,
           .invitation-status-declined {
             border: 1.5px solid black;
+            border-radius: 2px;
             width: 90px;
             display: flex;
             justify-content: center;
@@ -271,24 +289,13 @@
     height: 100%;
   }
 
-  .location-map {
-    width: 100%;
-    background-color: #000000;
-    height: inherit;
-    margin-left: 42px;
-    color: $white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 5rem;
-  }
-
   .event-items-playlist {
     background-color: $beige;
     padding: 48px;
     width: 75%;
     display: flex;
     margin-bottom: 80px;
+    border-radius: 2px;
 
     .bring-list {
       background-color: $black;
@@ -298,17 +305,20 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      border-radius: 2px 0 0 2px;
 
       .items {
         height: 80%;
         background-color: $white;
         width: 100%;
         margin-bottom: auto;
+        border-radius: 2px;
       }
 
       .bring-form {
         display: flex;
         width: 100%;
+        border-radius: 2px;
         #item-input {
           border: none;
           height: 48px;
@@ -349,6 +359,7 @@
       justify-content: center;
       color: $white;
       font-size: 3rem;
+      border-radius: 0 2px 2px 0;
     }
   }
 
@@ -358,18 +369,21 @@
     width: 75%;
     display: flex;
     flex-direction: column;
+    border-radius: 2px;
 
     .chat-box {
       height: 500px;
       width: 100%;
       background-color: $white;
       border: 1.5px solid black;
+      border-radius: 2px;
       margin-bottom: 32px;
     }
     .chat-form {
       display: flex;
       width: 100%;
       border: 1.5px solid black;
+      border-radius: 2px;
       background-color: $white;
       #chat-input {
         background-color: $white;
@@ -411,4 +425,5 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  border-radius: 2px;
 }
