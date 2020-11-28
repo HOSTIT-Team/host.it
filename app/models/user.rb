@@ -10,4 +10,8 @@ class User < ApplicationRecord
   has_many :items
 
   has_one_attached :avatar
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
 end
