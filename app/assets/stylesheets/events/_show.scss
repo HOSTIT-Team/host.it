@@ -199,16 +199,16 @@
           border-radius: 2px;
           background-color: $white;
           flex-grow: 3;
-  
+
           .simple_form {
             display: flex;
           }
-  
+
           .invitation_receiver_email {
             width: 90%;
             margin: 0;
           }
-  
+
           .form-control {
             border: none;
             border-radius: 0;
@@ -217,7 +217,7 @@
               box-shadow: none;
             }
           }
-  
+
           .invite-button {
             padding: 0;
             width: 5%;
@@ -273,7 +273,7 @@
           border-radius: 2px;
           border: solid 1.5px;
 
-          .receiver-avatar {
+          .receiver-avatar, .receiver-no-avatar {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -283,13 +283,33 @@
             background-size: cover;
             border: 1.5px solid black;
             border-radius: 2px;
+            &:hover {
+              border: 1.5px solid $magenta;
+            }
           }
+
+          .receiver-no-avatar {
+            color: $black;
+            &:hover {
+              text-decoration: none;
+              color: $magenta;
+            }
+          }
+
 
           .invitee-info {
             font-size: 1.2rem;
             flex-grow: 1;
 
             .receiver-fullname {
+              a {
+                color: $black;
+                &:hover {
+                  text-decoration: none;
+                  color: $magenta;
+                  border-bottom: 1.5px solid;
+                }
+              }
             }
 
             .receiver-mail {

@@ -81,14 +81,18 @@
           <% @invitations.each do |invitation| %>
           <div class="invitee">
             <% if invitation.receiver && invitation.receiver.avatar.attached? %>
-              <div class="receiver-avatar" style="background-image: url('<%= cl_image_path invitation.receiver.avatar.key %>')"></div>
+              <%= link_to "", user_path(invitation.receiver), class: "receiver-avatar", style: "background-image: url('#{cl_image_path invitation.receiver.avatar.key }')" %>
             <% else %>
-              <div class="receiver-avatar">?</div>
+              <% if invitation.receiver %>
+                <%= link_to "?", user_path(invitation.receiver), class: "receiver-no-avatar" %>
+              <% else %>
+                <div class="receiver-avatar">?</div>
+              <% end %>
             <% end %>
             <div class="invitee-info">
               <% if invitation.receiver && invitation.receiver.first_name && invitation.receiver.last_name %>
                 <div class="receiver-fullname">
-                  <%= invitation.receiver.first_name %> <%= invitation.receiver.last_name%>
+                  <%= link_to "#{invitation.receiver.first_name} #{invitation.receiver.last_name}", user_path(invitation.receiver) %>
                 </div>
                 <div class="receiver-mail"><%= invitation.receiver.email %></div>
               <% else %>
