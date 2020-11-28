@@ -54,6 +54,14 @@
       .host-name {
         font-size: 1.5rem;
         width: fit-content;
+        a {
+          color: $black;
+          &:hover {
+            text-decoration: none;
+            color: $magenta;
+            border-bottom: 1.5px solid;
+          }
+        }
       }
     }
 
@@ -66,6 +74,7 @@
         padding: 0 5px;
         &:hover {
           text-decoration: none;
+          color: $magenta;
         }
       }
     }
@@ -186,6 +195,7 @@
           outline: 0;
           &:hover {
             font-size: 1.2rem;
+            color: $magenta;
           }
         }
       }
@@ -247,6 +257,9 @@
         outline: 0;
         i {
           font-size: 1.5rem;
+          &:hover {
+            color: $magenta;
+          }
         }
       }
     }
@@ -318,6 +331,7 @@
             color: $black;
             &:hover {
               text-decoration: none;
+              color: $magenta;
             }
           }
         }
@@ -381,6 +395,7 @@
           color: $black;
           &:hover {
             text-decoration: none;
+            color: $magenta;
           }
         }
       }
