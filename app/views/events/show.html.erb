@@ -61,23 +61,40 @@
     <div class="invite-modal">
       <div class="invite-content">
         <% if current_user == @event.user %>
-        <div class="invite-email-input">
-          <%= simple_form_for([@event, @invitation]) do |f| %>
-            <%= f.input :receiver_email, label: false, placeholder: "Enter the email of your guest" %>
-            <%= button_tag type: :submit, class: "invite-button" do %>
-              <i class="far fa-paper-plane"></i>
+        <div class="invite-form-container">
+          <div class="invite-email-input">
+            <%= simple_form_for([@event, @invitation]) do |f| %>
+              <%= f.input :receiver_email, label: false, placeholder: "Send invite via e-mail" %>
+              <%= button_tag type: :submit, class: "invite-button" do %>
+                <i class="far fa-paper-plane"></i>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-        <div class="invite-link-container">
-          <div class="event-url"><%=  %></div>
-          <div class="event-url-copy">Copy link</div>
+          </div>
+          <div class="invite-link-container">
+            <div class="event-url"><%=  %></div>
+            <div class="event-url-copy">Copy link</div>
+          </div>
         </div>
         <hr>
         <% end %>
-        <% @invitations.each do |invitation| %>
+        <div class="invitations">
+          <% @invitations.each do |invitation| %>
           <div class="invitee">
-            <div class="invitee-mail"><%= invitation.receiver_email %></div>
+            <% if invitation.receiver && invitation.receiver.avatar.attached? %>
+              <div class="receiver-avatar" style="background-image: url('<%= cl_image_path invitation.receiver.avatar.key %>')"></div>
+            <% else %>
+              <div class="receiver-avatar">?</div>
+            <% end %>
+            <div class="invitee-info">
+              <% if invitation.receiver && invitation.receiver.first_name && invitation.receiver.last_name %>
+                <div class="receiver-fullname">
+                  <%= invitation.receiver.first_name %> <%= invitation.receiver.last_name%>
+                </div>
+                <div class="receiver-mail"><%= invitation.receiver.email %></div>
+              <% else %>
+                <%= invitation.receiver_email %>
+              <% end %>
+            </div>
             <div class="invitee-status">
               <% case invitation.status %>
               <% when "accepted" %>
@@ -97,6 +114,7 @@
             <% end %>
           </div>
         <% end %>
+        </div>
         <button id="close-button"><i class="far fa-window-close"></i></button>
       </div>
     </div>

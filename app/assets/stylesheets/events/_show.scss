@@ -92,7 +92,6 @@
     width: 75%;
     display: flex;
     margin-bottom: 80px;
-    border-radius: 2px;
 
     .guest-list {
       background-color: $black;
@@ -185,94 +184,157 @@
       background-color: $beige;
       margin: auto;
       padding: 40px;
-      border: 1px solid #888;
-      width: 30%;
+      width: 50%;
       position: relative;
       border: solid 1.5px black;
       border-radius: 2px;
 
-      .invite-email-input {
-        border: 1.5px solid black;
-        border-radius: 2px;
-        background-color: $white;
+      .invite-form-container {
+        display: flex;
         margin-bottom: 16px;
+        align-items: center;
 
-        .simple_form {
-          display: flex;
-        }
-
-        .invitation_receiver_email {
-          width: 90%;
-          margin: 0;
-        }
-
-        .form-control {
-          border: none;
-          border-radius: 0;
+        .invite-email-input {
+          border: 1.5px solid black;
+          border-radius: 2px;
           background-color: $white;
-          &:focus {
-            box-shadow: none;
+          flex-grow: 3;
+  
+          .simple_form {
+            display: flex;
+          }
+  
+          .invitation_receiver_email {
+            width: 90%;
+            margin: 0;
+          }
+  
+          .form-control {
+            border: none;
+            border-radius: 0;
+            background-color: $white;
+            &:focus {
+              box-shadow: none;
+            }
+          }
+  
+          .invite-button {
+            padding: 0;
+            width: 5%;
+            margin: 0 4px 0 auto;
+            border: none;
+            background-color: $white;
+            outline: 0;
+            &:hover {
+              font-size: 1.2rem;
+              color: $magenta;
+            }
           }
         }
 
-        .invite-button {
-          padding: 0;
-          width: 10%;
-          border: none;
-          background-color: $white;
-          outline: 0;
-          &:hover {
-            font-size: 1.2rem;
-            color: $magenta;
-          }
+        .invite-link-container {
+          flex-grow: 1;
+          text-align: center;
         }
       }
 
-      .invitee {
+      .invitations {
+        overflow: scroll;
+        height: 50vh;
         display: flex;
-        margin-bottom: 8px;
+        flex-direction: column;
 
-        .invitee-mail {
-          font-size: 1.2rem;
-          flex-grow: 1;
+        &::-webkit-scrollbar {
+          width: 8px;
         }
 
-        .invitee-status {
-          align-self: center;
+        &::-webkit-scrollbar-track {
+          background: $beige;
+        }
 
-          .invitation-status-pending,
-          .invitation-status-accepted,
-          .invitation-status-declined {
-            border: 1.5px solid black;
-            border-radius: 2px;
-            width: 90px;
+        &::-webkit-scrollbar-thumb {
+          background: $black;
+          border-radius: 2px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+          background: $magenta;
+        }
+
+        &::-webkit-scrollbar-corner {
+          background-color: $beige;
+        }
+
+        .invitee {
+          display: flex;
+          margin: 0 4px 8px 0;
+          background: $white;
+          padding: 8px 16px;
+          border-radius: 2px;
+          border: solid 1.5px;
+
+          .receiver-avatar {
             display: flex;
             justify-content: center;
-            font-size: 0.8rem;
-            color: $black;
-            font-weight: 700;
+            align-items: center;
+            height: 4rem;
+            width: 3.2rem;
+            margin-right: 8px;
+            background-size: cover;
+            border: 1.5px solid black;
+            border-radius: 2px;
           }
 
-          .invitation-status-pending {
-            background-color: $white;
+          .invitee-info {
+            font-size: 1.2rem;
+            flex-grow: 1;
+
+            .receiver-fullname {
+            }
+
+            .receiver-mail {
+              font-size: 0.9rem;
+              color: gray;
+            }
           }
 
-          .invitation-status-accepted {
-            background-color: $green;
-          }
-
-          .invitation-status-declined {
-            background-color: $red;
-          }
-        }
-
-        .invite-delete {
-          display: flex;
-          align-items: center;
-          a {
-            color: $black;
+          .invitee-status {
             align-self: center;
-            margin-left: 12px;
+
+            .invitation-status-pending,
+            .invitation-status-accepted,
+            .invitation-status-declined {
+              border: 1.5px solid black;
+              border-radius: 2px;
+              width: 90px;
+              display: flex;
+              justify-content: center;
+              font-size: 0.8rem;
+              color: $black;
+              font-weight: 700;
+            }
+
+            .invitation-status-pending {
+              background-color: $white;
+            }
+
+            .invitation-status-accepted {
+              background-color: $green;
+            }
+
+            .invitation-status-declined {
+              background-color: $red;
+            }
+          }
+
+          .invite-delete {
+            display: flex;
+            align-items: center;
+            a {
+              color: $black;
+              align-self: center;
+              margin-left: 12px;
+            }
           }
         }
       }
