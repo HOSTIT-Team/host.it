@@ -30,6 +30,7 @@ import { initTilt } from "../plugins/tilt";
 import { inviteModal } from "events/show";
 import { initMapbox } from "../plugins/init_mapbox";
 import { initSlides } from "../plugins/slides";
+import { navbarScroll } from "../pages/navbar_scroll"
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -41,4 +42,5 @@ document.addEventListener('turbolinks:load', () => {
   inviteModal();
   initMapbox();
   initSlides();
+  navbarScroll();
 });

@@ -1,5 +1,5 @@
 .navbar-home {
-  position: absolute!important;
+  position: absolute !important;
 }
 
 .navbar-hostit {
@@ -9,124 +9,141 @@
   z-index: 3000;
   height: 120px;
   width: 100%;
-  background-color: transparent;
   display: flex;
   flex-direction: column;
   justify-content: center;
 
-  img {
-    height: 100px;
-    margin-top: -25%;
+  #sign-in-link,
+  #sign-up-link {
+    color: $white;
+    align-self: center;
+    font-size: 1.5rem;
+    margin-left: auto;
+    &:hover {
+      text-decoration: none;
+      color: $violet;
+    }
+  }
+
+  #sign-up-link {
+    margin-left: 12px;
   }
 
   .nav-line {
-    height: 30%;
-    padding: 0 5%;
+    height: 36px;
     background-color: black;
+  }
+
+  .nav-elements {
+    width: 100%;
+    height: 100%;
+    padding: 0 5%;
+    position: absolute;
     display: flex;
+    align-items: center;
+
+    .brand-logo {
+      background-image: image-url("logo_host.it.svg");
+      height: 100px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 130px;
+
+      a {
+        width: inherit;
+        height: 100%;
+        display: block;
+      }
+    }
 
     .nav-right {
-      margin-left: auto;
+      height: 100%;
       display: flex;
-    }
-
-    i {
-      color: $white;
-      font-size: 1.5rem;
-      align-self: center;
-      margin-right: 10px;
-    }
-
-    .avatar-card {
-      margin: -20px 0;
-      justify-self: flex-end;
-      display: flex;
-      justify-content: center;
       align-items: center;
-      border-radius: 2px;
+      justify-content: flex-end;
+      flex-grow: 1;
 
-      .no-avatar {
-        font-size: 3rem;
+      i {
+        color: $white;
+        font-size: 1.5rem;
+        align-self: center;
+        margin-right: 10px;
+        margin-top: 4px;
       }
-    }
 
-    .avatar-dropdown {
-      display: flex;
-      flex-direction: column;
-      height: fit-content;
-      align-items: flex-end;
-
-      #nav-right-bell {
-        width: 100%;
+      .avatar-card-container {
+        height: 100%;
         display: flex;
-        justify-content: flex-end;
-      }
+        align-items: center;
 
-      &:hover {
-        .dropdown-content {
+        &:hover {
+          .dropdown-hostit {
+            display: flex;
+          }
+        }
+        .avatar-card {
           display: flex;
-        }
-      }
+          justify-content: center;
+          align-items: center;
+          border-radius: 2px;
 
-      .dropdown-content {
-        background-color: $white;
-        border: 1.5px solid black;
-        border-radius: 2px;
-        display: none;
-        flex-direction: column;
-        margin-top: 25px;
-        padding: 16px 24px;
-        font-size: 1.3rem;
-
-        .dropdown-links {
-          padding: 3px 5px;
-          border-left: solid 3px $white;
-          &:hover {
-            background-color: $beige;
-            border-left: 3px solid;
+          .no-avatar {
+            font-size: 3rem;
           }
         }
+        .dropdown-hostit {
+          position: absolute;
+          display: none;
+          top: 110px;
+          background-color: $white;
+          border: 1.5px solid black;
+          border-radius: 2px;
+          flex-direction: column;
+          padding: 16px 24px;
+          font-size: 1.3rem;
+          right: 5%;
+          width: max-content;
 
-        i {
-          color: $black;
-          font-size: 1.2rem;
-        }
+          .dropdown-top {
+            width: 100%;
+            height: 10px;
+            background: transparent;
+          }
 
-        #user-name {
-          border-bottom: solid 1px rgba(0, 0, 0, 0.15);
-          padding-bottom: 4px;
-          margin-bottom: 8px;
-        }
+          .dropdown-links {
+            padding: 3px 5px;
+            border-left: solid 3px $white;
+            &:hover {
+              background-color: $beige;
+              border-left: 3px solid;
+            }
+          }
 
-        #log-out-link {
-          border-top: solid 1px rgba(0, 0, 0, 0.15);
-          padding-top: 4px;
-          margin-top: 8px;
-        }
+          i {
+            color: $black;
+            font-size: 1.2rem;
+          }
 
-        a {
-          color: $black;
-          &:hover {
-            text-decoration: none;
+          #user-name {
+            border-bottom: solid 1px rgba(0, 0, 0, 0.15);
+            padding-bottom: 4px;
+            margin-bottom: 8px;
+          }
+
+          #log-out-link {
+            border-top: solid 1px rgba(0, 0, 0, 0.15);
+            padding-top: 4px;
+            margin-top: 8px;
+          }
+
+          a {
+            color: $black;
+            &:hover {
+              text-decoration: none;
+            }
           }
         }
       }
-    }
-
-    #sign-in-link, #sign-up-link {
-      color: $white;
-      align-self: center;
-      font-size: 1.5rem;
-      margin-left: auto;
-      &:hover {
-        text-decoration: none;
-        color: $violet;
-      }
-    }
-
-    #sign-up-link {
-      margin-left: 12px;
     }
   }
 }
-
