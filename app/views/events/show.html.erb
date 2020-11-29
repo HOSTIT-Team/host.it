@@ -54,9 +54,9 @@
                     <%= image_tag "placeholder-avatar.png"%>
                   <% end %>
               </div>
-              <% if invitation.receiver && invitation.receiver.full_name %>
+              <% if invitation.receiver && invitation.receiver.first_name && invitation.receiver.last_name %>
                 <div class="guest-name"><%= link_to invitation.receiver.full_name, user_path(invitation.receiver) %></div>
-              <% elsif invitation.receiver && !invitation.receiver.full_name %>
+              <% else %>
                 <div class="guest-name"><%= link_to "Nemo", user_path(invitation.receiver) %></div>
               <% end %>
             </div>
