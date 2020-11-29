@@ -30,7 +30,7 @@
     <div class="event-host">
       <h1 class="host-title event-title">Your Host</h1>
       <% if @event.user.avatar.attached? %>
-        <div class="host-avatar" style="background-image: url('<%= cl_image_path @event.user.avatar.key %>')"></div>
+        <div class="host-avatar tilt" style="background-image: url('<%= cl_image_path @event.user.avatar.key %>')"></div>
       <% else %>
         <div class="host-avatar">?</div>
       <% end %>
