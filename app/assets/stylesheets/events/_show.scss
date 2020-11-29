@@ -270,6 +270,12 @@
         .invite-link-container {
           flex-grow: 1;
           text-align: center;
+
+          .event-url-copy {
+            &:hover {
+              cursor: pointer;
+            }
+          }
         }
       }
 

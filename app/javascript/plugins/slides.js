@@ -76,7 +76,6 @@ const initSlides = () => {
     if (document.querySelector(".slider-area")) {
         const slideArea = document.querySelector(".slider-area");
         const images = slideArea.querySelectorAll(".slide");
-        console.log(slideArea);
 
         let currentSlide = 0;
         let z = 1;

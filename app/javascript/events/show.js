@@ -14,4 +14,20 @@ const inviteModal = () => {
  }
 };
 
-export { inviteModal };
+const copyLink = () => {
+
+    const copyText = document.querySelector(".event-url");
+    const copyButton = document.querySelector(".event-url-copy");
+    
+    
+    copyButton.addEventListener("click", () => {
+      navigator.clipboard.writeText(copyText.innerHTML);
+      copyButton.innerHTML = "Link copied!";
+    });
+    
+    copyButton.addEventListener("mouseout", () => {
+      copyButton.innerHTML = "Copy link";
+    })
+}
+
+export { inviteModal, copyLink };
