@@ -7,22 +7,22 @@
 
 <div style="background-color:#E8DDB5; width:50%; height:50%; float:right">
     <div id="content">
-        <%= content_tag(:iframe,'', src: "https://random-placement-26.superhi.com/") %>
+        <%= content_tag(:iframe,'', src: "https://random-placement-26.superhi.com/", scrolling: "no") %>
     </div>
 </div>
 
 <div id="button-area" style="background-color:#FFFDF7; width:50%; height:50%; float:left">
     <div id="header-buttons">
-        <a href="#learnmore" class="button-main">Learn More</a> 
-        <a href="#launch" class="button-main">Launch</a>
+        <%= link_to "Learn More", "#learnmore", class: "button-main" %>
+        <%= link_to "Launch", "#launch", class: "button-main" %>
     </div>
 </div>
 
 <div id="banner" style="background-color: #DD1155; width:50%; height:50%; float:right">
 </div>
 
-<section id="learnmore">
-    <div class="container">
+<section>
+    <div class="container" id="learnmore">
         <div class="column">
             <%= image_tag "homepage-image-1.jpg" , class: "tilt" %>
         </div>

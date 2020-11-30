@@ -30,51 +30,88 @@
     <div class="event-host">
       <h1 class="host-title event-title">Your Host</h1>
       <% if @event.user.avatar.attached? %>
-        <div class="host-avatar" style="background-image: url('<%= cl_image_path @event.user.avatar.key %>')"></div>
+        <div class="host-avatar tilt" style="background-image: url('<%= cl_image_path @event.user.avatar.key %>')"></div>
       <% else %>
         <div class="host-avatar">?</div>
       <% end %>
       <div class="host-info">
-        <div class="host-name"><%= @event.user.first_name %> <%= @event.user.last_name %></div>
+        <div class="host-name"><%= link_to @event.user.full_name, user_path(@event.user) %></div>
       </div>
     </div>
   </div>
 
   <div class="event-guest-map">
     <div class="guest-list">
-      <div class="guest-cards">
-        <%= image_tag "photo1.jpg"%>
-        <%= image_tag "photo2.jpg"%>
-        <%= image_tag "photo3.jpg"%>
+      <div class="guest-list-header">The Guests</div>
+      <div class="slider-area">
+        <% @event.invitations.each do |invitation| %>
+          <% if invitation.receiver && (invitation.status == "pending" || invitation.status == "accepted") %>
+            <div class="slide">
+              <div class="guest-cards">
+                  <% if invitation.receiver.avatar.attached? %>
+                    <%= cl_image_tag invitation.receiver.avatar.key %>
+                  <% else %>
+                    <%= image_tag "placeholder-avatar.png"%>
+                  <% end %>
+              </div>
+              <% if invitation.receiver && invitation.receiver.first_name && invitation.receiver.last_name %>
+                <div class="guest-name"><%= link_to invitation.receiver.full_name, user_path(invitation.receiver) %></div>
+              <% else %>
+                <div class="guest-name"><%= link_to "Nemo", user_path(invitation.receiver) %></div>
+              <% end %>
+            </div>
+           <% end %>
+        <% end %>
       </div>
-      <div class="guest-name">Guest name</div>
       <a href="" class="list-button button-invite">See list</a>
     </div>
     
     <div id="map"
-      style="width: 100%; height: 600px;"
       data-markers="<%= @marker.to_json %>"
       data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"]%>">
     </div>
 
     <div class="invite-modal">
       <div class="invite-content">
-        <div class="invite-email-input">
-          <%= simple_form_for([@event, @invitation]) do |f| %>
-            <%= f.input :receiver_email, label: false, placeholder: "Enter the email of your guest" %>
-            <%= button_tag type: :submit, class: "invite-button" do %>
-              <i class="far fa-paper-plane"></i>
+        <% if current_user == @event.user %>
+        <div class="invite-form-container">
+          <div class="invite-email-input">
+            <%= simple_form_for([@event, @invitation]) do |f| %>
+              <%= f.input :receiver_email, label: false, placeholder: "Send invite via e-mail" %>
+              <%= button_tag type: :submit, class: "invite-button" do %>
+                <i class="far fa-paper-plane"></i>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-        <div class="invite-link-container">
-          <div class="event-url"><%=  %></div>
-          <div class="event-url-copy">Copy link</div>
+          </div>
+          <div class="invite-link-container">
+            <div class="event-url"><%= "http://hostit.club/events/#{@event.id}" %></div>
+            <div class="event-url-copy">Copy link</div>
+          </div>
         </div>
         <hr>
-        <% @invitations.each do |invitation| %>
+        <% end %>
+        <div class="invitations">
+          <% @invitations.each do |invitation| %>
           <div class="invitee">
-            <div class="invitee-mail"><%= invitation.receiver_email %></div>
+            <% if invitation.receiver && invitation.receiver.avatar.attached? %>
+              <%= link_to "", user_path(invitation.receiver), class: "receiver-avatar", style: "background-image: url('#{cl_image_path invitation.receiver.avatar.key }')" %>
+            <% else %>
+              <% if invitation.receiver %>
+                <%= link_to "?", user_path(invitation.receiver), class: "receiver-no-avatar" %>
+              <% else %>
+                <div class="receiver-avatar">?</div>
+              <% end %>
+            <% end %>
+            <div class="invitee-info">
+              <% if invitation.receiver && invitation.receiver.first_name && invitation.receiver.last_name %>
+                <div class="receiver-fullname">
+                  <%= link_to "#{invitation.receiver.first_name} #{invitation.receiver.last_name}", user_path(invitation.receiver) %>
+                </div>
+                <div class="receiver-mail"><%= invitation.receiver.email %></div>
+              <% else %>
+                <%= invitation.receiver_email %>
+              <% end %>
+            </div>
             <div class="invitee-status">
               <% case invitation.status %>
               <% when "accepted" %>
@@ -85,13 +122,16 @@
                 <div class="invitation-status-declined">Declined</div>
               <% end %>
             </div>
+            <% if @event.user == current_user %>
             <div class="invite-delete">
               <%= link_to invitation_path(invitation), title: "Delete invitation", method: "delete" do %>
                 <i class="far fa-trash-alt"></i>
               <% end %>
             </div>
+            <% end %>
           </div>
         <% end %>
+        </div>
         <button id="close-button"><i class="far fa-window-close"></i></button>
       </div>
     </div>

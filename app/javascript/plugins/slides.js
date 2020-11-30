@@ -73,9 +73,9 @@
 // export { initSlides };
 
 const initSlides = () => {
-    if (document.querySelector("div.guest-cards")) {
-        const slideArea = document.querySelector("div.guest-cards");
-        const images = slideArea.querySelectorAll("img");
+    if (document.querySelector(".slider-area")) {
+        const slideArea = document.querySelector(".slider-area");
+        const images = slideArea.querySelectorAll(".slide");
 
         let currentSlide = 0;
         let z = 1;

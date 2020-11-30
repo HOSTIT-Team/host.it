@@ -28,6 +28,9 @@ const initMapbox = () => {
         const marker = JSON.parse(mapElement.dataset.markers);
         addMarkersToMap(map, marker);
         fitMapToMarkers(map, marker);
+        map.on('load', function () {
+            map.resize();
+        });
     }
 };
 

@@ -8,4 +8,8 @@ class InvitationPolicy < ApplicationPolicy
   def update?
     record.receiver == user || user.admin?
   end
+
+  def destroy?
+    record.sender == user || user.admin
+  end
 end
