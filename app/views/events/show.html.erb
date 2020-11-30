@@ -182,7 +182,7 @@
               <% else %>
                 <div class="message-username">Nemo</div>
               <% end %>
-              <div class="message-time"><%= message.created_at %></div>
+              <div class="message-time"><%= message.created_at.strftime("on %a %b %e at %l:%M %p") %></div>
             </div>
             <% if message.user == current_user  %>
             <div class="message-content message-content-user">
