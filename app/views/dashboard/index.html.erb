@@ -1,79 +1,85 @@
+<div class="headline">
+  <h1>My Events</h1>
+</div>
+
 <div class="dashboard-container">
 
-  <div class="headline">
-    <h1>My Events</h1>
+  <div class="event-card-section-container">
+    <% if @created_ats.empty? %>
+      <div class="no-events">
+        <div class="no-events-message">
+          <p id="no-events-message-text">You don't have any upcoming events at this moment.</p>
+          <p>Why don't you throw a little get together for your friends?</p>
+          <%= link_to "Create", new_event_path, class: "button-create-home" %>
+        </div>
+      </div>
+
+    <% else %>
+        <div class="legend">
+          <div class="host-button"><p>Hosting</p></div>
+          <div class="guest-button"><p>Attending</p></div>
+          <div class="invitation-button"><p>Pending</p></div>
+        </div>
+
+      <% @created_ats.each do |day| %>
+
+        <div class="event-card-section">
+          <div class="date-box"> <%= day[0].strftime("%A, %b %d") %> </div>
+          <% day[1].each do |day_event| %>
+
+          <%= link_to event_path(day_event.id) do %>
+          <div class="event-card-link">
+
+            <div class="event-card">
+
+              <div class="event-card-header"><h6 id="event-title"><%= "#{day_event.title}" %></h6>
+                <% if day_event.user == current_user %>
+                  <div class="event-card-status-circle-host"></div>
+                <% elsif @invitations_data.include?([day_event.id, "accepted"]) %>
+                  <div class="event-card-status-circle-guest"></div>
+                <% elsif @invitations_data.include?([day_event.id, "pending"]) %>
+                  <div class="event-card-status-circle-invitation"></div>
+                <% end %>
+              </div>
+
+              <% if day_event.banner.attached? %>
+                <div class="event-card-body" style="background-image: url('<%= cl_image_path day_event.banner.key %>')">
+              <% else %>
+                <div class="event-card-body" style="background-image: url(https://images.unsplash.com/photo-1605478328994-f93e98217da7?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDV8fHBhdHRlcm4lMjBkYXJrfGVufDB8fDB8&auto=format&fit=crop&w=800&q=60)">
+              <% end %>
+
+                <% if day_event.user == current_user %>
+                  <div class="overlay-host">
+                <% elsif @invitations_data.include?([day_event.id, "accepted"]) %>
+                  <div class="overlay-guest">
+                <% elsif @invitations_data.include?([day_event.id, "pending"]) %>
+                  <div class="overlay-invitation">
+                <% end %>
+                  <p><i class="far fa-clock"></i> <%= day_event.scheduled_at.strftime("%l:%M %p") %></p>
+                  <p><i class="fas fa-map-marker-alt"></i> <%= day_event.location %></p>
+                </div>
+              <% if @invitations_data.include?([day_event.id, "pending"]) %>
+                <div class="event-card-footer-symbols">
+                  <%= link_to(invitation_path(day_event.invitations.where(receiver_id: current_user.id).first, status: "accepted"), method: :patch) do %>
+                    <i class="fas fa-check-circle"></i>
+                  <% end %>
+                  <%= link_to(invitation_path(day_event.invitations.where(receiver_id: current_user.id).first, status: "declined"), method: :patch) do  %>
+                    <i class="fas fa-times-circle"></i>
+                  <% end %>
+                </div>
+              <% end %>
+              </div>
+            </div>
+
+          </div>
+        <% end %>
+
+        <% end %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 
-  <% if @created_ats.empty? %>
-    <div class="no-events">
-      <div class="no-events-message">
-        <p id="no-events-message-text">You don't have any upcoming events at this moment.</p>
-        <p>Why don't you throw a little get together for your friends?</p>
-        <%= link_to "Create", new_event_path, class: "button-create-home" %>
-      </div>
-    </div>
-
-  <% else %>
-      <div class="legend">
-        <div class="host-button"><p>Hosting</p></div>
-        <div class="guest-button"><p>Attending</p></div>
-        <div class="invitation-button"><p>Pending</p></div>
-      </div>
-
-    <% @created_ats.each do |day| %>
-
-      <div class="event-card-section">
-        <div class="date-box"> <%= day[0].strftime("%A, %b %d") %> </div>
-        <% day[1].each do |day_event| %>
-
-
-          <div class="event-card">
-
-            <div class="event-card-header"><p><%= link_to "#{day_event.title}", event_path(day_event.id), class: 'link-to-text' %></p>
-              <% if day_event.user == current_user %>
-                <div class="event-card-status-circle-host"></div>
-              <% elsif @invitations_data.include?([day_event.id, "accepted"]) %>
-                <div class="event-card-status-circle-guest"></div>
-              <% elsif @invitations_data.include?([day_event.id, "pending"]) %>
-                <div class="event-card-status-circle-invitation"></div>
-              <% end %>
-            </div>
-
-            <% if day_event.banner.attached? %>
-              <div class="event-card-body" style="background-image: url('<%= cl_image_path day_event.banner.key %>')">
-            <% else %>
-              <div class="event-card-body" style="background-image: url(https://images.unsplash.com/photo-1605478328994-f93e98217da7?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDV8fHBhdHRlcm4lMjBkYXJrfGVufDB8fDB8&auto=format&fit=crop&w=800&q=60)">
-            <% end %>
-
-              <% if day_event.user == current_user %>
-                <div class="overlay-host">
-              <% elsif @invitations_data.include?([day_event.id, "accepted"]) %>
-                <div class="overlay-guest">
-              <% elsif @invitations_data.include?([day_event.id, "pending"]) %>
-                <div class="overlay-invitation">
-              <% end %>
-                <p><i class="far fa-clock"></i> <strong><%= day_event.scheduled_at.strftime("%l:%M %p") %></strong></p>
-                <p><i class="fas fa-map-marker-alt"></i> <strong><%= day_event.location %></strong></p>
-              </div>
-            <% if @invitations_data.include?([day_event.id, "pending"]) %>
-              <div class="event-card-footer-symbols">
-                <%= link_to(invitation_path(day_event.invitations.where(receiver_id: current_user.id).first, status: "accepted"), method: :patch) do %>
-                  <i class="fas fa-check-circle"></i>
-                <% end %>
-                <%= link_to(invitation_path(day_event.invitations.where(receiver_id: current_user.id).first, status: "declined"), method: :patch) do  %>
-                  <i class="fas fa-times-circle"></i>
-                <% end %>
-              </div>
-            <% end %>
-            </div>
-          </div>
-
-
-
-      <% end %>
-      </div>
-    <% end %>
-  <% end %>
 </div>
 
 

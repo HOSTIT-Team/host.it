@@ -1,6 +1,21 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 5% 80px;
+}
+
+
+.event-card-section-container {
+  width: 75%;
+  a:hover {
+    text-decoration: none;
+  }
+}
+
 .headline {
   text-align: left;
-  margin-bottom: 60px;
+  padding: 0 5% 60px;
 }
 
 .legend {
@@ -101,13 +116,6 @@
   background-color: black;
 }
 
-
-.dashboard-container {
-  padding-top: 40px;
-  padding-left: 60px;
-  padding-right: 60px;
-}
-
 .date-box {
   background-color: black;
   border-radius: 2px;
@@ -127,14 +135,16 @@
 
 .event-card-section {
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
   background-color: $beige;
   margin-bottom: 40px;
   padding: 40px 30px 10px 30px;
   flex-wrap: wrap;
   position: relative;
   border-radius: 4px;
+  width: 100%;
 }
+
 
 .event-card {
   border-color: black;
@@ -143,36 +153,23 @@
   background-color: white;
   margin-top: 20px;
   margin-bottom: 40px;
-  margin-right: 30px;
-  width: 200px;
+  width: 270px;
+  color: black;
 }
 
 .event-card-header {
   background-color: black;
   color: white;
   text-align: center;
-  height: 80px;
+  height: 52px;
   padding: 20px 4px;
   position: relative;
-  p {
-    margin: 0px;
-    font-size: 13px;
+}
+
+.event-card-header:hover {
+  #event-title:hover {
     font-weight: bold;
-    text-decoration: none;
   }
-}
-
-.link-to-text {
-  text-decoration: none;
-  color: white;
-  font-weight: normal;
-}
-
-.link-to-text:hover {
-  font-weight: bold;
-  text-decoration: none;
-  color: white;
-
 }
 
 .event-card-status-circle-host {
@@ -183,8 +180,8 @@
   border: solid;
   border-color: black;
   position: absolute;
-  top: -22px;
-  left: 78px;
+  top: -50%;
+  left: 43%;
 }
 
 .event-card-status-circle-guest {
@@ -195,8 +192,8 @@
   border: solid;
   border-color: black;
   position: absolute;
-  top: -22px;
-  left: 78px;
+  top: -50%;
+  left: 43%;
 }
 
 .event-card-status-circle-invitation {
@@ -207,8 +204,8 @@
   border: solid;
   border-color: black;
   position: absolute;
-  top: -22px;
-  left: 78px;
+  top: -50%;
+  left: 43%;
 }
 
 .event-card-body {
