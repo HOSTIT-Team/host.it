@@ -6,7 +6,11 @@ class EventsController < ApplicationController
     authorize @event
     @invitation = Invitation.new
     @invitations = Invitation.where(event: @event)
-    @marker = {lat: @event.latitude, lng: @event.longitude}
+    @marker = {
+      lat: @event.latitude, 
+      lng: @event.longitude,
+      image_url: helpers.asset_url('marker.svg')
+    };
   end
 
   def new

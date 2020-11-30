@@ -64,6 +64,7 @@
         <% end %>
       </div>
       <a href="" class="list-button button-invite">See list</a>
+    
     </div>
     
     <div id="map"
@@ -134,6 +135,9 @@
         </div>
         <button id="close-button"><i class="far fa-window-close"></i></button>
       </div>
+    </div>
+    <div id="button-map">
+    <a href="https://www.google.com/maps/search/?api=1&query=<%= @event.latitude %>,<%= @event.longitude %>" target="_blank", class="button-map">Open Google Maps</a>
     </div>
   </div>
 

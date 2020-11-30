@@ -25,6 +25,7 @@ gem 'faker'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 gem 'geocoder'
+gem 'mapbox-gl-rails'
 
 
 # Reduces boot times through caching; required in config/boot.rb
