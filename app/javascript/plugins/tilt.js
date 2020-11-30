@@ -1,4 +1,4 @@
-const init_tilt = () => {
+const initTilt = () => {
 
   var VanillaTilt = (function () {
     'use strict';
@@ -224,4 +224,4 @@ const init_tilt = () => {
     speed: 400
   })
 }
-export { init_tilt }
+export { initTilt }

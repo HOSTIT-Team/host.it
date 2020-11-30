@@ -5,23 +5,69 @@
   padding: 0 5% 80px;
 
   .event-details {
-    width: 100%;
+    width: 75%;
     margin: 80px;
     background-color: $beige;
     padding: 48px;
     position: relative;
+    display: flex;
+    border-radius: 2px;
 
-    #event-title {
-      font-size: 3rem;
+    .event-info {
+      width: 80%;
+
+      #event-title {
+        font-size: 3rem;
+      }
+
+      #event-time-location {
+        font-size: 1rem;
+        color: rgba(0, 0, 0, 0.4);
+      }
+
+      #event-description {
+        font-size: 1.3rem;
+        padding-right: 48px;
+        text-align: justify;
+        white-space: pre-wrap;
+      }
     }
 
-    #event-time-location {
-      font-size: 1rem;
-      color: rgba(0, 0, 0, 0.4);
-    }
+    .event-host {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-    #event-description {
-      font-size: 1.5rem;
+      .host-title {
+        font-size: 3rem;
+      }
+
+      .host-avatar {
+        width: 250px;
+        height: 320px;
+        background-color: $white;
+        border: solid 1.5px black;
+        border-radius: 2px;
+        background-size: cover;
+        margin-bottom: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 8rem;
+      }
+
+      .host-name {
+        font-size: 1.5rem;
+        width: fit-content;
+        a {
+          color: $black;
+          &:hover {
+            text-decoration: none;
+            color: $magenta;
+            border-bottom: 1.5px solid;
+          }
+        }
+      }
     }
 
     #event-edit-delete {
@@ -33,6 +79,7 @@
         padding: 0 5px;
         &:hover {
           text-decoration: none;
+          color: $magenta;
         }
       }
     }
@@ -40,20 +87,32 @@
 
   .event-guest-map {
     background-color: $beige;
+    border-radius: 2px;
     padding: 48px;
-    width: 100%;
+    width: 75%;
     display: flex;
     margin-bottom: 80px;
 
     .guest-list {
       background-color: $black;
-      padding: 42px;
+      padding: 0 42px 42px 42px;
       display: flex;
       flex-direction: column;
+      border-radius: 2px;
+
+      .guest-list-header {
+        align-self: center;
+        font-size: 2rem;
+        font-weight: 600;
+        color: $white;
+        padding: 6px 0;
+      }
+
       .guest-cards {
         background-color: $white;
-        height: 500px;
-        width: 400px;
+        border-radius: 2px;
+        height: 400px;
+        width: 300px;
         // temporary
         color: $black;
         display: flex;
@@ -61,18 +120,79 @@
         align-items: center;
         font-size: 2rem;
       }
+
+      .slider-area {
+        position: relative;
+        background-color: $white;
+        border-radius: 2px;
+        height: 400px;
+        width: 300px;
+        // temporary
+        color: $black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        margin-bottom: 56px;
+
+        .slide {
+          position: absolute;
+          object-fit: cover;
+          top: 0;
+          left: 0;
+          border-radius: 2px;
+          .guest-name {
+            margin: 12px 0;
+            align-self: center;
+            text-align: center;
+            font-size: 1.5rem;
+            color: #fffdf7;
+            background-color: black;
+            a {
+              color: $white;
+              &:hover {
+                text-decoration: none;
+                color: $magenta;
+                border-bottom: 1.5px solid;
+              }
+            }
+          }
+        }
+      }
     }
 
-    .guest-name {
-      margin: 42px;
-      align-self: center;
-      font-size: 1.5rem;
-      color: $white;
+    div.guest-cards img {
+      position: absolute;
+      object-fit: cover;
+      top: 0;
+      left: 0;
+      height: 400px;
+      width: 300px;
+      border-radius: 2px;
+    }
+
+    #map {
+      width: 100%;
+      height: 500px;
+      margin-left: 48px;
+      border: solid 1.5px black;
+      border-radius: 2px;
+    }
+
+    .mapboxgl-canvas-container {
+      &:focus {
+        outline: 0;
+      }
+      width: 100%;
+      height: 100%;
     }
 
     .list-button {
       width: fit-content;
       align-self: center;
+      font-weight: 400;
+      padding: 8px 16px;
+
       &:hover {
         background-color: $white;
         color: $black;
@@ -82,7 +202,7 @@
     .invite-modal {
       display: none; /* Hidden by default */
       position: fixed; /* Stay in place */
-      z-index: 3; /* Sit on top */
+      z-index: 300; /* Sit on top */
       left: 0;
       top: 0;
       width: 100%; /* Full width */
@@ -99,86 +219,183 @@
       background-color: $beige;
       margin: auto;
       padding: 40px;
-      border: 1px solid #888;
-      width: 30%;
+      width: 50%;
       position: relative;
       border: solid 1.5px black;
+      border-radius: 2px;
 
-      .invite-email-input {
-        border: 1.5px solid black;
-        background-color: $white;
+      .invite-form-container {
+        display: flex;
         margin-bottom: 16px;
+        align-items: center;
 
-        .simple_form {
-          display: flex;
-        }
-
-        .invitation_receiver_email {
-          width: 90%;
-          margin: 0;
-        }
-
-        .form-control {
-          border: none;
-          border-radius: 0;
+        .invite-email-input {
+          border: 1.5px solid black;
+          border-radius: 2px;
           background-color: $white;
+          flex-grow: 3;
+
+          .simple_form {
+            display: flex;
+          }
+
+          .invitation_receiver_email {
+            width: 90%;
+            margin: 0;
+          }
+
+          .form-control {
+            border: none;
+            border-radius: 0;
+            background-color: $white;
+            &:focus {
+              box-shadow: none;
+            }
+          }
+
+          .invite-button {
+            padding: 0;
+            width: 5%;
+            margin: 0 4px 0 auto;
+            border: none;
+            background-color: $white;
+            outline: 0;
+            &:hover {
+              font-size: 1.2rem;
+              color: $magenta;
+            }
+          }
         }
 
-        .invite-button {
-          padding: 0;
-          width: 10%;
-          border: none;
-          background-color: $white;
+        .invite-link-container {
+          flex-grow: 1;
+          text-align: center;
+
+          .event-url-copy {
+            &:hover {
+              cursor: pointer;
+            }
+          }
         }
       }
 
-      .invitee {
+      .invitations {
+        overflow: scroll;
+        height: 50vh;
         display: flex;
-        margin-bottom: 8px;
+        flex-direction: column;
 
-        .invitee-mail {
-          font-size: 1.2rem;
-          flex-grow: 1;
+        &::-webkit-scrollbar {
+          width: 8px;
         }
 
-        .invitee-status {
-          align-self: center;
+        &::-webkit-scrollbar-track {
+          background: $beige;
+        }
 
-          .invitation-status-pending,
-          .invitation-status-accepted,
-          .invitation-status-declined {
-            border-radius: 50%;
-            border: 1.5px solid black;
-            width: 1rem;
-            height: 1rem;
+        &::-webkit-scrollbar-thumb {
+          background: $black;
+          border-radius: 2px;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+          background: $magenta;
+        }
+
+        &::-webkit-scrollbar-corner {
+          background-color: $beige;
+        }
+
+        .invitee {
+          display: flex;
+          margin: 0 4px 8px 0;
+          background: $white;
+          padding: 8px 16px;
+          border-radius: 2px;
+          border: solid 1.5px;
+
+          .receiver-avatar,
+          .receiver-no-avatar {
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 0.9rem;
+            height: 4rem;
+            width: 3.2rem;
+            margin-right: 8px;
+            background-size: cover;
+            border: 1.5px solid black;
+            border-radius: 2px;
+            &:hover {
+              border: 1.5px solid $magenta;
+            }
           }
 
-          .invitation-status-pending {
-            background-color: $white;
-            padding-top: 2px;
-            padding-left: 1px;
-          }
-
-          .invitation-status-accepted {
-            background-color: $green;
-          }
-
-          .invitation-status-declined {
-            background-color: $red;
-          }
-        }
-
-        .invite-delete {
-          display: flex;
-          align-items: center;
-          a {
+          .receiver-no-avatar {
             color: $black;
+            &:hover {
+              text-decoration: none;
+              color: $magenta;
+            }
+          }
+
+          .invitee-info {
+            font-size: 1.2rem;
+            flex-grow: 1;
+
+            .receiver-fullname {
+              a {
+                color: $black;
+                &:hover {
+                  text-decoration: none;
+                  color: $magenta;
+                  border-bottom: 1.5px solid;
+                }
+              }
+            }
+
+            .receiver-mail {
+              font-size: 0.9rem;
+              color: gray;
+            }
+          }
+
+          .invitee-status {
             align-self: center;
-            margin-left: 12px;
+
+            .invitation-status-pending,
+            .invitation-status-accepted,
+            .invitation-status-declined {
+              border: 1.5px solid black;
+              border-radius: 2px;
+              width: 90px;
+              display: flex;
+              justify-content: center;
+              font-size: 0.8rem;
+              color: $black;
+              font-weight: 700;
+            }
+
+            .invitation-status-pending {
+              background-color: $white;
+            }
+
+            .invitation-status-accepted {
+              background-color: $green;
+            }
+
+            .invitation-status-declined {
+              background-color: $red;
+            }
+          }
+
+          .invite-delete {
+            display: flex;
+            align-items: center;
+            a {
+              color: $black;
+              align-self: center;
+              margin-left: 12px;
+            }
           }
         }
       }
@@ -189,8 +406,12 @@
         position: absolute;
         top: 8px;
         right: 8px;
+        outline: 0;
         i {
           font-size: 1.5rem;
+          &:hover {
+            color: $magenta;
+          }
         }
       }
     }
@@ -202,24 +423,13 @@
     height: 100%;
   }
 
-  .location-map {
-    width: 100%;
-    background-color: #000000;
-    height: inherit;
-    margin-left: 42px;
-    color: $white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 5rem;
-  }
-
   .event-items-playlist {
     background-color: $beige;
     padding: 48px;
-    width: 100%;
+    width: 75%;
     display: flex;
     margin-bottom: 80px;
+    border-radius: 2px;
 
     .bring-list {
       background-color: $black;
@@ -229,17 +439,20 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      border-radius: 2px 0 0 2px;
 
       .items {
         height: 80%;
         background-color: $white;
         width: 100%;
         margin-bottom: auto;
+        border-radius: 2px;
       }
 
       .bring-form {
         display: flex;
         width: 100%;
+        border-radius: 2px;
         #item-input {
           border: none;
           height: 48px;
@@ -262,6 +475,7 @@
             color: $black;
             &:hover {
               text-decoration: none;
+              color: $magenta;
             }
           }
         }
@@ -279,27 +493,31 @@
       justify-content: center;
       color: $white;
       font-size: 3rem;
+      border-radius: 0 2px 2px 0;
     }
   }
 
   .event-chat {
     background-color: $beige;
     padding: 48px;
-    width: 100%;
+    width: 75%;
     display: flex;
     flex-direction: column;
+    border-radius: 2px;
 
     .chat-box {
       height: 500px;
       width: 100%;
       background-color: $white;
       border: 1.5px solid black;
+      border-radius: 2px;
       margin-bottom: 32px;
     }
     .chat-form {
       display: flex;
       width: 100%;
       border: 1.5px solid black;
+      border-radius: 2px;
       background-color: $white;
       #chat-input {
         background-color: $white;
@@ -325,6 +543,7 @@
           color: $black;
           &:hover {
             text-decoration: none;
+            color: $magenta;
           }
         }
       }
@@ -333,11 +552,12 @@
 }
 
 .event-banner {
-  width: 100%;
-  height: 70vh;
+  width: 75%;
+  height: 60vh;
   background-size: cover;
   background-color: gray;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
+  border-radius: 2px;
 }

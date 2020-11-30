@@ -22,12 +22,15 @@ const fitMapToMarkers = (map, marker) => {
 
 const initMapbox = () => {
     const mapElement = document.getElementById('map');
-    
+
     if (mapElement) {
         const map = buildMap(mapElement);
         const marker = JSON.parse(mapElement.dataset.markers);
         addMarkersToMap(map, marker);
         fitMapToMarkers(map, marker);
+        map.on('load', function () {
+            map.resize();
+        });
     }
 };
 

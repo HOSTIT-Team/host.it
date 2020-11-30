@@ -1,5 +1,5 @@
 .headline {
-  text-align: right;
+  text-align: left;
   margin-bottom: 60px;
 }
 
@@ -9,67 +9,108 @@
   justify-content: flex-end;
 }
 
-.hosting, .attending {
+.no-events {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 15px;
-  p {
-    margin: 0px;
-    text-decoration: none;
-  }
+  justify-content: space-around;
+  padding-top: 40px;
+  margin: 80px 0px;
 }
 
-.pending, {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  p {
-    margin: 0px;
-    text-decoration: none;
-  }
+.no-events-message {
+  text-align: center;
+  width: 500px;
 }
 
-.host-circle {
-  width: 16px;
-  height: 16px;
-  border-radius: 8px;
+#no-events-message-text {
+    color: $magenta;
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+
+.host-button {
+  width: 100px;
+  height: 30px;
+  border-radius: 2px;
   background-color: $violet;
   border-color: black;
   border: solid;
-  border-width: 1px;
+  border-width: 2px;
   margin-right: 4px;
+  display: table;
+  margin-bottom: 4px;
+  p {
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+  }
 }
 
-.guest-circle {
-  width: 16px;
-  height: 16px;
-  border-radius: 8px;
+.guest-button {
+  width: 100px;
+  height: 30px;
+  border-radius: 2px;
   background-color: $green;
   border-color: black;
   border: solid;
-  border-width: 1px;
+  border-width: 2px;
   margin-right: 4px;
+  display: table;
+  margin-bottom: 4px;
+  p {
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+  }
 }
 
-.invitation-circle {
-  width: 16px;
-  height: 16px;
-  border-radius: 8px;
+.invitation-button {
+  width: 100px;
+  height: 30px;
+  border-radius: 2px;
   background-color: $magenta;
   border-color: black;
   border: solid;
-  border-width: 1px;
-  margin-right: 4px;
+  border-width: 2px;
+  display: table;
+  margin-bottom: 4px;
+  p {
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+  }
+}
+
+.host-button:hover {
+  font-weight: bold;
+  font-size: 16px;
+  background-color: black;
+}
+
+.guest-button:hover {
+  font-weight: bold;
+  font-size: 16px;
+  background-color: black;
+}
+
+.invitation-button:hover {
+  font-weight: bold;
+  font-size: 16px;
+  background-color: black;
 }
 
 
 .dashboard-container {
-  padding: 0 40px 40px;
+  padding-top: 40px;
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
 .date-box {
   background-color: black;
+  border-radius: 2px;
   color: white;
   height: 30px;
   text-align: center;
@@ -92,15 +133,17 @@
   padding: 40px 30px 10px 30px;
   flex-wrap: wrap;
   position: relative;
+  border-radius: 4px;
 }
 
 .event-card {
   border-color: black;
+  border-radius: 2px;
   border: solid;
   background-color: white;
   margin-top: 20px;
   margin-bottom: 40px;
-  margin-right: 10px;
+  margin-right: 30px;
   width: 200px;
 }
 
@@ -177,6 +220,7 @@
   p {
     margin: 0px;
     color: white;
+    margin: 0px;
   }
 }
 
@@ -189,7 +233,6 @@
     font-size: 25px;
   }
   i:hover {
-    // color: $magenta;
     font-size: 30px;
   }
 }

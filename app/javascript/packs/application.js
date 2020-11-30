@@ -8,7 +8,6 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -25,18 +24,24 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { bannerUpload } from "events/edit";
+import { bannerUpload} from "events/edit";
 import { init_flatpickr } from "../plugins/flatpickr";
-import { init_tilt } from "../plugins/tilt";
-import { inviteModal } from "events/show";
-import { initMapbox } from '../plugins/init_mapbox';
+import { initTilt } from "../plugins/tilt";
+import { inviteModal, copyLink  } from "events/show";
+import { initMapbox } from "../plugins/init_mapbox";
+import { initSlides } from "../plugins/slides";
+import { navbarScroll } from "../pages/navbar_scroll"
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   bannerUpload();
   init_flatpickr();
-  init_tilt();
+  initTilt();
   inviteModal();
   initMapbox();
+  initSlides();
+  navbarScroll();
+  copyLink();
 });
