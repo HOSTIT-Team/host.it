@@ -1,7 +1,10 @@
 class Event < ApplicationRecord
   belongs_to :user
   has_many :invitations, dependent: :destroy
+
   has_many :items, dependent: :destroy
+  has_one :chatroom, dependent: :destroy
+  has_many :messages, through: :chatroom
 
   validates :title, presence: true, length: { maximum: 20 }
   validates :scheduled_at, presence: true
@@ -12,6 +15,10 @@ class Event < ApplicationRecord
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+
+  def is_invited?(user)
+    self.invitations.any? { |invitation| invitation.receiver == user }
+  end
 
   private
 

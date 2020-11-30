@@ -6,7 +6,11 @@ class EventsController < ApplicationController
     authorize @event
     @invitation = Invitation.new
     @invitations = Invitation.where(event: @event)
-    @marker = {lat: @event.latitude, lng: @event.longitude}
+    @marker = {
+      lat: @event.latitude, 
+      lng: @event.longitude,
+      image_url: helpers.asset_url('marker.svg')
+    };
   end
 
   def new
@@ -17,6 +21,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(strong_params)
     @event.user = current_user
+    @event.chatroom = Chatroom.new
     authorize @event
     if @event.save
       redirect_to event_path(@event)
