@@ -17,11 +17,11 @@
     <% else %>
         <div class="legend">
           <%= form_tag dashboard_index_path, method: :get do %>
-            <%= check_box_tag 'filtering[]', 'hosting', params[:filtering].include?("hosting") %>
+            <%= check_box_tag 'filtering[]', 'hosting', params[:filtering].try(:include?, ("hosting")) %>
             <%= label_tag "HOSTING" %>
-            <%= check_box_tag 'filtering[]', 'accepted', params[:filtering].include?("accepted") %>
+            <%= check_box_tag 'filtering[]', 'accepted', params[:filtering].try(:include?, ("accepted")) %>
             <%= label_tag "ATTENDING" %>
-            <%= check_box_tag 'filtering[]', 'pending', params[:filtering].include?("pending") %>
+            <%= check_box_tag 'filtering[]', 'pending', params[:filtering].try(:include?, ("pending")) %>
             <%= label_tag "PENDING" %>
             <%= submit_tag "Filter", class:'button-filter' %>
           <% end %>
