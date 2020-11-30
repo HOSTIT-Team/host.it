@@ -7,7 +7,7 @@ class ItemPolicy < ApplicationPolicy
 
   
     def update?
-      record.user == user || user.admin?
+      true
     end
   
     def show?

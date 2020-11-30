@@ -77,17 +77,25 @@
 
   <div class="event-items-playlist">
     <div class="bring-list">
-      <div class="items">
+      <div class="items-list">
+      <li>
       <% @event.items.each do |item| %>
-      <%= item.name %>
+          <% if item.user_id != nil %>
+         <ul> <%= item.name %>
+          <%= item.user.first_name %> </ul>
+          <% else %>
+          <ul> <%= item.name %> 
+          <%= button_to 'Bring it', event_item_path(item), method: :patch %> </ul>
+                   <% end %>
       <% end %>
-      </div>
+      </li>
+    </div>
       <div class="bring-form">
-          <input id="item-input" type="text" placeholder="Add what you will bring!">
-          <div class="add-item" >
-            <%= link_to do %>
-                <i class="far fa-plus-square"></i>
-            <% end %>
+               <div class="add-item" >
+                <%= simple_form_for [@event, @item] do |f| %>
+          <%= f.input :name, :label => "Enter item"  %>
+          <%= f.submit "Add Item", class: "button-submit" %>  
+          <% end %>
           </div>
       </div>
     </div>
