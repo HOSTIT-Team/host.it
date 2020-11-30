@@ -21,6 +21,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(strong_params)
     @event.user = current_user
+    @event.chatroom = Chatroom.new
     authorize @event
     if @event.save
       redirect_to event_path(@event)
