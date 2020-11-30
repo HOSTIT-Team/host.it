@@ -45,4 +45,3 @@ document.addEventListener('turbolinks:load', () => {
   navbarScroll();
   copyLink();
 });
-import "controllers"
