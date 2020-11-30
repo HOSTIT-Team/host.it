@@ -16,9 +16,15 @@
 
     <% else %>
         <div class="legend">
-          <div class="host-button"><%= link_to "Hosting", dashboard_index_path(filtering: "hosting") %></div>
-          <div class="guest-button"><%= link_to "Attending", dashboard_index_path(filtering: "accepted") %></div>
-          <div class="invitation-button"><%= link_to "Pending", dashboard_index_path(filtering: "pending") %></div>
+          <%= form_tag dashboard_index_path, method: :get do %>
+            <%= check_box_tag 'filtering[]', 'hosting', params[:filtering].include?("hosting") %>
+            <%= label_tag "HOSTING" %>
+            <%= check_box_tag 'filtering[]', 'accepted', params[:filtering].include?("accepted") %>
+            <%= label_tag "ATTENDING" %>
+            <%= check_box_tag 'filtering[]', 'pending', params[:filtering].include?("pending") %>
+            <%= label_tag "PENDING" %>
+            <%= submit_tag "Filter", class:'button-filter' %>
+          <% end %>
         </div>
 
       <% @created_ats.each do |day| %>
