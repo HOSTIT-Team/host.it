@@ -76,7 +76,7 @@
         <% if current_user == @event.user %>
         <div class="invite-form-container">
           <div class="invite-email-input">
-            <%= simple_form_for([@event, @invitation]) do |f| %>
+            <%= simple_form_for [@event, @invitation] do |f| %>
               <%= f.input :receiver_email, label: false, placeholder: "Send invite via e-mail" %>
               <%= button_tag type: :submit, class: "invite-button" do %>
                 <i class="far fa-paper-plane"></i>
@@ -153,18 +153,55 @@
     <div class="playlist">
     <iframe src="https://open.spotify.com/embed/playlist/0K0RsJ0xxaTDZIKQ1vszY3" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </div>
-  </div>
-
-  <div class="event-chat"> 
+  </div >
+  <div class="event-chat" id="event-chat"> 
     <div class="chat-box">
+      <% @event.chatroom.messages.each do |message| %>
+        <% if message.user == current_user %>
+        <div class="message-container message-container-user" id="message-<%= message.id %>">
+        <a href="linkto google <%= message.id %>,<%= message.id %>"></a>
+        <% else %>
+        <div class="message-container" id="message-<%= message.id %>">
+        <% end %>
+          <% unless current_user == message.user %>
+            <% if message.user.avatar.attached? %>
+              <div class="chat-avatar" style="background-image: url('<%= cl_image_path @event.user.avatar.key %>')"></div>
+            <% else %>
+              <div class="chat-avatar" style="background-image: url('<%= image_path "placeholder-avatar.png" %>')"></div>
+            <% end %>  
+          <% end %>
+          <% if message.user == current_user %>
+          <div class="message message-user">
+            <div class="message-username-time username-time-right">
+          <% else %>
+          <div class="message">
+            <div class="message-username-time">
+          <% end %>
+              <% if message.user.full_name %>
+                <div class="message-username"><%= message.user.full_name %></div>
+              <% else %>
+                <div class="message-username">Nemo</div>
+              <% end %>
+              <div class="message-time"><%= message.created_at %></div>
+            </div>
+            <% if message.user == current_user  %>
+            <div class="message-content message-content-user">
+            <% else %>
+              <div class="message-content">
+            <% end %>
+            <%= message.content %>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
     <div class="chat-form">
-      <input id="chat-input" type="text" placeholder="Talk to the other guests here...">
-            <div class="send-button" >
-              <%= link_to do %>
-                  <i class="far fa-paper-plane"></i>
-              <% end %>
-            </div>
+      <%= simple_form_for [@event, Message.new], achor: "event-chat" do |f| %>
+        <%= f.input :content, id: "chat-input", label: false, placeholder: "Chat with the other guests.." %>
+        <%= button_tag type: :submit, class: "send-button" do %>
+          <i class="far fa-paper-plane"></i>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :events, only: [:show, :new, :create, :edit, :update, :destroy ] do
     resources :invitations, only: [:index, :create, :destroy]
+    resources :messages, only: :create
   end
   resources :dashboard, only: [:index]
   resources :users, only: [:show, :edit, :update, :new]
   resources :invitations, only: [:update]
+  resources :messages, only: [:destroy]
 end
