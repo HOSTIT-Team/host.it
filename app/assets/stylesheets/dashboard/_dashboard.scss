@@ -149,7 +149,7 @@
 }
 
 
-.event-card {
+.event-card-hosting, .event-card-pending, .event-card-attending {
   border-color: black;
   border-radius: 2px;
   border: solid;
@@ -223,6 +223,11 @@
     color: white;
     margin: 0px;
   }
+}
+
+.event-card-hosting, .event-card-attending, .event-card-pending {
+  box-shadow: 7px 7px 14px #6d6855,
+             -7px -7px 14px #ffffff;
 }
 
 .event-card-footer-symbols {
