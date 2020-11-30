@@ -16,9 +16,9 @@
 
     <% else %>
         <div class="legend">
-          <div class="host-button"><p>Hosting</p></div>
-          <div class="guest-button"><p>Attending</p></div>
-          <div class="invitation-button"><p>Pending</p></div>
+          <div class="host-button"><%= link_to "Hosting", dashboard_index_path, method: :get %></div>
+          <div class="guest-button"><%= link_to "Attending", dashboard_index_path, method: :get %></div>
+          <div class="invitation-button"><%= link_to "Pending", dashboard_index_path, method: :get %></div>
         </div>
 
       <% @created_ats.each do |day| %>
@@ -60,7 +60,7 @@
                 </div>
               <% if @invitations_data.include?([day_event.id, "pending"]) %>
                 <div class="event-card-footer-symbols">
-                  <%= link_to(invitation_path(day_event.invitations.where(receiver_id: current_user.id).first, status: "accepted"), method: :patch) do %>
+                  <%= link_to(invitation_path(day_event.invitations.where(receiver_id: current_user.id).first, status: "accepted"), title: "Edit event",method: :patch) do %>
                     <i class="fas fa-check-circle"></i>
                   <% end %>
                   <%= link_to(invitation_path(day_event.invitations.where(receiver_id: current_user.id).first, status: "declined"), method: :patch) do  %>
