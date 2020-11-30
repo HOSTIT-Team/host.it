@@ -1,6 +1,21 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 5% 80px;
+}
+
+
+.event-card-section-container {
+  width: 75%;
+  a:hover {
+    text-decoration: none;
+  }
+}
+
 .headline {
   text-align: left;
-  margin-bottom: 60px;
+  padding: 0 5% 60px;
 }
 
 .legend {
@@ -8,6 +23,24 @@
   margin-bottom: 4px;
   justify-content: flex-end;
 }
+
+.button-filter {
+  background-color:$magenta;
+  cursor: pointer;
+  font-weight: bold;
+  color:white;
+  text-decoration:none;
+  padding: 5px 20px 5px 20px;
+  border: 1.5px solid black;
+  border-radius:3px;
+  text-decoration: none;
+   &:hover {
+    text-decoration: none;
+    background-color:$black;
+    color: white;
+  }
+}
+
 
 .no-events {
   display: flex;
@@ -38,7 +71,7 @@
   margin-right: 4px;
   display: table;
   margin-bottom: 4px;
-  p {
+  a {
     color: white;
     text-align: center;
     vertical-align: middle;
@@ -57,7 +90,7 @@
   margin-right: 4px;
   display: table;
   margin-bottom: 4px;
-  p {
+  a {
     color: white;
     text-align: center;
     vertical-align: middle;
@@ -75,7 +108,7 @@
   border-width: 2px;
   display: table;
   margin-bottom: 4px;
-  p {
+  a {
     color: white;
     text-align: center;
     vertical-align: middle;
@@ -87,25 +120,21 @@
   font-weight: bold;
   font-size: 16px;
   background-color: black;
+  text-decoration: none;
 }
 
 .guest-button:hover {
   font-weight: bold;
   font-size: 16px;
   background-color: black;
+  text-decoration: none;
 }
 
 .invitation-button:hover {
   font-weight: bold;
   font-size: 16px;
   background-color: black;
-}
-
-
-.dashboard-container {
-  padding-top: 40px;
-  padding-left: 60px;
-  padding-right: 60px;
+  text-decoration: none;
 }
 
 .date-box {
@@ -127,52 +156,42 @@
 
 .event-card-section {
   display: flex;
-  justify-content: start;
+  justify-content: left;
   background-color: $beige;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   padding: 40px 30px 10px 30px;
   flex-wrap: wrap;
   position: relative;
   border-radius: 4px;
+  width: 100%;
 }
 
-.event-card {
+
+.event-card-hosting, .event-card-pending, .event-card-attending {
   border-color: black;
   border-radius: 2px;
   border: solid;
   background-color: white;
-  margin-top: 20px;
-  margin-bottom: 40px;
-  margin-right: 30px;
-  width: 200px;
+  // margin-top: 20px;
+  // margin-bottom: 40px;
+  margin: 30px 15px 25px 15px;
+  width: 270px;
+  color: black;
 }
 
 .event-card-header {
   background-color: black;
   color: white;
   text-align: center;
-  height: 80px;
+  height: 52px;
   padding: 20px 4px;
   position: relative;
-  p {
-    margin: 0px;
-    font-size: 13px;
+}
+
+.event-card-header:hover {
+  #event-title:hover {
     font-weight: bold;
-    text-decoration: none;
   }
-}
-
-.link-to-text {
-  text-decoration: none;
-  color: white;
-  font-weight: normal;
-}
-
-.link-to-text:hover {
-  font-weight: bold;
-  text-decoration: none;
-  color: white;
-
 }
 
 .event-card-status-circle-host {
@@ -183,8 +202,8 @@
   border: solid;
   border-color: black;
   position: absolute;
-  top: -22px;
-  left: 78px;
+  top: -50%;
+  left: 43%;
 }
 
 .event-card-status-circle-guest {
@@ -195,8 +214,8 @@
   border: solid;
   border-color: black;
   position: absolute;
-  top: -22px;
-  left: 78px;
+  top: -50%;
+  left: 43%;
 }
 
 .event-card-status-circle-invitation {
@@ -207,8 +226,8 @@
   border: solid;
   border-color: black;
   position: absolute;
-  top: -22px;
-  left: 78px;
+  top: -50%;
+  left: 43%;
 }
 
 .event-card-body {
@@ -222,6 +241,11 @@
     color: white;
     margin: 0px;
   }
+}
+
+.event-card-hosting, .event-card-attending, .event-card-pending {
+  box-shadow: 7px 7px 14px #6d6855,
+             -7px -7px 14px #ffffff;
 }
 
 .event-card-footer-symbols {

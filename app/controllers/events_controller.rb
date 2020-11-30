@@ -49,7 +49,7 @@ class EventsController < ApplicationController
   def destroy
     authorize @event
     if @event.destroy!
-      redirect_to root_path
+      redirect_to dashboard_index_path
       flash.alert = "Event deleted"
     else
       render :show

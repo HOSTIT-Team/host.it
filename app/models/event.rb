@@ -1,14 +1,15 @@
 class Event < ApplicationRecord
   belongs_to :user
   has_many :invitations, dependent: :destroy
-  has_many :items, dependent: :destroy 
+
+  has_many :items, dependent: :destroy
   has_one :chatroom, dependent: :destroy
   has_many :messages, through: :chatroom
 
-  validates :title, presence: true
+  validates :title, presence: true, length: { maximum: 20 }
   validates :scheduled_at, presence: true
   validates :location, presence: true
-  validates :description, presence:true
+  validates :description, presence: true
 
   has_one_attached :banner
 
