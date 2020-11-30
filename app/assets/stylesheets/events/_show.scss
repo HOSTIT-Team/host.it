@@ -569,15 +569,15 @@
   bottom: 25px;
   padding: 0 42px 42px 42px;
     .button-map {
-        background-color:#DD1155;
-        cursor: pointer;
-        color:white;
-        text-decoration:none;
-        padding: 15px 20px 15px 20px;
-        border: 1.5px solid black;
-        border-radius:3px;
-        text-decoration: none;
-         &:hover {
+      background-color:#DD1155;
+      cursor: pointer;
+      color:white;
+      text-decoration:none;
+      padding: 15px 20px 15px 20px;
+      border: 1.5px solid black;
+      border-radius:3px;
+      text-decoration: none;
+        &:hover {
           text-decoration: none;
           background-color:black;
           color: white;
