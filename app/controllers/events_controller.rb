@@ -4,6 +4,7 @@ class EventsController < ApplicationController
 
   def show
     authorize @event
+    @item = Item.new
     @invitation = Invitation.new
     @invitations = Invitation.where(event: @event)
     @marker = {

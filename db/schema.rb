@@ -73,10 +73,9 @@ ActiveRecord::Schema.define(version: 2020_11_30_105108) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.bigint "event_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "status", default: "Unassigned"
     t.index ["event_id"], name: "index_items_on_event_id"
     t.index ["user_id"], name: "index_items_on_user_id"
   end
