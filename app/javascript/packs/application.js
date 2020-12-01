@@ -30,7 +30,8 @@ import { initTilt } from "../plugins/tilt";
 import { inviteModal, copyLink } from "events/show";
 import { initMapbox } from "../plugins/init_mapbox";
 import { initSlides } from "../plugins/slides";
-import { navbarScroll } from "../pages/navbar_scroll"
+import { navbarScroll } from "../pages/navbar_scroll";
+import { collapseDayBoxes } from "../dashboard/index";
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -44,4 +45,5 @@ document.addEventListener('turbolinks:load', () => {
   initSlides();
   navbarScroll();
   copyLink();
+  collapseDayBoxes();
 });
