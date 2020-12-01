@@ -1,3 +1,26 @@
+<div class="message-container" id="sender" data-user-id="<%= current_user.id %>">
+  <% if message.user.avatar.attached? %>
+    <div class="chat-avatar" style="background-image: url('<%= cl_image_path message.user.avatar.key %>')"></div>
+  <% else %>
+    <div class="chat-avatar" style="background-image: url('<%= image_path "placeholder-avatar.png" %>')"></div>
+  <% end %>  
+  <div class="message" id="message-<%= message.id %>">
+    <div class="message-content">
+      <%= message.content %>
+    </div>
+    <div class="message-username-time">
+      <% if message.user.full_name %>
+        <div class="message-username"><%= message.user.full_name %></div>
+      <% else %>
+        <div class="message-username">Nemo</div>
+      <% end %>
+      <div class="message-time"><%= message.created_at.strftime("on %a %b %e at %l:%M %p") %>
+  </div>
+</div>
+
+
+<!-- css classes to add message-container-user, remove avatar if message received from other user, message-content-user, username-time-right, if message sender then replace username with you
+
 <% if message.user == current_user %>
 <div class="message-container message-container-user" id="message-<%= message.id %>">
 <% else %>
@@ -36,3 +59,4 @@
     </div>
   </div>
 </div>
+>

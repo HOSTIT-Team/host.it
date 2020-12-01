@@ -13,8 +13,6 @@ class MessagesController < ApplicationController
         message.chatroom,
         render_to_string(partial: "messages/message", locals: { message: message })
       )
-      # redirect_to event_path(@event, anchor: "message-#{message.id}")
-      # flash.alert = "Message sent."
     else 
       render "events/show"
       flash.alert = "Error: Message could not be sent."
