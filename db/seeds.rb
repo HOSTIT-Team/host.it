@@ -25,9 +25,9 @@ User.destroy_all
 
     10.times do
         event = Event.all.sample
-        item = Item.new
+        name = Faker::Food.ingredient
+        item = Item.new(name: name)
         item.event = event
-        item.user = User.all.sample
         item.save!
     end
 end
