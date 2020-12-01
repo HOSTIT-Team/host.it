@@ -1,0 +1,27 @@
+<div class="list-container" background-color: white >
+        <%# <h2>Anything this party needs?</h2> %>
+        <div class="items-list">
+            <table>
+            <%# <tr><th>Item</th><th>Brought by</th></tr> %>
+            <% @event.items.each do |item| %>
+              <% if item.user_id != nil %>
+                  <tr><td id="items-<%=item.id%>"> <%= item.name %></td>
+                  <td><%= item.user.first_name %></td></tr>
+                <% else %>
+                
+                  <tr><td id="items-<%=item.id%>"> <%= item.name %></td>
+                  <td><button type="button" class="button-create"><%= link_to 'Bring it', item_path(item), method: :patch, remote: true %></button></td>
+             
+                <% end %>
+            <% end %>
+            </table>
+        </div>
+        <div class="items-form">
+            <%= simple_form_for([@event, @item], remote: true) do |f| %>
+            <div class="add-item">
+              <%= f.input :name, :placeholder => "Enter item", label: false %>
+              <%= f.submit "Add Item", class: "button-create" %>  
+            </div>
+            <% end %>
+        </div>
+</div>
