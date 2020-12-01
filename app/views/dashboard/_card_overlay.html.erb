@@ -1,0 +1,10 @@
+<% if day_event.user == current_user %>
+   <div class="overlay-hosting">
+<% elsif invitations_data.include?([day_event.id, "accepted"]) %>
+  <div class="overlay-accepted">
+<% elsif invitations_data.include?([day_event.id, "pending"]) %>
+  <div class="overlay-pending">
+<% end %>
+    <p><i class="far fa-clock"></i> <%= day_event.scheduled_at.strftime("%l:%M %p") %></p>
+    <p><i class="fas fa-map-marker-alt"></i> <%= day_event.location %></p>
+  </div>

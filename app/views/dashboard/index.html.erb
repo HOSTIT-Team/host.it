@@ -1,98 +1,21 @@
-<div class="headline">
-  <h1>My Events</h1>
-</div>
+<div class="headline" id="top-of-page"><h1>My Events</h1></div>
 
 <div class="dashboard-container">
-
   <div class="event-card-section-container">
     <% if @created_ats.empty? %>
-      <div class="no-events">
-        <div class="no-events-message">
-          <p id="no-events-message-text">Nothing to see here.</p>
-          <%= link_to "back to Dashboard", dashboard_index_path, class: "button-back-to-dashboard" %>
-          <p>Why don't you throw a little get together for your friends?</p>
-          <%= link_to "Create", new_event_path, class: "button-create-home" %>
-        </div>
-      </div>
-
+      <%= render "no_events_message" %>
     <% else %>
-        <div class="filter-row">
-          <div class="filter-content">
-            <%= form_tag(dashboard_index_path, method: :get, class: "filter-form") do %>
-              <%= check_box_tag 'filtering[]', 'hosting', params[:filtering].try(:include?, ("hosting")), class: "checkbox-hosting" %>
-              <%= label_tag "HOSTING", nil, id: "filter-label-hosting" %>
-              <%= check_box_tag 'filtering[]', 'accepted', params[:filtering].try(:include?, ("accepted")), class: "checkbox-accepted" %>
-              <%= label_tag "ATTENDING", nil, id: "filter-label-accepted" %>
-              <%= check_box_tag 'filtering[]', 'pending', params[:filtering].try(:include?, ("pending")), class: "checkbox-pending" %>
-              <%= label_tag "PENDING", nil, id: "filter-label-pending" %>
-              <%= submit_tag "Filter", class:'button-filter' %>
-            <% end %>
-          </div>
-        </div>
-
+      <%= render "filter" %>
       <% @created_ats.each do |day| %>
-
         <div class="event-card-section">
-          <button type="button" class="collapsible date-box"> <%= day[0].strftime("%A, %b %d") %> </button>
-          <div class="content">
-            <% day[1].each do |day_event| %>
-
-              <%= link_to event_path(day_event.id) do %>
-                <div class="event-card-link">
-
-  <!--  -->
-                  <% if day_event.user == current_user %>
-                    <div class="event-card-hosting">
-                  <% elsif @invitations_data.include?([day_event.id, "accepted"]) %>
-                    <div class="event-card-accepted">
-                  <% elsif @invitations_data.include?([day_event.id, "pending"]) %>
-                    <div class="event-card-pending">
-                  <% end %>
-                      <div class="event-card-header"><h6 id="event-title"><%= "#{day_event.title}" %></h6>
-                        <% if day_event.user == current_user %>
-                          <div class="event-card-status-circle-hosting"></div>
-                        <% elsif @invitations_data.include?([day_event.id, "accepted"]) %>
-                          <div class="event-card-status-circle-accepted"></div>
-                        <% elsif @invitations_data.include?([day_event.id, "pending"]) %>
-                          <div class="event-card-status-circle-pending"></div>
-                        <% end %>
-
-                      </div>
-                      <% if day_event.banner.attached? %>
-                        <div class="event-card-body" style="background-image: url('<%= cl_image_path day_event.banner.key %>')">
-                      <% else %>
-                        <div class="event-card-body" style="background-image: url(https://images.unsplash.com/photo-1605478328994-f93e98217da7?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDV8fHBhdHRlcm4lMjBkYXJrfGVufDB8fDB8&auto=format&fit=crop&w=800&q=60)">
-                      <% end %>
-
-                        <% if day_event.user == current_user %>
-                           <div class="overlay-hosting">
-                        <% elsif @invitations_data.include?([day_event.id, "accepted"]) %>
-                          <div class="overlay-accepted">
-                        <% elsif @invitations_data.include?([day_event.id, "pending"]) %>
-                          <div class="overlay-pending">
-                        <% end %>
-                            <p><i class="far fa-clock"></i> <%= day_event.scheduled_at.strftime("%l:%M %p") %></p>
-                            <p><i class="fas fa-map-marker-alt"></i> <%= day_event.location %></p>
-                          </div>
-
-
-                        <% if @invitations_data.include?([day_event.id, "pending"]) %>
-                          <div class="event-card-footer-symbols">
-                            <%= link_to(invitation_path(day_event.invitations.where(receiver_id: current_user.id).first, status: "accepted"), title: "Edit event",method: :patch) do %>
-                              <i class="fas fa-check-circle"></i>
-                            <% end %>
-                            <%= link_to(invitation_path(day_event.invitations.where(receiver_id: current_user.id).first, status: "declined"), method: :patch) do  %>
-                              <i class="fas fa-times-circle"></i>
-                            <% end %>
-                          </div>
-                        <% end %>
-
-                      </div>
-                    </div>
-  <!--  -->
-
-                </div>
-              <% end %>
+          <div class="content w-100vw d-flex flex-wrap" >
+          <button type="button" class= "collapsible" id="today-anchor"> <%= day[0].strftime("%A, %b %d") %>
+          </button>
+          <% day[1].each do |day_event| %>
+            <% collapse_today = day_event.scheduled_at.today? ? "display: flex;" : "" %>
+            <div style="<%= @active %> <%= collapse_today %>">
+              <%= render "card_section", invitations_data: @invitations_data, day_event: day_event, active: @active %>
+            </div>
             <% end %>
           </div>
         </div>

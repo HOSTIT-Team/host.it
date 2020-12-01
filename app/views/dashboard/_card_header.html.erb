@@ -1,0 +1,9 @@
+<div class="event-card-header"><h6 id="event-title"><%= "#{day_event.title}" %></h6>
+  <% if day_event.user == current_user %>
+    <div class="event-card-status-circle-hosting"></div>
+  <% elsif invitations_data.include?([day_event.id, "accepted"]) %>
+    <div class="event-card-status-circle-accepted"></div>
+  <% elsif invitations_data.include?([day_event.id, "pending"]) %>
+    <div class="event-card-status-circle-pending"></div>
+  <% end %>
+</div>

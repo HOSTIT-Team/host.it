@@ -12,45 +12,24 @@
   }
 }
 
-.date-box {
+.collapsible {
   background-color: black;
   border-radius: 2px;
   color: white;
   height: 30px;
-  text-align: center;
-  padding: 4px 4px 4px 8px;
+  padding: 4px 4px 4px 10px;
   width: 170px;
   position: absolute;
   top: -16px;
   left: -20px;
   text-align: left;
-  p {
-    margin: 0px;
-  }
-}
-.collapsible {
   cursor: pointer;
   border: none;
   outline: none;
 }
 
-.collapsible:after {
-  content: '+'; /* Unicode character for "plus" sign (+) */
-  font-size: 20px;
-  color: white;
-  // margin-right: 5px;
-}
-
 .active, .collapsible:hover {
   background-color: $magenta;
-}
-
-.active:after {
-  content: "-"; /* Unicode character for "minus" sign (-) */
-  color: white;
-  font-size: 20px;
-  padding-left: 10px;
-  // margin-right: 5px;
 }
 
 .content {
@@ -61,6 +40,17 @@
 .headline {
   text-align: left;
   padding: 0 5% 60px;
+}
+
+#filter-icon {
+  i {
+    color: black;
+    font-size: 18px;
+  }
+  i:hover {
+    font-size: 20px;
+    font-weight: bold;
+  }
 }
 
 .filter-row {
@@ -233,6 +223,16 @@
   position: relative;
   border-radius: 4px;
   width: 100%;
+}
+
+.event-card-section-inner {
+  display: flex;
+}
+
+i.fas.fa-filter::before {
+  position: absolute;
+  right: 15px;
+  top: 15px;
 }
 
 

@@ -1,0 +1,14 @@
+<div class="event-card-link">
+<% if day_event.user == current_user %>
+  <div class="event-card-hosting">
+<% elsif invitations_data.include?([day_event.id, "accepted"]) %>
+  <div class="event-card-accepted">
+<% elsif invitations_data.include?([day_event.id, "pending"]) %>
+  <div class="event-card-pending">
+<% end %>
+      <%= render "card_header", invitations_data: invitations_data, day_event: day_event %>
+      <%= render "card_image", day_event: day_event %>
+      <%= render "card_overlay", invitations_data: invitations_data, day_event: day_event %>
+      <%= render "card_footer", invitations_data: invitations_data, day_event: day_event %>
+  </div>
+</div>
