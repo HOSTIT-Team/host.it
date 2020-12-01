@@ -181,7 +181,11 @@
             <div class="message-username-time">
           <% end %>
               <% if message.user.full_name %>
-                <div class="message-username"><%= message.user.full_name %></div>
+                <% unless message.user == current_user %>
+                  <div class="message-username"><%= message.user.full_name %></div>
+                <% else %>
+                  <div class="message-username">You</div>
+                <% end %>
               <% else %>
                 <div class="message-username">Nemo</div>
               <% end %>

@@ -521,7 +521,7 @@
       .message-container {
         display: flex;
         margin-bottom: 16px;
-        width: 80%;
+        width: fit-content;
         flex-direction: row;
         border-radius: 2px;
 
@@ -538,10 +538,12 @@
           border-left: 6px solid $violet;
           background: #ab99fb33;
           padding: 8px;
-          width: 80%;
+          max-width: 35vw;
+          border-radius: 2px;
 
           .message-username-time {
             display: flex;
+            width: max-content;
 
             .message-username {
               margin-right: 8px;
