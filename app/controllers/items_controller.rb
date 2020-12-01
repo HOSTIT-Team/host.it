@@ -17,18 +17,18 @@ class ItemsController < ApplicationController
         authorize @item
         @item.user = current_user
         @item.save
+        redirect_to event_path(@event, anchor: "items-anchor")
     end
     def create
        @item =Item.new(item_params)
         authorize @item
         @item.event = @event
         if @item.save
-            redirect_to @event
+            redirect_to event_path(@event, anchor: "items-anchor")
         else 
           render :new      
        end
     end
-
 
     private
     
