@@ -3,12 +3,14 @@ import consumer from "./consumer";
 const initChatroomCable = () => {
   const messagesContainer = document.querySelector('.chat-box');
   if (messagesContainer) {
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
     const id = messagesContainer.dataset.chatroomId;
-    console.log("at least i am here")
-    console.log(id)
     consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
       received(data) {
-        console.log(data); // called when data is broadcast in the cable
+        messagesContainer.insertAdjacentHTML('beforeend', data);
+        const input = document.querySelector("#chat-input");
+        input.value = "";
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
       },
     });
   }

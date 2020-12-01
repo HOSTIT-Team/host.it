@@ -6,6 +6,7 @@ class EventsController < ApplicationController
     authorize @event
     @invitation = Invitation.new
     @invitations = Invitation.where(event: @event)
+    @message = Message.new
     @marker = {
       lat: @event.latitude, 
       lng: @event.longitude,

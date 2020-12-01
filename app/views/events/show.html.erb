@@ -77,7 +77,7 @@
         <% if current_user == @event.user %>
         <div class="invite-form-container">
           <div class="invite-email-input">
-            <%= simple_form_for [@event, @invitation] do |f| %>
+            <%= simple_form_for [@event, @invitation], remote: true do |f| %>
               <%= f.input :receiver_email, label: false, placeholder: "Send invite via e-mail" %>
               <%= button_tag type: :submit, class: "invite-button" do %>
                 <i class="far fa-paper-plane"></i>
@@ -202,8 +202,8 @@
       <% end %>
     </div>
     <div class="chat-form">
-      <%= simple_form_for [@event, Message.new], anchor: "event-chat" do |f| %>
-        <%= f.input :content, id: "chat-input", label: false, placeholder: "Chat with the other guests.." %>
+      <%= simple_form_for [@event, @message ], remote: true do |f| %>
+        <%= f.input :content, input_html: {id: "chat-input"}, label: false, placeholder: "Chat with the other guests.." %>
         <%= button_tag type: :submit, class: "send-button" do %>
           <i class="far fa-paper-plane"></i>
         <% end %>

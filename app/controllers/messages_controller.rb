@@ -11,9 +11,9 @@ class MessagesController < ApplicationController
     if message.save
       ChatroomChannel.broadcast_to(
         message.chatroom,
-        render_to_string(partial: "message", locals: { message: message })
+        render_to_string(partial: "messages/message", locals: { message: message })
       )
-      # redirect_to event_path(@event, anchor: "event-chat")
+      # redirect_to event_path(@event, anchor: "message-#{message.id}")
       # flash.alert = "Message sent."
     else 
       render "events/show"
