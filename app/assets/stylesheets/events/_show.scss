@@ -558,11 +558,12 @@
           }
 
           .username-time-right {
-            justify-content: flex-end;
+            margin-left: auto;
           }
 
           .message-content {
             font-size: 1.1rem;
+            word-wrap: break-word;
           }
 
           .message-content-user {
