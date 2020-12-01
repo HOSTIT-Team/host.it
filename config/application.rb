@@ -22,3 +22,13 @@ module HostIt
     # the framework and any gems in your application.
   end
 end
+
+RSpotify::authenticate("9d38d852e3ef44e68630237054efceef", "0eec3ae0c2e249ba9313ec266eab476c")
+
+module SpotifyOmniauthExtension
+  extend ActiveSupport::Concern
+
+  def callback_url
+    full_host + script_name + callback_path
+  end 
+end

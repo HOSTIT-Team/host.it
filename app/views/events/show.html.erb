@@ -64,13 +64,12 @@
         <% end %>
       </div>
       <a href="" class="list-button button-invite">See list</a>
-    
     </div>
     
-    <div id="map"
-      data-markers="<%= @marker.to_json %>"
-      data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"]%>">
-    </div>
+      <div id="map"
+        data-markers="<%= @marker.to_json %>"
+        data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"]%>">
+      </div>
 
     <div class="invite-modal">
       <div class="invite-content">
@@ -160,9 +159,10 @@
   </div >
   <div class="event-chat" id="event-chat"> 
     <div class="chat-box">
-      <% @event.messages.each do |message| %>
+      <% @event.chatroom.messages.each do |message| %>
         <% if message.user == current_user %>
         <div class="message-container message-container-user" id="message-<%= message.id %>">
+        <a href="linkto google <%= message.id %>,<%= message.id %>"></a>
         <% else %>
         <div class="message-container" id="message-<%= message.id %>">
         <% end %>
@@ -185,7 +185,7 @@
               <% else %>
                 <div class="message-username">Nemo</div>
               <% end %>
-              <div class="message-time"><%= message.created_at.strftime("on %a %b %e at %l:%M %p") %></div>
+              <div class="message-time"><%= message.created_at %></div>
             </div>
             <% if message.user == current_user  %>
             <div class="message-content message-content-user">
@@ -199,7 +199,7 @@
       <% end %>
     </div>
     <div class="chat-form">
-      <%= simple_form_for [@event, Message.new], anchor: "event-chat" do |f| %>
+      <%= simple_form_for [@event, Message.new], achor: "event-chat" do |f| %>
         <%= f.input :content, id: "chat-input", label: false, placeholder: "Chat with the other guests.." %>
         <%= button_tag type: :submit, class: "send-button" do %>
           <i class="far fa-paper-plane"></i>
