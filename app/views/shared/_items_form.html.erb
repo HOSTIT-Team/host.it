@@ -1,3 +1,4 @@
+
 <div class="list-container" background-color: white >
         <%# <h2>Anything this party needs?</h2> %>
         <div class="items-list">
@@ -5,14 +6,17 @@
             <%# <tr><th>Item</th><th>Brought by</th></tr> %>
             <% @event.items.each do |item| %>
               <% if item.user_id != nil %>
+                 <% if item.user.first_name == nil %>
+                  <tr><td id="items-<%=item.id%>"> <%= item.name %></td>
+                  <td>Somebody</td></tr>
+                <% else %>
                   <tr><td id="items-<%=item.id%>"> <%= item.name %></td>
                   <td><%= item.user.first_name %></td></tr>
+                  <% end %>
                 <% else %>
-                
                   <tr><td id="items-<%=item.id%>"> <%= item.name %></td>
-                  <td><button type="button" class="button-create"><%= link_to 'Bring it', item_path(item), method: :patch, remote: true %></button></td>
-             
-                <% end %>
+                  <td><%= button_to 'Bring it', item_path(item), class:"button-create", method: :patch, remote: true %></td>
+                 <% end %>
             <% end %>
             </table>
         </div>

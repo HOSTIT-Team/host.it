@@ -12,15 +12,17 @@ class ItemsController < ApplicationController
         authorize @item
         @item.user = current_user
         @item.save
-        redirect_to event_path(@event, anchor: "items-#{@item.id}")
+        redirect_to event_path(@event, anchor: "items-anchor")
+        # redirect_to event_path(@event, anchor: "items-#{@item.id}")
+
     end
     def create
        @item =Item.new(item_params)
         authorize @item
         @item.event = @event
         if @item.save
-            redirect_to event_path(@event, anchor: "items-#{@item.id}")
-            # render template:"shared/items_form", id:"items-anchor"
+            redirect_to event_path(@event, anchor: "items-anchor")
+            # render template:"shared/items_form", id:"items-anchor"  
         else 
           render "events/show"
        end
