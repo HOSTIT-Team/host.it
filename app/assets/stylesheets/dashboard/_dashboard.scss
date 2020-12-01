@@ -5,7 +5,6 @@
   padding: 0 5% 80px;
 }
 
-
 .event-card-section-container {
   width: 75%;
   a:hover {
@@ -18,10 +17,39 @@
   padding: 0 5% 60px;
 }
 
-.legend {
+.filter-row {
   display: flex;
   margin-bottom: 4px;
   justify-content: flex-end;
+  .filter-form {
+    padding-top: 3px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+  .filter-content {
+  border-radius: 2px;
+  padding: 5px 20px 5px 20px;
+  background-color: black;
+  width: 410px;
+  height: 50px;
+  align-items: center;
+  }
+}
+
+#filter-label-hosting {
+  color: $violet;
+  margin: 0px 15px 0px 5px;
+}
+
+#filter-label-accepted {
+  color: $green;
+  margin: 0px 15px 0px 5px;
+}
+
+#filter-label-pending {
+  color: $blue;
+  margin: 0px 20px 0px 5px;
 }
 
 .button-filter {
@@ -30,37 +58,48 @@
   font-weight: bold;
   color:white;
   text-decoration:none;
-  padding: 5px 20px 5px 20px;
+  padding: 3px 20px 3px 20px;
   border: 1.5px solid black;
   border-radius:3px;
   text-decoration: none;
+  margin: 0px;
    &:hover {
     text-decoration: none;
-    background-color:$black;
+    background-color:$violet;
     color: white;
   }
 }
 
-
 .no-events {
   display: flex;
   justify-content: space-around;
-  padding-top: 40px;
-  margin: 80px 0px;
-}
-
-.no-events-message {
-  text-align: center;
-  width: 500px;
-}
-
-#no-events-message-text {
-    color: $magenta;
-    font-size: 30px;
-    margin-bottom: 30px;
+  // padding-top: 40px;
+  margin: 60px 0px;
+  .no-events-message {
+    text-align: center;
+    width: 500px;
   }
+  #no-events-message-text {
+      color: $green;
+      font-size: 30px;
+      margin: 0px;
+    }
+  .button-back-to-dashboard {
+    cursor: pointer;
+    color: $green;
+    text-decoration: none;
+    font-size: 15px;
+     &:hover {
+      text-decoration: none;
+      font-weight: bold;
+    }
+  }
+  p {
+    margin-top: 50px;
+  }
+}
 
-.host-button {
+.hosting-button {
   width: 100px;
   height: 30px;
   border-radius: 2px;
@@ -79,7 +118,7 @@
   }
 }
 
-.guest-button {
+.accepted-button {
   width: 100px;
   height: 30px;
   border-radius: 2px;
@@ -98,11 +137,11 @@
   }
 }
 
-.invitation-button {
+.pending-button {
   width: 100px;
   height: 30px;
   border-radius: 2px;
-  background-color: $magenta;
+  background-color: $blue;
   border-color: black;
   border: solid;
   border-width: 2px;
@@ -116,21 +155,21 @@
   }
 }
 
-.host-button:hover {
+.hosting-button:hover {
   font-weight: bold;
   font-size: 16px;
   background-color: black;
   text-decoration: none;
 }
 
-.guest-button:hover {
+.accepted-button:hover {
   font-weight: bold;
   font-size: 16px;
   background-color: black;
   text-decoration: none;
 }
 
-.invitation-button:hover {
+.pending-button:hover {
   font-weight: bold;
   font-size: 16px;
   background-color: black;
@@ -167,7 +206,7 @@
 }
 
 
-.event-card-hosting, .event-card-pending, .event-card-attending {
+.event-card-hosting, .event-card-pending, .event-card-accepted {
   border-color: black;
   border-radius: 2px;
   border: solid;
@@ -194,7 +233,7 @@
   }
 }
 
-.event-card-status-circle-host {
+.event-card-status-circle-hosting {
   background-color: $violet;
   height: 40px;
   width: 40px;
@@ -206,7 +245,7 @@
   left: 43%;
 }
 
-.event-card-status-circle-guest {
+.event-card-status-circle-accepted {
   background-color: $green;
   height: 40px;
   width: 40px;
@@ -218,8 +257,8 @@
   left: 43%;
 }
 
-.event-card-status-circle-invitation {
-  background-color: $magenta;
+.event-card-status-circle-pending {
+  background-color: $blue;
   height: 40px;
   width: 40px;
   border-radius: 20px;
@@ -243,7 +282,7 @@
   }
 }
 
-.event-card-hosting, .event-card-attending, .event-card-pending {
+.event-card-hosting, .event-card-accepted, .event-card-pending {
   box-shadow: 7px 7px 14px #6d6855,
              -7px -7px 14px #ffffff;
 }
@@ -261,7 +300,7 @@
   }
 }
 
-.overlay-host {
+.overlay-hosting {
   position: absolute;
   background-color: rgba(171, 153, 251, 0.6);
   top: 0;
@@ -273,7 +312,7 @@
   transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.overlay-guest {
+.overlay-accepted {
   position: absolute;
   background-color: rgba(87, 136, 108, 0.6);
   top: 0;
@@ -285,9 +324,9 @@
   transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.overlay-invitation {
+.overlay-pending {
   position: absolute;
-  background-color: rgba(221, 17, 85, 0.6);
+  background-color: rgba(210, 253, 255, 0.6);
   top: 0;
   left: 0;
   height: 100%;
@@ -297,15 +336,15 @@
   transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.event-card-body:hover .overlay-host {
+.event-card-body:hover .overlay-hosting {
   opacity: 1;
 }
 
-.event-card-body:hover .overlay-guest {
+.event-card-body:hover .overlay-accepted {
   opacity: 1;
 }
 
-.event-card-body:hover .overlay-invitation {
+.event-card-body:hover .overlay-pending {
   opacity: 1;
 }
 
