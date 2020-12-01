@@ -28,7 +28,7 @@ import { bannerUpload } from "events/edit";
 import { init_flatpickr } from "../plugins/flatpickr";
 import { initTilt } from "../plugins/tilt";
 import { inviteModal, copyLink } from "events/show";
-// import { initMapbox } from "../plugins/init_mapbox";
+import { initMapbox } from "../plugins/init_mapbox";
 import { initSlides } from "../plugins/slides";
 import { navbarScroll } from "../pages/navbar_scroll"
 
@@ -40,7 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   init_flatpickr();
   initTilt();
   inviteModal();
-  // initMapbox();
+  initMapbox();
   initSlides();
   navbarScroll();
   copyLink();
