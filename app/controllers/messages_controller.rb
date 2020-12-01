@@ -4,9 +4,6 @@ class MessagesController < ApplicationController
     message = Message.new(strong_params)
     message.chatroom = @event.chatroom
     message.user = current_user
-    # not needed after webcocket is implemented, probably
-    @invitation = Invitation.new
-    @invitations = @event.invitations
     authorize message
     if message.save
       ChatroomChannel.broadcast_to(
