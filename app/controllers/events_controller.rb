@@ -7,7 +7,11 @@ class EventsController < ApplicationController
     @item = Item.new
     @invitation = Invitation.new
     @invitations = Invitation.where(event: @event)
-    @marker = {lat: @event.latitude, lng: @event.longitude}
+    @marker = {
+      lat: @event.latitude, 
+      lng: @event.longitude,
+      image_url: helpers.asset_url('marker.svg')
+    };
   end
 
   def new
@@ -18,6 +22,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(strong_params)
     @event.user = current_user
+    @event.chatroom = Chatroom.new
     authorize @event
     if @event.save
       redirect_to event_path(@event)
@@ -45,7 +50,7 @@ class EventsController < ApplicationController
   def destroy
     authorize @event
     if @event.destroy!
-      redirect_to root_path
+      redirect_to dashboard_index_path
       flash.alert = "Event deleted"
     else
       render :show

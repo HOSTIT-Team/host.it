@@ -87,6 +87,7 @@
 
 
   .event-guest-map {
+    position:relative;
     background-color: $beige;
     border-radius: 2px;
     padding: 48px;
@@ -434,6 +435,73 @@
       border: 1.5px solid black;
       border-radius: 2px;
       margin-bottom: 32px;
+      padding: 16px;
+      overflow: scroll;
+      display: flex;
+      flex-direction: column;
+
+      .message-container {
+        display: flex;
+        margin-bottom: 16px;
+        width: 80%;
+        flex-direction: row;
+        border-radius: 2px;
+
+        .chat-avatar {
+          width: 45px;
+          height: 60px;
+          border: 1.5px solid black;
+          border-radius: 2px;
+          background-size: cover;
+          margin-right: 8px;
+        }
+
+        .message {
+          border-left: 6px solid $violet;
+          background: #ab99fb33;
+          padding: 8px;
+          width: 80%;
+
+          .message-username-time {
+            display: flex;
+
+            .message-username {
+              margin-right: 8px;
+              font-size: 0.9rem;
+            }
+
+            .message-time {
+              font-size: 0.8rem;
+              color: gray;
+              align-self: center;
+            }
+          }
+
+          .username-time-right {
+            justify-content: flex-end;
+          }
+
+          .message-content {
+            font-size: 1.1rem;
+          }
+
+          .message-content-user {
+            text-align: right;
+          }
+        }
+
+        .message-user {
+          align-self: flex-end;
+          border-right: 6px solid $green;
+          border-left: none;
+          background: #57886c33;
+        }
+      }
+
+      .message-container-user {
+        align-self: flex-end;
+        flex-direction: column;
+      }
     }
     .chat-form {
       display: flex;
@@ -441,31 +509,54 @@
       border: 1.5px solid black;
       border-radius: 2px;
       background-color: $white;
-      #chat-input {
-        background-color: $white;
-        font-size: 1.3rem;
-        width: 95%;
-        border: none;
-        border-radius: 0;
-        padding: 8px 16px;
-      }
-
-      .send-button {
-        background-color: $white;
-        width: 5%;
+      form {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        a {
+        width: 100%;
+
+        .form-group {
+          width: 100%;
+          margin: 0;
+          &:focus {
+            outline: 0;
+          }
+        }
+
+        .form-control {
+          background-color: $white;
+          font-size: 1.3rem;
+          width: 95%;
+          border: none;
+          border-radius: 0;
+          padding: 8px 16px;
+          &:focus {
+            outline: 0;
+            box-shadow: none;
+          }
+        }
+
+        .send-button {
+          background-color: $white;
+          width: 5%;
           display: flex;
           justify-content: center;
           align-items: center;
-          width: 100%;
-          font-size: 1.7rem;
-          color: $black;
-          &:hover {
-            text-decoration: none;
-            color: $magenta;
+          border: none;
+
+          &:focus {
+            outline: 0;
+          }
+
+          i {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            font-size: 1.7rem;
+            color: $black;
+            &:hover {
+              text-decoration: none;
+              color: $magenta;
+            }
           }
         }
       }
@@ -483,3 +574,25 @@
   align-items: flex-end;
   border-radius: 2px;
 }
+
+#button-map {
+  position: absolute;
+  right: 130px;
+  bottom: 25px;
+  padding: 0 42px 42px 42px;
+    .button-map {
+      background-color:#DD1155;
+      cursor: pointer;
+      color:white;
+      text-decoration:none;
+      padding: 15px 20px 15px 20px;
+      border: 1.5px solid black;
+      border-radius:3px;
+      text-decoration: none;
+        &:hover {
+          text-decoration: none;
+          background-color:black;
+          color: white;
+        }
+      }
+    }
