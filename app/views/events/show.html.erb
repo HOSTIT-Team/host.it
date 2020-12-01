@@ -141,21 +141,16 @@
     </div>
   </div>
 
-  <div class="event-items-playlist">
-    <div class="bring-list">
-      <div class="items">
-      </div>
-      <div class="bring-form">
-          <input id="item-input" type="text" placeholder="Add what you will bring!">
-          <div class="add-item" >
-            <%= link_to do %>
-                <i class="far fa-plus-square"></i>
-            <% end %>
-          </div>
-      </div>
+  <div class="items-playlist" id='items-anchor' >
+    <div class ='items-container'>
+    <h2 id="items-title"> Who's bringing what'?</h2>
+      <%= render "shared/items_form" %>
     </div>
-    <div class="playlist">
-    <iframe src="https://open.spotify.com/embed/playlist/0K0RsJ0xxaTDZIKQ1vszY3" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    <div class ='playlist-container'>
+      <div class="playlist">
+        <h2>Music</h2>
+        <iframe src="https://open.spotify.com/embed/playlist/0K0RsJ0xxaTDZIKQ1vszY3" width="300" height="420" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+      </div>
     </div>
   </div >
   <div class="event-chat" id="user-<%= current_user.id %>"> 
@@ -211,3 +206,4 @@
     </div>
   </div>
 </div>
+
