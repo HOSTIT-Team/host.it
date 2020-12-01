@@ -159,7 +159,7 @@
     </div>
   </div >
   <div class="event-chat" id="event-chat"> 
-    <div class="chat-box">
+    <div class="chat-box" data-chatroom-id="<%= @event.chatroom.id %>">
       <% @event.messages.each do |message| %>
         <% if message.user == current_user %>
         <div class="message-container message-container-user" id="message-<%= message.id %>">

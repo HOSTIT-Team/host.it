@@ -1,0 +1,38 @@
+<% if message.user == current_user %>
+<div class="message-container message-container-user" id="message-<%= message.id %>">
+<% else %>
+<div class="message-container" id="message-<%= message.id %>">
+<% end %>
+  <% unless current_user == message.user %>
+    <% if message.user.avatar.attached? %>
+      <div class="chat-avatar" style="background-image: url('<%= cl_image_path message.user.avatar.key %>')"></div>
+    <% else %>
+      <div class="chat-avatar" style="background-image: url('<%= image_path "placeholder-avatar.png" %>')"></div>
+    <% end %>  
+  <% end %>
+  <% if message.user == current_user %>
+  <div class="message message-user">
+  <div class="message-content message-content-user">
+  <%= message.content %>
+    </div>
+    <div class="message-username-time username-time-right">
+  <% else %>
+  <div class="message">
+  <div class="message-content">
+  <%= message.content %>
+    </div>
+    <div class="message-username-time">
+  <% end %>
+      <% if message.user.full_name %>
+        <% unless message.user == current_user %>
+          <div class="message-username"><%= message.user.full_name %></div>
+        <% else %>
+          <div class="message-username">You</div>
+        <% end %>
+      <% else %>
+        <div class="message-username">Nemo</div>
+      <% end %>
+      <div class="message-time"><%= message.created_at.strftime("on %a %b %e at %l:%M %p") %></div>
+    </div>
+  </div>
+</div>

@@ -4,12 +4,17 @@ class MessagesController < ApplicationController
     message = Message.new(strong_params)
     message.chatroom = @event.chatroom
     message.user = current_user
+    # not needed after webcocket is implemented, probably
     @invitation = Invitation.new
     @invitations = @event.invitations
     authorize message
     if message.save
-      redirect_to event_path(@event, anchor: "event-chat")
-      flash.alert = "Message sent."
+      ChatroomChannel.broadcast_to(
+        message.chatroom,
+        render_to_string(partial: "message", locals: { message: message })
+      )
+      # redirect_to event_path(@event, anchor: "event-chat")
+      # flash.alert = "Message sent."
     else 
       render "events/show"
       flash.alert = "Error: Message could not be sent."
