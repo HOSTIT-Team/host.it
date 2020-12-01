@@ -168,7 +168,7 @@
         <% end %>
           <% unless current_user == message.user %>
             <% if message.user.avatar.attached? %>
-              <div class="chat-avatar" style="background-image: url('<%= cl_image_path @event.user.avatar.key %>')"></div>
+              <div class="chat-avatar" style="background-image: url('<%= cl_image_path message.user.avatar.key %>')"></div>
             <% else %>
               <div class="chat-avatar" style="background-image: url('<%= image_path "placeholder-avatar.png" %>')"></div>
             <% end %>  
