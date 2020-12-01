@@ -87,7 +87,7 @@
 
 
   .event-guest-map {
-    position:relative;
+    position: relative;
     background-color: $beige;
     border-radius: 2px;
     padding: 48px;
@@ -286,6 +286,7 @@
         height: 50vh;
         display: flex;
         flex-direction: column;
+        overflow-x: hidden;
 
         &::-webkit-scrollbar {
           width: 8px;
@@ -302,10 +303,6 @@
 
         &::-webkit-scrollbar-thumb:hover {
           background: $magenta;
-        }
-
-        &::-webkit-scrollbar-corner {
-          background-color: $beige;
         }
 
         .invitee {
@@ -435,15 +432,33 @@
       border: 1.5px solid black;
       border-radius: 2px;
       margin-bottom: 32px;
-      padding: 16px;
+      padding: 16px 8px 16px 16px;
       overflow: scroll;
       display: flex;
       flex-direction: column;
+      overflow-x: hidden;
+
+      &::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: $white;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: $black;
+        border-radius: 2px;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: $magenta;
+      }
 
       .message-container {
         display: flex;
         margin-bottom: 16px;
-        width: 80%;
+        width: fit-content;
         flex-direction: row;
         border-radius: 2px;
 
@@ -459,11 +474,14 @@
         .message {
           border-left: 6px solid $violet;
           background: #ab99fb33;
-          padding: 8px;
-          width: 80%;
+          padding: 8px 10px 8px 8px;
+          max-width: 35vw;
+          border-radius: 2px;
 
           .message-username-time {
             display: flex;
+            width: max-content;
+            margin-top: 4px;
 
             .message-username {
               margin-right: 8px;
@@ -478,11 +496,12 @@
           }
 
           .username-time-right {
-            justify-content: flex-end;
+            margin-left: auto;
           }
 
           .message-content {
             font-size: 1.1rem;
+            word-wrap: break-word;
           }
 
           .message-content-user {
@@ -495,6 +514,7 @@
           border-right: 6px solid $green;
           border-left: none;
           background: #57886c33;
+          padding: 8px 8px 8px 10px;
         }
       }
 
@@ -580,19 +600,19 @@
   right: 130px;
   bottom: 25px;
   padding: 0 42px 42px 42px;
-    .button-map {
-      background-color:#DD1155;
-      cursor: pointer;
-      color:white;
-      text-decoration:none;
-      padding: 15px 20px 15px 20px;
-      border: 1.5px solid black;
-      border-radius:3px;
+  .button-map {
+    background-color: #dd1155;
+    cursor: pointer;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px 15px 20px;
+    border: 1.5px solid black;
+    border-radius: 3px;
+    text-decoration: none;
+    &:hover {
       text-decoration: none;
-        &:hover {
-          text-decoration: none;
-          background-color:black;
-          color: white;
-        }
-      }
+      background-color: black;
+      color: white;
     }
+  }
+}

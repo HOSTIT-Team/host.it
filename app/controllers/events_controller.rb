@@ -7,6 +7,7 @@ class EventsController < ApplicationController
     @item = Item.new
     @invitation = Invitation.new
     @invitations = Invitation.where(event: @event)
+    @message = Message.new
     @marker = {
       lat: @event.latitude, 
       lng: @event.longitude,
