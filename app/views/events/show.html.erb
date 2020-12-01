@@ -1,6 +1,6 @@
 <div class="event-container">
   <% if @event.banner.attached? %>
-    <div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @event.banner.key %>')"> 
+    <div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @event.banner.key %>')">
   <% else %>
     <div class="event-banner">
   <% end %>
@@ -64,9 +64,9 @@
         <% end %>
       </div>
       <a href="" class="list-button button-invite">See list</a>
-    
+
     </div>
-    
+
     <div id="map"
       data-markers="<%= @marker.to_json %>"
       data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"]%>">
@@ -144,8 +144,7 @@
   <div class="items-playlist" id='items-anchor' >
     <div class ='items-container'>
     <h2 id="items-title"> Who's bringing what'?</h2>
-      <%= render "shared/items_form" %>
-    </div>
+     <div id='test'> <%= render "shared/items_form" %></div>
     <div class ='playlist-container'>
       <div class="playlist">
         <h2>Music</h2>
@@ -153,7 +152,7 @@
       </div>
     </div>
   </div >
-  <div class="event-chat" id="event-chat"> 
+  <div class="event-chat" id="event-chat">
     <div class="chat-box">
       <% @event.messages.each do |message| %>
         <% if message.user == current_user %>
@@ -166,7 +165,7 @@
               <div class="chat-avatar" style="background-image: url('<%= cl_image_path @event.user.avatar.key %>')"></div>
             <% else %>
               <div class="chat-avatar" style="background-image: url('<%= image_path "placeholder-avatar.png" %>')"></div>
-            <% end %>  
+            <% end %>
           <% end %>
           <% if message.user == current_user %>
           <div class="message message-user">

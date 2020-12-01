@@ -21,10 +21,10 @@
             </table>
         </div>
         <div class="items-form">
-            <%= simple_form_for([@event, @item], remote: true) do |f| %>
+            <%= simple_form_for([@event, Item.new], remote: true) do |f| %>
             <div class="add-item">
               <%= f.input :name, :placeholder => "Enter item", label: false %>
-              <%= f.submit "Add Item", class: "button-create" %>  
+              <%= f.submit "Add Item", class: "button-create" %>
             </div>
             <% end %>
         </div>

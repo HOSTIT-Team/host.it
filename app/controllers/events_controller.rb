@@ -8,7 +8,7 @@ class EventsController < ApplicationController
     @invitation = Invitation.new
     @invitations = Invitation.where(event: @event)
     @marker = {
-      lat: @event.latitude, 
+      lat: @event.latitude,
       lng: @event.longitude,
       image_url: helpers.asset_url('marker.svg')
     };
