@@ -537,13 +537,14 @@
         .message {
           border-left: 6px solid $violet;
           background: #ab99fb33;
-          padding: 8px;
+          padding: 8px 10px 8px 8px;
           max-width: 35vw;
           border-radius: 2px;
 
           .message-username-time {
             display: flex;
             width: max-content;
+            margin-top: 4px;
 
             .message-username {
               margin-right: 8px;
@@ -576,6 +577,7 @@
           border-right: 6px solid $green;
           border-left: none;
           background: #57886c33;
+          padding: 8px 8px 8px 10px;
         }
       }
 

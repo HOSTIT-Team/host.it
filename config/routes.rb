@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   resources :dashboard, only: [:index]
   resources :users, only: [:show, :edit, :update, :new]
   resources :invitations, only: [:update]
-  resources :messages, only: [:destroy]
+  resources :messages, only: :destroy
 end
