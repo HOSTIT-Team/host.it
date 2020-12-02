@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :items, only: :update
   resources :dashboard, only: [:index]
   resources :users, only: [:show, :edit, :update, :new]
+  get '/auth/spotify/callback', to: 'users#spotify'
   resources :invitations, only: [:update, :destroy]
   resources :messages, only: :destroy
 end

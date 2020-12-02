@@ -22,3 +22,5 @@ module HostIt
     # the framework and any gems in your application.
   end
 end
+
+# RSpotify::authenticate(" removed try putting it in env", "removed try putting it in env")
