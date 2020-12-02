@@ -3,7 +3,7 @@
     <% if current_user == @event.user %>
     <div class="invite-form-container">
       <div class="invite-email-input">
-        <%= simple_form_for [@event, @invitation], remote: true do |f| %>
+        <%= simple_form_for [@event, @invitation] do |f| %>
           <%= f.input :receiver_email, label: false, placeholder: "Send invite via e-mail" %>
           <%= button_tag type: :submit, class: "invite-button" do %>
             <i class="far fa-paper-plane"></i>
@@ -19,7 +19,7 @@
     <% end %>
     <div class="invitations">
       <% @invitations.each do |invitation| %>
-        <div class="invitee">
+        <div class="invitee" id="invitation-<%= invitation.id %>">
           <% if invitation.receiver %>
             <%= link_to "", user_path(invitation.receiver), class: "receiver-avatar", style: "background-image: url('#{ invitation.receiver.avatar.attached? ? cl_image_path(invitation.receiver.avatar.key) : image_path("placeholder-avatar.png") }')" %>
           <% else %>
@@ -47,7 +47,7 @@
           </div>
           <% if @event.user == current_user %>
           <div class="invite-delete">
-            <%= link_to invitation_path(invitation), title: "Delete invitation", method: "delete" do %>
+            <%= link_to invitation_path(invitation), title: "Delete invitation", method: :delete, remote: :true, data: {invitation_id: invitation.id} do %>
               <i class="far fa-trash-alt"></i>
             <% end %>
           </div>

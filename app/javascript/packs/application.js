@@ -32,6 +32,7 @@ import { initMapbox } from "../plugins/init_mapbox";
 import { initSlides } from "../plugins/slides";
 import { navbarScroll } from "../pages/navbar_scroll"
 import { initChatroomCable } from "../channels/chatroom_channel"
+import { invitationAjax } from "../events/invitations"
 
 
 document.addEventListener('turbolinks:load', () => {
@@ -46,4 +47,5 @@ document.addEventListener('turbolinks:load', () => {
   navbarScroll();
   copyLink();
   initChatroomCable();
+  invitationAjax();
 });
