@@ -19,6 +19,7 @@
           <div style="<%= @active %>" id="event-card-section-inner">
             <% day[1].each do |day_event| %>
               <% collapse_today = day_event.scheduled_at.today? ? "display: flex;" : "" %>
+
               <div class="banana" style=<%= collapse_today %> >
 
                 <%= link_to event_path(day_event.id), class: "event-card-link" do %>
