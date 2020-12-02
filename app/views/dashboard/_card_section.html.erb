@@ -1,6 +1,0 @@
-<div id="filter-icon"><%= link_to dashboard_index_path(anchor: "top-of-page") do %>
-  <i class="fas fa-filter"></i><% end %>
-</div>
-<%= link_to event_path(day_event.id) do %>
-  <%= render "card", invitations_data: invitations_data, day_event: day_event %>
-<% end %>

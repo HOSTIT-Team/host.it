@@ -9,13 +9,18 @@
       <% @created_ats.each do |day| %>
         <div class="event-card-section content">
           <button type="button" class= "collapsible" id="today-anchor"> <%= day[0].strftime("%A, %b %d") %></button>
+          <div style="<%= @active %>">
           <% day[1].each do |day_event| %>
             <% collapse_today = day_event.scheduled_at.today? ? "display: flex;" : "" %>
-            <div style="<%= @active %> <%= collapse_today %>">
-              <%= render "card_section", invitations_data: @invitations_data, day_event: day_event, active: @active %>
+            <div style="<%= collapse_today %>">
+              <div id="filter-icon"><%= link_to dashboard_index_path(anchor: "top-of-page") do %>
+                <i class="fas fa-filter"></i><% end %>
+              </div>
+              <%= render "card", invitations_data: @invitations_data, day_event: day_event, active: @active %>
             </div>
             <% end %>
           </div>
+        </div>
       <% end %>
     <% end %>
   </div>

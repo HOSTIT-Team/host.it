@@ -34,7 +34,7 @@
 
 .content {
   display: flex;
-  display: none;
+  flex-wrap: wrap;
 }
 
 .headline {
@@ -104,6 +104,10 @@
     background-color:$violet;
     color: white;
   }
+}
+
+#today-anchor {
+  z-index: 1000;
 }
 
 .no-events {

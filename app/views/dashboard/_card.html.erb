@@ -1,26 +1,20 @@
 <div class="event-card-link">
-<% if day_event.user == current_user %>
-  <div class="event-card-hosting">
-    <%= render "card_header", invitations_data: invitations_data, day_event: day_event %>
-    <%= render "card_image", day_event: day_event %>
-    <%= render "card_overlay", invitations_data: invitations_data, day_event: day_event %>
-    <%= render "card_footer", invitations_data: invitations_data, day_event: day_event %>
-  </div>
+  <%= link_to event_path(day_event) do %>
+    <% if day_event.user == current_user %>
+      <div class="event-card-hosting">
+      <%= render "inner_card", invitations_data: invitations_data, day_event: day_event %>
 
-<% elsif invitations_data.include?([day_event.id, "accepted"]) %>
-  <div class="event-card-accepted">
-    <%= render "card_header", invitations_data: invitations_data, day_event: day_event %>
-    <%= render "card_image", day_event: day_event %>
-    <%= render "card_overlay", invitations_data: invitations_data, day_event: day_event %>
-    <%= render "card_footer", invitations_data: invitations_data, day_event: day_event %>
-  </div>
-
-<% elsif invitations_data.include?([day_event.id, "pending"]) %>
-  <div class="event-card-pending">
-    <%= render "card_header", invitations_data: invitations_data, day_event: day_event %>
-    <%= render "card_image", day_event: day_event %>
-    <%= render "card_overlay", invitations_data: invitations_data, day_event: day_event %>
-    <%= render "card_footer", invitations_data: invitations_data, day_event: day_event %>
-  </div>
-<% end %>
+      </div>
+    <% elsif invitations_data.include?([day_event.id, "accepted"]) %>
+      <div class="event-card-hosting">
+        <%= render "inner_card", invitations_data: invitations_data, day_event: day_event %>
+      </div>
+    <% elsif invitations_data.include?([day_event.id, "pending"]) %>
+      <div class="event-card-pending">
+        <%= render "inner_card", invitations_data: invitations_data, day_event: day_event %>
+        <%= render "card_footer", invitations_data: invitations_data, day_event: day_event %>
+      </div>
+    <% end %>
+  <% end %>
 </div>
+
