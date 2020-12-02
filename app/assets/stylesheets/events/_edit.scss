@@ -4,7 +4,7 @@
 }
 
 .datepicker {
-  background-color: white !important;
+  background-color: $white !important;
 }
 
 .form-container {
@@ -18,7 +18,7 @@
   .form-inputs-container {
     background-color: $beige;
     display: flex;
-    width: 900px;
+    width: 60vw;
     padding: 48px;
     margin: 80px 0;
     flex-direction: column;
