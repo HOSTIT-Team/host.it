@@ -73,12 +73,19 @@
   display: flex;
   width: 100vw;
   flex-direction: column;
-  padding: 0 10%;
+  align-items: center;
   margin-bottom: 80px;
 
+  img {
+    width: 400px;
+  }
+
+  #middle {
+    margin: 0 24px;
+  }
   #learnmore {
     display: flex;
-    width: 100%;
+    width: fit-content;
     margin-bottom: 48px;
     justify-content: space-between;
   }
