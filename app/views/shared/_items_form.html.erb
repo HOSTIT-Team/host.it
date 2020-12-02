@@ -1,6 +1,4 @@
-
 <div class="list-container" background-color: white >
-        <%# <h2>Anything this party needs?</h2> %>
         <div class="items-list">
             <table>
             <%# <tr><th>Item</th><th>Brought by</th></tr> %>
@@ -12,11 +10,11 @@
                 <% else %>
                   <tr><td id="items-<%=item.id%>"> <%= item.name %></td>
                   <td><%= item.user.first_name %></td></tr>
-                  <% end %>
-                <% else %>
+                <% end %>
+              <% else %>
                   <tr><td id="items-<%=item.id%>"> <%= item.name %></td>
                   <td><%= button_to 'Bring it', item_path(item), class:"button-create", method: :patch, remote: true %></td>
-                 <% end %>
+              <% end %>
             <% end %>
             </table>
         </div>
@@ -28,8 +26,4 @@
             </div>
             <% end %>
         </div>
-<<<<<<< HEAD
-      </div>
-=======
 </div>
->>>>>>> main
