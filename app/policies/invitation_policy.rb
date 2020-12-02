@@ -10,6 +10,6 @@ class InvitationPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.sender == user || user.admin
+    record.sender == user || user.admin?
   end
 end
