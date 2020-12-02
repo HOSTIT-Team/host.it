@@ -8,16 +8,36 @@
       <%= render "filter" %>
       <% @created_ats.each do |day| %>
         <div class="event-card-section content">
-          <button type="button" class= "collapsible" id="today-anchor"> <%= day[0].strftime("%A, %b %d") %></button>
-          <div style="<%= @active %>">
-          <% day[1].each do |day_event| %>
-            <% collapse_today = day_event.scheduled_at.today? ? "display: flex;" : "" %>
-            <div style="<%= collapse_today %>">
-              <div id="filter-icon"><%= link_to dashboard_index_path(anchor: "top-of-page") do %>
-                <i class="fas fa-filter"></i><% end %>
+          <div id="filter-icon">
+            <%= link_to dashboard_index_path(anchor: "top-of-page") do %>
+              <i class="fas fa-filter"></i>
+            <% end %>
+          </div>
+          <button type="button" class= "collapsible" id="today-anchor">
+            <%= day[0].strftime("%A, %b %d") %>
+          </button>
+          <div style="<%= @active %>" id="event-card-section-inner">
+            <% day[1].each do |day_event| %>
+              <% collapse_today = day_event.scheduled_at.today? ? "display: flex;" : "" %>
+              <div style="<%= collapse_today %>">
+
+                <%= link_to event_path(day_event.id), class: "event-card-link" do %>
+                  <% if day_event.user == current_user %>
+                    <div class="event-card-hosting">
+                      <%= render "inner_card", invitations_data: @invitations_data, day_event: day_event %>
+                    </div>
+                  <% elsif @invitations_data.include?([day_event.id, "accepted"]) %>
+                    <div class="event-card-hosting">
+                      <%= render "inner_card", invitations_data: @invitations_data, day_event: day_event %>
+                    </div>
+                  <% elsif @invitations_data.include?([day_event.id, "pending"]) %>
+                    <div class="event-card-pending">
+                      <%= render "inner_card", invitations_data: @invitations_data, day_event: day_event %>
+                    </div>
+                  <% end %>
+                <% end %>
+
               </div>
-              <%= render "card", invitations_data: @invitations_data, day_event: day_event, active: @active %>
-            </div>
             <% end %>
           </div>
         </div>

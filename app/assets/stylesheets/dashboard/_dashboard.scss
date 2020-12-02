@@ -37,6 +37,10 @@
   flex-wrap: wrap;
 }
 
+#event-card-section-inner {
+  flex-wrap: wrap;
+}
+
 .headline {
   text-align: left;
   padding: 0 5% 60px;
@@ -339,8 +343,8 @@ i.fas.fa-filter::before {
   background-color: rgba(171, 153, 251, 0.6);
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
+  width: 264px;
+  height: 150px;
   opacity: 0;
   padding: 15px;
   transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -351,8 +355,8 @@ i.fas.fa-filter::before {
   background-color: rgba(87, 136, 108, 0.6);
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
+  width: 264px;
+  height: 150px;
   opacity: 0;
   padding: 15px;
   transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -363,22 +367,27 @@ i.fas.fa-filter::before {
   background-color: rgba(210, 253, 255, 0.6);
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
+  width: 264px;
+  height: 150px;
   opacity: 0;
   padding: 15px;
   transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.event-card-body:hover .overlay-hosting {
+.overlay-hosting:hover {
   opacity: 1;
 }
 
-.event-card-body:hover .overlay-accepted {
+.overlay-accepted:hover {
   opacity: 1;
 }
 
-.event-card-body:hover .overlay-pending {
+.overlay-pending:hover {
   opacity: 1;
+}
+
+.event-card-link {
+  z-index: 1000;
+  position: relative;
 }
 

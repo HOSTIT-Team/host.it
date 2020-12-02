@@ -30,7 +30,7 @@ class DashboardController < ApplicationController
     @all_events_sorted = @all_events.sort_by { |event| event.scheduled_at }
     @created_ats = @all_events_sorted.group_by { |date| date.scheduled_at.to_date }
 
-    if params[:filtering].present? ||
+    if params[:filtering].present?
       @active = "display: flex;"
     elsif
       @active = "display: none;"
