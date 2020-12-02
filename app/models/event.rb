@@ -15,6 +15,7 @@ class Event < ApplicationRecord
 
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+  before_validation :chop_playlist
 
   def is_invited?(user)
     self.invitations.any? { |invitation| invitation.receiver == user }
@@ -24,5 +25,9 @@ class Event < ApplicationRecord
 
   def will_save_change_to_location?
     location_changed?
+  end
+
+  def chop_playlist
+    self.spotify_playlist = self.spotify_playlist.split(":").last
   end
 end

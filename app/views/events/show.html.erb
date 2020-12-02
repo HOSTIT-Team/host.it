@@ -27,7 +27,11 @@
       <div class ='playlist-container'>
         <div class="section-header">The Playlist</div>
         <div class="playlist">
-          <iframe src="https://open.spotify.com/embed/playlist/0K0RsJ0xxaTDZIKQ1vszY3" width="400" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+          <% if @event.spotify_playlist %>
+            <iframe src="https://open.spotify.com/embed/playlist/<%= @event.spotify_playlist %>" width="400" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+          <% else %>
+            <div class="no-playlist">Add a Playlist</div>
+          <% end %>
         </div>
       </div>
     </div >
