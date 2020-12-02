@@ -9,7 +9,7 @@ class EventsController < ApplicationController
     @invitations = @event.invitations.order(created_at: :desc)
     @message = Message.new
     @marker = {
-      lat: @event.latitude, 
+      lat: @event.latitude,
       lng: @event.longitude,
       image_url: helpers.asset_url('marker.svg')
     };

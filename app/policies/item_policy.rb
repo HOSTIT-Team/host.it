@@ -19,6 +19,6 @@ class ItemPolicy < ApplicationPolicy
     end
   
     def destroy?
-      record.user == user || user.admin?
+      record.event.invitations.where(status: 'accepted', receiver_id: user.id).any?|| record.event.user == user
     end
   end
