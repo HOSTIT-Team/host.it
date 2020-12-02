@@ -23,7 +23,7 @@
       <%= f.input :scheduled_at, as: :string, label: false, input_html: {class: "datepicker", placeholder: "When?" } %>
     </div>
     <%= f.input :description,label: false, input_html: {placeholder: "Describe what your event is about and what people can expect at the event" } %>
-    <%= link_to 'Sign in with Spotify', '/auth/spotify' %>
+    <%#= link_to 'Sign in with Spotify', '/auth/spotify' %>
     <% if current_page?(new_event_path) %>
       <%= f.submit "Create Event", class: "button-create" %>
     <% else %>
