@@ -1,7 +1,7 @@
 class InvitationsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_invitation, only: [:update, :destroy]
-  before_action :find_event, only: [:index, :create, :destroy]
+  before_action :find_event, only: [:index, :create]
 
   def index
     @invitations = Invitation.where(event: @event)
@@ -45,11 +45,13 @@ class InvitationsController < ApplicationController
 
   def destroy
     @invitation = Invitation.find(params[:id])
+    event = @invitation.event
+    authorize @invitation
     if @invitation.destroy
-      redirect_to event_path(@event)
+      redirect_to event_path(event)
       flash.alert = "Invitation deleted"
     else
-      redirect_to event_path(@event)
+      redirect_to event_path(event)
       flash.alert = "Invitation deletion failed"
     end
   end

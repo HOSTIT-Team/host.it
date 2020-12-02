@@ -37,6 +37,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 30%;
 
       .host-title {
         font-size: 3rem;
@@ -64,7 +65,6 @@
           &:hover {
             text-decoration: none;
             color: $magenta;
-            border-bottom: 1.5px solid;
           }
         }
       }
@@ -85,30 +85,37 @@
     }
   }
 
+  .guestlist-map-section {
+    display: flex;
+    margin-bottom: 80px;
+    width: 67.5vw;
+  }
 
-  .event-guest-map {
-    position: relative;
+  .event-guestlist {
     background-color: $beige;
     border-radius: 2px;
     padding: 48px;
-    width: 75%;
     display: flex;
-    margin-bottom: 80px;
+    margin-right: 48px;
+    width: 45%;
+    position: relative;
+
+    .guest-list-header {
+      font-size: 1.5rem;
+      color: $white;
+      background-color: black;
+      padding: 8px;
+      position: absolute;
+      top: -24px;
+      left: -24px;
+    }
 
     .guest-list {
       background-color: $black;
-      padding: 0 42px 42px 42px;
+      padding: 42px;
       display: flex;
       flex-direction: column;
       border-radius: 2px;
-
-      .guest-list-header {
-        align-self: center;
-        font-size: 2rem;
-        font-weight: 600;
-        color: $white;
-        padding: 6px 0;
-      }
 
       .guest-cards {
         background-color: $white;
@@ -150,12 +157,15 @@
             font-size: 1.5rem;
             color: #fffdf7;
             background-color: black;
+            max-height: 42px;
+            overflow: hidden;
+            width: 300px;
+
             a {
               color: $white;
               &:hover {
                 text-decoration: none;
                 color: $magenta;
-                border-bottom: 1.5px solid;
               }
             }
           }
@@ -163,7 +173,7 @@
       }
     }
 
-    div.guest-cards img {
+    .guest-cards img {
       position: absolute;
       object-fit: cover;
       top: 0;
@@ -171,22 +181,6 @@
       height: 400px;
       width: 300px;
       border-radius: 2px;
-    }
-
-    #map {
-      width: 100%;
-      height: 500px;
-      margin-left: 48px;
-      border: solid 1.5px black;
-      border-radius: 2px;
-    }
-
-    .mapboxgl-canvas-container {
-      &:focus {
-        outline: 0;
-      }
-      width: 100%;
-      height: 100%;
     }
 
     .list-button {
@@ -347,7 +341,6 @@
                 &:hover {
                   text-decoration: none;
                   color: $magenta;
-                  border-bottom: 1.5px solid;
                 }
               }
             }
@@ -416,6 +409,69 @@
     }
   }
 
+  .event-map {
+    background-color: $beige;
+    border-radius: 2px;
+    padding: 48px;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    #map {
+      width: 100%;
+      height: 500px;
+      border: solid 1.5px black;
+      border-radius: 2px;
+
+      &:focus {
+        outline: 0;
+      }
+      
+      .mapboxgl-canary {
+        &:focus {
+          outline: 0;
+        }
+      }
+
+      .mapboxgl-canvas {
+        &:focus {
+          outline: 0;
+        }
+      }
+
+      .mapboxgl-canvas-container {
+        &:focus {
+          outline: 0;
+        }
+        width: 100%;
+        height: 100%;
+      }
+
+      .mapboxgl-control-container {
+        &:focus {
+          outline: 0;
+        }
+      }
+    }
+
+    .button-map {
+      background-color: $magenta;
+      color: $white;
+      text-decoration: none;
+      padding: 15px 20px 15px 20px;
+      border: 1.5px solid black;
+      border-radius: 2px;
+      width: max-content;
+      margin-top: auto;
+
+      &:hover {
+        text-decoration: none;
+        background-color: black;
+        color: $white;
+      }
+    }
+  }
 
   .event-chat {
     background-color: $beige;
@@ -424,6 +480,7 @@
     display: flex;
     flex-direction: column;
     border-radius: 2px;
+    position: relative;
 
     .chat-box {
       height: 500px;
@@ -581,60 +638,5 @@
         }
       }
     }
-  }
-}
-
-.event-banner {
-  width: 75%;
-  height: 60vh;
-  background-size: cover;
-  background-color: gray;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  border-radius: 2px;
-}
-
-#button-map {
-  position: absolute;
-  right: 130px;
-  bottom: 25px;
-  padding: 0 42px 42px 42px;
-  .button-map {
-    background-color: #dd1155;
-    cursor: pointer;
-    color: white;
-    text-decoration: none;
-    padding: 15px 20px 15px 20px;
-    border: 1.5px solid black;
-    border-radius: 3px;
-    text-decoration: none;
-    &:hover {
-      text-decoration: none;
-      background-color: black;
-      color: white;
-    }
-  }
-}
-
-.event-error {
-  display: flex;
-  align-items: center;
-  margin-bottom: 50px;
-  flex-direction: column;
-  background-color: $beige;
-  width: fit-content;
-  margin: 0 auto 50px;
-  padding: 48px;
-  border-radius: 2px;
-
-  i {
-    color: $violet;
-    font-size: 100px;
-  }
-
-  .event-error-message {
-    font-size: 3rem;
-    margin-top: 24px;
   }
 }
