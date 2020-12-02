@@ -427,7 +427,7 @@
       &:focus {
         outline: 0;
       }
-      
+
       .mapboxgl-canary {
         &:focus {
           outline: 0;
@@ -543,6 +543,17 @@
             .message-username {
               margin-right: 8px;
               font-size: 0.9rem;
+              overflow: hidden;
+              white-space: nowrap;
+              max-width: 50%;
+
+              a {
+                color: black;
+                &:hover {
+                  text-decoration: none;
+                  color: $magenta;
+                }
+              }
             }
 
             .message-time {
