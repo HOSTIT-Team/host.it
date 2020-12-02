@@ -7,10 +7,8 @@
     <% else %>
       <%= render "filter" %>
       <% @created_ats.each do |day| %>
-        <div class="event-card-section">
-          <div class="content w-100vw d-flex flex-wrap" >
-          <button type="button" class= "collapsible" id="today-anchor"> <%= day[0].strftime("%A, %b %d") %>
-          </button>
+        <div class="event-card-section content">
+          <button type="button" class= "collapsible" id="today-anchor"> <%= day[0].strftime("%A, %b %d") %></button>
           <% day[1].each do |day_event| %>
             <% collapse_today = day_event.scheduled_at.today? ? "display: flex;" : "" %>
             <div style="<%= @active %> <%= collapse_today %>">
@@ -18,10 +16,7 @@
             </div>
             <% end %>
           </div>
-        </div>
       <% end %>
     <% end %>
   </div>
 </div>
-
-

@@ -13,7 +13,6 @@ class DashboardController < ApplicationController
     @invitations_data = @invitations_as_guest.map do |invitation|
       [invitation.event_id, invitation.status]
     end
-      # raise
 
     @all_events = []
     @invitations_as_guest.each do |invitation|
@@ -26,9 +25,11 @@ class DashboardController < ApplicationController
       end
     end
 
+      # raise
+
     @all_events_sorted = @all_events.sort_by { |event| event.scheduled_at }
     @created_ats = @all_events_sorted.group_by { |date| date.scheduled_at.to_date }
-
+    # @active = ""
     @active = params[:filtering].present? ? "display: flex;" : "display: none;"
   end
 end
