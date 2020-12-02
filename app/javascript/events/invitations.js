@@ -6,9 +6,9 @@ const invitationAjax = () => {
     "#invitation_receiver_email"
   );
   const invitations = document.querySelector(".invitations");
-  const action = newInvitationForm.attributes[3].value;
 
   if (newInvitationForm) {
+    const action = newInvitationForm.attributes[3].value;
     newInvitationForm.addEventListener("submit", (event) => {
       event.preventDefault();
 
@@ -49,13 +49,15 @@ const invitationAjax = () => {
 
   const inviteDeleteButtons = document.querySelectorAll(".invite-delete a");
 
-  inviteDeleteButtons.forEach((deleteButton) => {
-    deleteButton.addEventListener("click", () => {
-      const inviteId = deleteButton.dataset.invitationId;
-      const invitee = document.querySelector(`#invitation-${inviteId}`);
-      invitee.remove();
+  if (inviteDeleteButtons) {
+    inviteDeleteButtons.forEach((deleteButton) => {
+      deleteButton.addEventListener("click", () => {
+        const inviteId = deleteButton.dataset.invitationId;
+        const invitee = document.querySelector(`#invitation-${inviteId}`);
+        invitee.remove();
+      });
     });
-  });
+  }
 };
 
 export { invitationAjax };
