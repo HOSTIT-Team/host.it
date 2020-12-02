@@ -1,29 +1,20 @@
 <div class="list-container" background-color: white >
         <div class="items-list">
             <table>
-            <%# <tr><th>Item</th><th>Brought by</th></tr> %>
             <% @event.items.each do |item| %>
+            <tr>
+              <td><%= link_to '✖️', item_path(item), method: :delete, remote: true %></td>
+              <td> <%= item.name %></td>
               <% if item.user_id != nil %>
-                 <% if item.user.first_name == nil %>
-                  <tr>
-                  <td><%= link_to '✖️', item_path(item), method: :delete, remote: true %></td>
-                  <td><%= item.name %></td>
-                  <td>Somebody</td>
-                  </tr>
-                <% else %>
-                  <tr>
-                  <td><%= link_to '✖️', item_path(item), method: :delete, remote: true %></td>
-                  <td> <%= item.name %></td>
-                  <td><%= item.user.first_name %></td>
-                  </tr>
+                <% if item.user.first_name == nil %>
+                <td>Somebody</td>
+                <% else %>                    
+                <td><%= item.user.first_name %></td>
                 <% end %>
               <% else %>
-                  <tr>
-                  <td><%= link_to '✖️', item_path(item), method: :delete, remote: true %></td>
-                  <td id="items-<%=item.id%>"> <%= item.name %></td>
-                  <td><%= button_to 'Bring it', item_path(item), class:"button-map", method: :patch, remote: true %></td>
-                  </tr>
+               <td><%= button_to 'Bring it', item_path(item), class:"button-map", method: :patch, remote: true %></td>         
               <% end %>
+              </tr>
             <% end %>
             </table>
         </div>
