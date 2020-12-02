@@ -220,7 +220,6 @@
   text-decoration: none;
 }
 
-
 .event-card-section {
   display: flex;
   justify-content: left;
@@ -237,12 +236,11 @@
   display: flex;
 }
 
-i.fas.fa-filter::before {
+i.fas.fa-filter {
   position: absolute;
   right: 15px;
   top: 15px;
 }
-
 
 .event-card-hosting, .event-card-pending, .event-card-accepted {
   border-color: black;
@@ -327,8 +325,9 @@ i.fas.fa-filter::before {
 
 .event-card-footer-symbols {
   position: absolute;
-  right: 12px;
-  bottom: 6px;
+  right: 25px;
+  bottom: 30px;
+  z-index: 1000;
   i {
     color: $white;
     font-size: 25px;
@@ -340,37 +339,40 @@ i.fas.fa-filter::before {
 
 .overlay-hosting {
   position: absolute;
+  top: 85px;
   background-color: rgba(171, 153, 251, 0.6);
-  top: 0;
-  left: 0;
   width: 264px;
   height: 150px;
   opacity: 0;
   padding: 15px;
+  color: white;
+  text-align: center;
   transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .overlay-accepted {
   position: absolute;
+  top: 85px;
   background-color: rgba(87, 136, 108, 0.6);
-  top: 0;
-  left: 0;
   width: 264px;
   height: 150px;
   opacity: 0;
   padding: 15px;
+  color: white;
+  text-align: center;
   transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .overlay-pending {
   position: absolute;
+  top: 85px;
   background-color: rgba(210, 253, 255, 0.6);
-  top: 0;
-  left: 0;
   width: 264px;
   height: 150px;
   opacity: 0;
   padding: 15px;
+  color: white;
+  text-align: center;
   transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -391,3 +393,6 @@ i.fas.fa-filter::before {
   position: relative;
 }
 
+.banana {
+  position: relative;
+}
