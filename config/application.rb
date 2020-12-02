@@ -23,4 +23,4 @@ module HostIt
   end
 end
 
-RSpotify::authenticate("9d38d852e3ef44e68630237054efceef", "0eec3ae0c2e249ba9313ec266eab476c")
+# RSpotify::authenticate(" removed try putting it in env", "removed try putting it in env")
