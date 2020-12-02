@@ -23,6 +23,13 @@ class UsersController < ApplicationController
         @user = User.new
         authorize @user
     end
+
+    def spotify
+        spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
+        current_user.update(spotify_login:spotify_user.to_hash)
+        skip_authorization
+        redirect_back fallback_location: dashboard_index_path
+    end
     
     private
 
