@@ -48,14 +48,16 @@ const invitationAjax = () => {
   }
 
   const inviteDeleteButtons = document.querySelectorAll(".invite-delete a");
-
-  inviteDeleteButtons.forEach((deleteButton) => {
-    deleteButton.addEventListener("click", () => {
-      const inviteId = deleteButton.dataset.invitationId;
-      const invitee = document.querySelector(`#invitation-${inviteId}`);
-      invitee.remove();
+  
+  if (inviteDeleteButtons) {
+    inviteDeleteButtons.forEach((deleteButton) => {
+      deleteButton.addEventListener("click", () => {
+        const inviteId = deleteButton.dataset.invitationId;
+        const invitee = document.querySelector(`#invitation-${inviteId}`);
+        invitee.remove();
+      });
     });
-  });
+  }
 };
 
 export { invitationAjax };
