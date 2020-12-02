@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="event-container">
   <% if @event.banner.attached? %>
     <div class="event-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @event.banner.key %>')">
@@ -13,33 +14,19 @@
 
   <div class="event-details">
     <div class="event-info">
+=======
+<% if @event.is_invited?(current_user) || @event.user == current_user %>
+  <div class="event-container">
+    <div class="event-banner" style="background-image: <%=  "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('#{cl_image_path(@event.banner.key)}')" if @event.banner.attached? %>" >
+>>>>>>> main
       <% if @event.user == current_user || current_user.admin? %>
-      <div id="event-edit-delete">
-        <%= link_to edit_event_path(@event), title: "Edit event", id: "event-edit" do %>
-          <i class="fas fa-edit"></i>
+        <%= link_to edit_event_path(@event), class: "button-create upload-button" do %>
+          <i class="far fa-edit"></i>
         <% end %>
-        <%= link_to event_path(@event), title: "Delete event", method: :delete, id: "event-delete" do %>
-          <i class="fas fa-trash"></i>
-        <% end %>
-      </div>
-    <% end %>
-    <h1 id="event-title"><%= @event.title %></h1>
-    <p id="event-time-location"><i class="fas fa-map-marker-alt"></i> <%= @event.location %> <i class="fas fa-clock"></i> <%= @event.scheduled_at.strftime("%d %b %Y") %> at <%= @event.scheduled_at.strftime("%H:%M %p") %></p>
-    <p id="event-description"><%= @event.description %></p>
-    </div>
-    <div class="event-host">
-      <h1 class="host-title event-title">Your Host</h1>
-      <% if @event.user.avatar.attached? %>
-        <div class="host-avatar tilt" style="background-image: url('<%= cl_image_path @event.user.avatar.key %>')"></div>
-      <% else %>
-        <div class="host-avatar">?</div>
       <% end %>
-      <div class="host-info">
-        <div class="host-name"><%= link_to @event.user.full_name, user_path(@event.user) %></div>
-      </div>
     </div>
-  </div>
 
+<<<<<<< HEAD
   <div class="event-guest-map">
     <div class="guest-list">
       <div class="guest-list-header">The Guests</div>
@@ -71,76 +58,20 @@
       data-markers="<%= @marker.to_json %>"
       data-mapbox-api-key="<%= ENV["MAPBOX_API_KEY"]%>">
     </div>
+=======
+    <%= render "events/details" %>
+>>>>>>> main
 
-    <div class="invite-modal">
-      <div class="invite-content">
-        <% if current_user == @event.user %>
-        <div class="invite-form-container">
-          <div class="invite-email-input">
-            <%= simple_form_for [@event, @invitation] do |f| %>
-              <%= f.input :receiver_email, label: false, placeholder: "Send invite via e-mail" %>
-              <%= button_tag type: :submit, class: "invite-button" do %>
-                <i class="far fa-paper-plane"></i>
-              <% end %>
-            <% end %>
-          </div>
-          <div class="invite-link-container">
-            <div class="event-url"><%= "http://hostit.club/events/#{@event.id}" %></div>
-            <div class="event-url-copy">Copy link</div>
-          </div>
-        </div>
-        <hr>
-        <% end %>
-        <div class="invitations">
-          <% @invitations.each do |invitation| %>
-          <div class="invitee">
-            <% if invitation.receiver && invitation.receiver.avatar.attached? %>
-              <%= link_to "", user_path(invitation.receiver), class: "receiver-avatar", style: "background-image: url('#{cl_image_path invitation.receiver.avatar.key }')" %>
-            <% else %>
-              <% if invitation.receiver %>
-                <%= link_to "?", user_path(invitation.receiver), class: "receiver-no-avatar" %>
-              <% else %>
-                <div class="receiver-avatar">?</div>
-              <% end %>
-            <% end %>
-            <div class="invitee-info">
-              <% if invitation.receiver && invitation.receiver.first_name && invitation.receiver.last_name %>
-                <div class="receiver-fullname">
-                  <%= link_to "#{invitation.receiver.first_name} #{invitation.receiver.last_name}", user_path(invitation.receiver) %>
-                </div>
-                <div class="receiver-mail"><%= invitation.receiver.email %></div>
-              <% else %>
-                <%= invitation.receiver_email %>
-              <% end %>
-            </div>
-            <div class="invitee-status">
-              <% case invitation.status %>
-              <% when "accepted" %>
-                <div class="invitation-status-accepted">Accepted</div>
-              <% when "pending" %>
-                <div class="invitation-status-pending">Pending</div>
-              <% when "declined" %>
-                <div class="invitation-status-declined">Declined</div>
-              <% end %>
-            </div>
-            <% if @event.user == current_user %>
-            <div class="invite-delete">
-              <%= link_to invitation_path(invitation), title: "Delete invitation", method: "delete" do %>
-                <i class="far fa-trash-alt"></i>
-              <% end %>
-            </div>
-            <% end %>
-          </div>
-        <% end %>
-        </div>
-        <button id="close-button"><i class="far fa-window-close"></i></button>
+    <div class="guestlist-map-section">
+      <div class="event-guestlist">
+        <%= render "events/guest_list" %>
+        <%= render "events/invite_modal" %>
+        <div class="section-header">The Guests</div>
       </div>
+      <%= render "events/location_map" %>
     </div>
-    <div id="button-map">
-    <a href="https://www.google.com/maps/search/?api=1&query=<%= @event.latitude %>,<%= @event.longitude %>" target="_blank", class="button-map">Open Google Maps</a>
-    </div>
-  </div>
 
+<<<<<<< HEAD
   <div class="items-playlist" id='items-anchor' >
     <div class ='items-container'>
     <h2 id="items-title"> Who's bringing what'?</h2>
@@ -189,17 +120,28 @@
             <%= message.content %>
             </div>
           </div>
+=======
+    <div class="items-playlist" id='items-anchor' >
+      <div class ='items-container'>
+      <div class="section-header">The Bringlist</div>
+        <%= render "shared/items_form" %>
+      </div>
+      <div class ='playlist-container'>
+        <div class="section-header">The Playlist</div>
+        <div class="playlist">
+          <iframe src="https://open.spotify.com/embed/playlist/0K0RsJ0xxaTDZIKQ1vszY3" width="400" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+>>>>>>> main
         </div>
-      <% end %>
-    </div>
-    <div class="chat-form">
-      <%= simple_form_for [@event, Message.new], anchor: "event-chat" do |f| %>
-        <%= f.input :content, id: "chat-input", label: false, placeholder: "Chat with the other guests.." %>
-        <%= button_tag type: :submit, class: "send-button" do %>
-          <i class="far fa-paper-plane"></i>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-</div>
+      </div>
+    </div >
 
+    <div class="event-chat" id="user-<%= current_user.id %>"> 
+      <%= render "events/chat" %>
+  </div>
+
+<% else %>
+  <div class="event-error">
+    <i class="fas fa-exclamation-triangle"></i>
+    <div class="event-error-message">Sorry, but You are not invited to this event!</div>
+    </div>
+<% end %>
