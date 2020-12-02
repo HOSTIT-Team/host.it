@@ -5,7 +5,11 @@
       <%= message.content %>
     </div>
     <div class="message-username-time">
-        <div class="message-username"><%= message.user.full_name.strip.empty? ? "Nemo" : message.user.full_name %></div>
+        <div class="message-username">
+          <%= link_to user_path(current_user) do %>
+            <%= message.user.full_name.strip.empty? ? "Nemo" : message.user.full_name %>
+          <% end %>
+        </div>
       <div class="message-time"><%= message.created_at.strftime("on %a %b %e at %l:%M %p") %>
   </div>
 </div>
