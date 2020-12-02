@@ -13,23 +13,30 @@ class ItemsController < ApplicationController
         @item.user = current_user
         @item.save
         respond_to do |format|
-          format.js { render 'events/update.js' }
+        format.js { render 'events/update.js' }
         end
-        # redirect_to event_path(@event, anchor: "items-anchor")
-        # redirect_to event_path(@event, anchor: "items-#{@item.id}")
     end
 
     def create
-      @item =Item.new(item_params)
-        authorize @item
-        @item.event = @event
-        if @item.save
-            # redirect_to event_path(@event, anchor: "items-anchor")
-            # render template:"shared/items_form", id:"items-anchor"
-        else
-          render "events/show"
-       end
+     @item =Item.new(item_params)
+     authorize @item
+     @item.event = @event
+     @item.save
+     respond_to do |format|
+       format.js { render 'events/update.js' }
+     end
     end
+
+    def destroy
+      @item =Item.find(params[:id])
+      authorize @item
+      @event = @item.event
+      @item.destroy
+      respond_to do |format|
+        format.js { render 'events/update.js' }
+      end
+    end
+ 
 
     private
 

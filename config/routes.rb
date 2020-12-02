@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :new, :create]
     resources :messages, only: :create
   end
-  resources :items, only: :update
+  resources :items, only: [:update, :destroy]
   resources :dashboard, only: [:index]
   resources :users, only: [:show, :edit, :update, :new]
   resources :invitations, only: [:update, :destroy]
