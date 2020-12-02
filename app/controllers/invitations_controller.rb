@@ -26,22 +26,21 @@ class InvitationsController < ApplicationController
     @invitation.event = @event
     @invitation.receiver = User.find_by(email: @invitation.receiver_email)
     @invited_already = Invitation.where(event: @event).find_by(receiver_email: @invitation.receiver_email)
-    @invitation.save
-    # if @invited_already
-    #   redirect_to event_path(@event)
-    #   flash.alert = "Invitation failed: Guest already invited"
-    # elsif @invitation.receiver_email == current_user.email
-    #   redirect_to event_path(@event)
-    #   flash.alert = "Invitation failed: You can't invite yourself"
-    # else
-    #   if @invitation.save
-    #     redirect_to event_path(@event)
-    #     flash.alert = "Invitation sent"
-    #   else
-    #     redirect_to event_path(@event)
-    #     flash.alert = "Invitation failed"
-    #   end
-    # end
+    if @invited_already
+      # redirect_to event_path(@event)
+      # flash.alert = "Invitation failed: Guest already invited"
+      render json: { success: false, errors: @invitation.errors.messages }, status: :unprocessable_entity 
+    elsif @invitation.receiver_email == current_user.email
+      # redirect_to event_path(@event)
+      # flash.alert = "Invitation failed: You can't invite yourself"
+      render json: { success: false, errors: @invitation.errors.messages }, status: :unprocessable_entity 
+    else
+      if @invitation.save
+        render json: { success: true }
+      else
+        render json: { success: false, errors: @invitation.errors.messages }, status: :unprocessable_entity 
+      end
+    end
   end
 
   def destroy

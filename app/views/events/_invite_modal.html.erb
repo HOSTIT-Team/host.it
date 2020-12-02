@@ -3,7 +3,7 @@
     <% if current_user == @event.user %>
     <div class="invite-form-container">
       <div class="invite-email-input">
-        <%= simple_form_for [@event, @invitation], remote: true do |f| %>
+        <%= simple_form_for [@event, @invitation] do |f| %>
           <%= f.input :receiver_email, label: false, placeholder: "Send invite via e-mail" %>
           <%= button_tag type: :submit, class: "invite-button" do %>
             <i class="far fa-paper-plane"></i>
