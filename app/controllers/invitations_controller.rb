@@ -1,7 +1,7 @@
 class InvitationsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_invitation, only: [:update, :destroy]
-  before_action :find_event, only: [:index, :create, :destroy]
+  before_action :find_event, only: [:index, :create]
 
   def index
     @invitations = Invitation.where(event: @event)
@@ -27,29 +27,27 @@ class InvitationsController < ApplicationController
     @invitation.receiver = User.find_by(email: @invitation.receiver_email)
     @invited_already = Invitation.where(event: @event).find_by(receiver_email: @invitation.receiver_email)
     if @invited_already
-      redirect_to event_path(@event)
-      flash.alert = "Invitation failed: Guest already invited"
+      render json: { success: false, errors: @invitation.errors.messages }, status: :unprocessable_entity 
     elsif @invitation.receiver_email == current_user.email
-      redirect_to event_path(@event)
-      flash.alert = "Invitation failed: You can't invite yourself"
+      render json: { success: false, errors: @invitation.errors.messages }, status: :unprocessable_entity 
     else
       if @invitation.save
-        redirect_to event_path(@event)
-        flash.alert = "Invitation sent"
+        render json: { invitation: @invitation }
       else
-        redirect_to event_path(@event)
-        flash.alert = "Invitation failed"
+        render json: { success: false, errors: @invitation.errors.messages }, status: :unprocessable_entity 
       end
     end
   end
 
   def destroy
     @invitation = Invitation.find(params[:id])
+    event = @invitation.event
+    authorize @invitation
     if @invitation.destroy
-      redirect_to event_path(@event)
-      flash.alert = "Invitation deleted"
+      # redirect_to event_path(event)
+      # flash.alert = "Invitation deleted"
     else
-      redirect_to event_path(@event)
+      redirect_to event_path(event)
       flash.alert = "Invitation deletion failed"
     end
   end

@@ -6,10 +6,10 @@ class EventsController < ApplicationController
     authorize @event
     @item = Item.new
     @invitation = Invitation.new
-    @invitations = Invitation.where(event: @event)
+    @invitations = @event.invitations.order(created_at: :desc)
     @message = Message.new
     @marker = {
-      lat: @event.latitude, 
+      lat: @event.latitude,
       lng: @event.longitude,
       image_url: helpers.asset_url('marker.svg')
     };
