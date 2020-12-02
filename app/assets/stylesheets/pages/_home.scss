@@ -39,7 +39,8 @@ h2 {
 
 
 #banner {
-    background-image: image-url('homepage_banner.jpg')
+    background-image: image-url('homepage_banner.jpg');
+    background-repeat: round;
 }
 
 * {
