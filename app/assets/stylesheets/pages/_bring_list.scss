@@ -1,101 +1,89 @@
 .items-playlist {
-    width: 75%;
-    margin: 80px;
-    background-color: $light-gray;
-    // position: relative;
-    display: flex;
-    border-radius: 2px;
-    flex-direction: row;
-    justify-content: stretch;
-    // flex-flow: row wrap;
+  width: 75%;
+  margin-bottom: 80px;
+  background-color: $light-gray;
+  display: flex;
+  border-radius: 2px;
+  flex-direction: row;
+  justify-content: stretch;
 }
 .items-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: $beige;
-    width: 100%;
-    border-radius: 2px;
-    align-content: space-between;
-    padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $beige;
+  width: 100%;
+  border-radius: 2px;
+  align-content: space-between;
+  padding: 48px;
+  position: relative;
 }
 .list-container {
-    background-color: $white;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-    border: 1.5px solid black;
-    border-radius: 2px;
-    h2{ color: black; 
-    text-align: center;}
-    }
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid black;
+  border-radius: 2px;
+}
 .playlist-container {
-margin-left: 50px;
-display: flex;
-justify-content: center;
-background-color: $beige;
-width: 500px;
-h2 {
-    color: $black;
-    text-align: center;
-    }
-    .playlist {
-        text-align: center;
-        padding: 3%;
-        width: 500px;
-        height: 100%;
-        }    
+  margin-left: 48px;
+  background-color: #e8ddb5;
+  position: relative;
+  padding: 48px;
+
+  iframe {
+    border-radius: 2px;
+  }
 }
 .add-item {
-    margin-top: 16px;
-    display: flex;
-    width: 100%;
-    height: 60px;
+  margin-top: 16px;
+  display: flex;
+  width: 100%;
+  height: 60px;
 
-    .form-group {
-         width: 80%;
-         height: 100%;
-         margin: 0px;
-         padding: 5px;
-         .form-control {
-             height: 100%;
-             width: 85%;
-            }
-         }
-    .button-submit {
-        padding: 5px;
-        width: 15%;
+  .form-group {
+    width: 80%;
+    height: 100%;
+    margin: 0px;
+    padding: 5px;
+    .form-control {
+      height: 100%;
+      width: 85%;
     }
+  }
+  .button-submit {
+    padding: 5px;
+    width: 15%;
+  }
 }
 .items-list {
-    background-color: $white ; 
-    height: calc(100% - 120px);
-    max-height: 415px;
-    overflow: scroll;
-    tr {
-        font: 200 20px/1.5 Gilroy, sans-serif;
-        border-bottom: 1px solid #ccc;
-        width: 100%;
-      }
-      th {
-      
-          padding:6px 5px; 
-          text-align: center;
-      }
-      td  {
-          text-align: center;
-          padding:6px 5px;
-      }
-      
+  background-color: $white;
+  height: calc(100% - 120px);
+  max-height: 415px;
+  overflow: scroll;
+  tr {
+    font: 200 20px/1.5 Gilroy, sans-serif;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+  }
+  th {
+    padding: 6px 5px;
+    text-align: center;
+  }
+  td {
+    text-align: center;
+    padding: 6px 5px;
+  }
 }
 .items-form {
-    display: inline-block;
+  display: inline-block;
 }
 
 table {
-    // table-layout: auto;
-    width: 100%;
+  // table-layout: auto;
+  width: 100%;
 }
 #bring-title {
   font: 200 20px/1.5 Gilroy, sans-serif;
@@ -105,21 +93,21 @@ table {
 }
 
 #bring-list {
- text-decoration: none;
+  text-decoration: none;
   color: #000;
   display: block;
- 
+
   -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
   -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
   -o-transition: font-size 0.3s ease, background-color 0.3s ease;
   -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
   transition: font-size 0.3s ease, background-color 0.3s ease;
 }
-#bring-list  td:hover {
+#bring-list td:hover {
   font-size: 30px;
   background: #f6f6f6;
 }
-#items-title{
-    padding-bottom: 10px;
-    color: black;
+#items-title {
+  padding-bottom: 10px;
+  color: black;
 }

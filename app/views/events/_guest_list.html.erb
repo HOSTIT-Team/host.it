@@ -1,0 +1,21 @@
+<div class="guest-list">
+  <div class="slider-area">
+    <% @event.invitations.each do |invitation| %>
+      <% if invitation.receiver && (invitation.status == "pending" || invitation.status == "accepted") %>
+        <div class="slide">
+          <div class="guest-cards">
+              <%= invitation.receiver.avatar.attached? ? cl_image_tag(invitation.receiver.avatar.key) : image_tag("placeholder-avatar.png") %>
+          </div>
+          <div class="guest-name">
+            <% if invitation.receiver && !invitation.receiver.full_name.strip.empty? %>
+              <%= link_to invitation.receiver.full_name, user_path(invitation.receiver)%>
+            <% else %>
+              <%= link_to "Nemo", user_path(invitation.receiver) %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <a href="" class="list-button button-invite">See list</a>
+</div>
