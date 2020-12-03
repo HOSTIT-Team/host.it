@@ -14,11 +14,16 @@
   padding: 48px;
   position: relative;
 }
+#test {
+  height: -webkit-fill-available;
+}
+
 .list-container {
+  height:100%;
+  padding: 20px;
   background-color: $white;
   display: flex;
   flex-direction: column;
-  min-height: 400px;
   border: 1.5px solid black;
   border-radius: 2px;
   
@@ -65,27 +70,66 @@
     }
   }
 }
+
 .add-item {
-  margin-top: 16px;
+  display:flex;
+  border: 1.5px solid black;
+  border-radius: 2px;
+  justify-content: space-around;
+}
+
+.items-form {
   display: flex;
-  width: 100%;
-  height: 60px;
-
-  .form-group {
-    width: 80%;
-    height: 100%;
-      .form-control {
-      height: 100%;
-      width: 85%;
-      font: 400 20px/1.5 Gilroy, sans-serif;
-
+  justify-content: space-between;
+  background-color: #FFFDF7;
+  #item_name {
+    width: 100%;
+    border-radius: 2px;
+    justify-content: space-around;
+    display: flex;
+    background-color: #FFFDF7;
+    font-size: 1.3rem;
+    width: 95%;
+    border: none;
+    padding: 8px 16px;
+    form {
+      display: flex;
+      width: 100%;
     }
   }
-  .button-submit {
-    padding: 5px;
-    width: 15%;
+
+  .form-group {
+    margin-bottom: 0;
   }
+
+  .add-button {
+    background-color: $white;
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+
+    &:focus {
+      outline: 0;
+    }
+
+    i {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      font-size: 1.7rem;
+      color: $black;
+      &:hover {
+        text-decoration: none;
+        color: $magenta;
+      }
+    }
+  } 
 }
+
+
 .items-list {
   background-color: $white;
   height: calc(100% - 120px);
@@ -105,6 +149,7 @@
     padding: 12px 5px;
   }
 }
+
 .items-form {
   display: inline-block;
 }
@@ -139,3 +184,4 @@ table {
   padding-bottom: 10px;
   color: black;
 }
+
