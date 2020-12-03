@@ -10,6 +10,25 @@
 
     <%= render "events/details" %>
 
+    <% if @event.is_invited?(current_user) && @event.invitations.where(receiver: current_user).first.status == "pending" %>
+      <div class="invite-options">
+        <div class="section-header">The Invitation</div>
+        <div class="invitation-text">Hey <%= current_user.full_name.strip.empty? ? "Somebody" : curren_user.full_name %>! You are invited to the event. You wanna join?</div>
+        <div class="invite-choices">
+          <div class="accept-invitation">
+            <%= link_to invitation_path(@event.invitations.where(receiver: current_user).first, status: "accepted") , class: "accepting", method: "patch", remote: true do %>
+              Accept
+            <% end %>
+          </div>
+          <div class="decline-invitation">
+            <%= link_to invitation_path(@event.invitations.where(receiver: current_user).first, status: "declined") , class: "declining", method: "patch", remote: true do %>
+              Decline
+          <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
     <div class="guestlist-map-section">
       <div class="event-guestlist">
         <%= render "events/guest_list" %>
@@ -28,9 +47,15 @@
         <div class="section-header">The Playlist</div>
         <div class="playlist">
           <% if @event.spotify_playlist %>
-            <iframe src="https://open.spotify.com/embed/playlist/<%= @event.spotify_playlist %>" width="400" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <iframe src="https://open.spotify.com/embed/playlist/<%= @event.spotify_playlist %>" width="350" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
           <% else %>
-            <div class="no-playlist">Add a Playlist</div>
+            <div class="no-playlist">
+              <% if current_user == @event.user %>
+                <%= link_to "Add a Playlist", edit_event_path(@event), title: "Update event", class: "list-button button-invite" %>
+              <% else %>
+                No playlist added yet
+              <% end %>
+            </div>
           <% end %>
         </div>
       </div>
