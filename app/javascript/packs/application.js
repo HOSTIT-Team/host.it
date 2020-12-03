@@ -34,6 +34,10 @@ import { navbarScroll } from "../pages/navbar_scroll";
 import { collapseDayBoxes } from "../dashboard/index";
 import { initChatroomCable } from "../channels/chatroom_channel";
 import { invitationAjax } from "../events/invitations";
+import { descriptionOnHoverHosting } from "../dashboard/index";
+import { descriptionOnHoverPending } from "../dashboard/index";
+import { descriptionOnHoverAccepted } from "../dashboard/index";
+
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -49,4 +53,7 @@ document.addEventListener('turbolinks:load', () => {
   collapseDayBoxes();
   initChatroomCable();
   invitationAjax();
+  descriptionOnHoverHosting();
+  descriptionOnHoverAccepted();
+  descriptionOnHoverPending();
 });

@@ -307,6 +307,19 @@ i.fas.fa-filter {
   left: 43%;
 }
 
+#popup {
+    height: 40px;
+    width: 200px;
+    text-align: center;
+    vertical-align: middle;
+    background-color: rgba(255,255,255, 0.6);
+    color: black;
+    display: none;
+    padding-top: 10px;
+    position: absolute;
+    border-radius: 20px;
+}
+
 .event-card-body {
   background-size: cover;
   padding: 10px 10px;
@@ -418,3 +431,5 @@ i.fas.fa-filter {
     transform: scale(1);
   }
 }
+
+

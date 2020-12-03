@@ -4,12 +4,15 @@
   </h6>
   <% if day_event.user == current_user %>
     <div class="event-card-status-circle-hosting">
+      <div id='popup'>I'm hosting this event!</div>
     </div>
   <% elsif invitations_data.include?([day_event.id, "accepted"]) %>
     <div class="event-card-status-circle-accepted">
+      <div id='popup'>You're going to this event!</div>
     </div>
   <% elsif invitations_data.include?([day_event.id, "pending"]) %>
     <div class="event-card-status-circle-pending pulsate-fwd">
+      <div id='popup'>You've been invited to this event!</div>
     </div>
   <% end %>
 </div>
