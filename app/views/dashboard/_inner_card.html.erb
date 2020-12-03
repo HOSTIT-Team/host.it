@@ -9,7 +9,7 @@
     <div class="event-card-status-circle-accepted">
     </div>
   <% elsif invitations_data.include?([day_event.id, "pending"]) %>
-    <div class="event-card-status-circle-pending">
+    <div class="event-card-status-circle-pending pulsate-fwd">
     </div>
   <% end %>
 </div>
@@ -26,6 +26,7 @@
   <div class="overlay-hosting">
     <p><i class="far fa-clock"></i> <%= day_event.scheduled_at.strftime("%l:%M %p") %></p>
     <p><i class="fas fa-map-marker-alt"></i> <%= day_event.location %></p>
+    <p><i class="fas fa-portrait"></i> Host name </p>
   </div>
 <% elsif invitations_data.include?([day_event.id, "accepted"]) %>
   <div class="overlay-accepted">

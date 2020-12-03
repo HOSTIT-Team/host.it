@@ -48,13 +48,19 @@
 
 #filter-icon {
   i {
-    color: black;
+    color: rgba(0, 0, 0, 0.4);
     font-size: 18px;
   }
   i:hover {
     font-size: 20px;
     font-weight: bold;
   }
+}
+
+i.fas.fa-filter {
+  position: absolute;
+  right: 15px;
+  top: 15px;
 }
 
 .filter-row {
@@ -143,82 +149,82 @@
   }
 }
 
-.hosting-button {
-  width: 100px;
-  height: 30px;
-  border-radius: 2px;
-  background-color: $violet;
-  border-color: black;
-  border: solid;
-  border-width: 2px;
-  margin-right: 4px;
-  display: table;
-  margin-bottom: 4px;
-  a {
-    color: white;
-    text-align: center;
-    vertical-align: middle;
-    display: table-cell;
-  }
-}
+// .hosting-button {
+//   width: 100px;
+//   height: 30px;
+//   border-radius: 2px;
+//   background-color: $violet;
+//   border-color: black;
+//   border: solid;
+//   border-width: 2px;
+//   margin-right: 4px;
+//   display: table;
+//   margin-bottom: 4px;
+//   a {
+//     color: white;
+//     text-align: center;
+//     vertical-align: middle;
+//     display: table-cell;
+//   }
+// }
 
-.accepted-button {
-  width: 100px;
-  height: 30px;
-  border-radius: 2px;
-  background-color: $green;
-  border-color: black;
-  border: solid;
-  border-width: 2px;
-  margin-right: 4px;
-  display: table;
-  margin-bottom: 4px;
-  a {
-    color: white;
-    text-align: center;
-    vertical-align: middle;
-    display: table-cell;
-  }
-}
+// .accepted-button {
+//   width: 100px;
+//   height: 30px;
+//   border-radius: 2px;
+//   background-color: $green;
+//   border-color: black;
+//   border: solid;
+//   border-width: 2px;
+//   margin-right: 4px;
+//   display: table;
+//   margin-bottom: 4px;
+//   a {
+//     color: white;
+//     text-align: center;
+//     vertical-align: middle;
+//     display: table-cell;
+//   }
+// }
 
-.pending-button {
-  width: 100px;
-  height: 30px;
-  border-radius: 2px;
-  background-color: $blue;
-  border-color: black;
-  border: solid;
-  border-width: 2px;
-  display: table;
-  margin-bottom: 4px;
-  a {
-    color: white;
-    text-align: center;
-    vertical-align: middle;
-    display: table-cell;
-  }
-}
+// .pending-button {
+//   width: 100px;
+//   height: 30px;
+//   border-radius: 2px;
+//   background-color: $blue;
+//   border-color: black;
+//   border: solid;
+//   border-width: 2px;
+//   display: table;
+//   margin-bottom: 4px;
+//   a {
+//     color: white;
+//     text-align: center;
+//     vertical-align: middle;
+//     display: table-cell;
+//   }
+// }
 
-.hosting-button:hover {
-  font-weight: bold;
-  font-size: 16px;
-  background-color: black;
-  text-decoration: none;
-}
+// .hosting-button:hover {
+//   font-weight: bold;
+//   font-size: 16px;
+//   background-color: black;
+//   text-decoration: none;
+// }
 
-.accepted-button:hover {
-  font-weight: bold;
-  font-size: 16px;
-  background-color: black;
-  text-decoration: none;
-}
+// .accepted-button:hover {
+//   font-weight: bold;
+//   font-size: 16px;
+//   background-color: black;
+//   text-decoration: none;
+// }
 
-.pending-button:hover {
-  font-weight: bold;
-  font-size: 16px;
-  background-color: black;
-  text-decoration: none;
-}
+// .pending-button:hover {
+//   font-weight: bold;
+//   font-size: 16px;
+//   background-color: black;
+//   text-decoration: none;
+// }
 
 .event-card-section {
   display: flex;
@@ -234,12 +240,6 @@
 
 .event-card-section-inner {
   display: flex;
-}
-
-i.fas.fa-filter {
-  position: absolute;
-  right: 15px;
-  top: 15px;
 }
 
 .event-card-hosting, .event-card-pending, .event-card-accepted {
@@ -295,6 +295,8 @@ i.fas.fa-filter {
 
 .event-card-status-circle-pending {
   background-color: $blue;
+  box-shadow:  4px 4px 40px #6f8687,
+             -4px -4px 40px #ffffff;
   height: 40px;
   width: 40px;
   border-radius: 20px;
@@ -390,4 +392,20 @@ i.fas.fa-filter {
 
 .event-card {
   position: relative;
+}
+
+.pulsate-fwd {
+  animation: pulsate-fwd 0.5s ease-in-out infinite both;
+}
+
+@keyframes pulsate-fwd {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
