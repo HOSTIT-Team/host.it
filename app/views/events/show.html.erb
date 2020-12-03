@@ -47,7 +47,7 @@
         <div class="section-header">The Playlist</div>
         <div class="playlist">
           <% if @event.spotify_playlist %>
-            <iframe src="https://open.spotify.com/embed/playlist/<%= @event.spotify_playlist %>" width="400" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <iframe src="https://open.spotify.com/embed/playlist/<%= @event.spotify_playlist %>" width="350" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
           <% else %>
             <div class="no-playlist">
               <% if current_user == @event.user %>

@@ -29,6 +29,7 @@
         background-color: black;
         border-radius: 2px;
         margin-right: 24px;
+        font-weight: 500;
       }
 
       .invitee-status-accepted,
@@ -157,8 +158,9 @@
     .invite-choices {
       width: 50%;
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-around;
       align-items: center;
+      padding-left: 48px;
     }
 
     .accept-invitation,
@@ -191,12 +193,6 @@
       .declining {
         background-color: #dd1155;
       }
-    }
-
-    .accept-invitation {
-    }
-
-    .decline-invitation {
     }
   }
 
