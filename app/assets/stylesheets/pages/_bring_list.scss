@@ -50,9 +50,25 @@
   background-color: #e8ddb5;
   position: relative;
   padding: 48px;
+  display: flex;
+  align-items: center;
 
   iframe {
     border-radius: 2px;
+  }
+
+  .playlist {
+    width: fit-content;
+
+    .no-playlist {
+    width: max-content;
+    font-size: 1.2rem;
+    padding: 8px;
+    a {
+      font-size: 1rem;
+      font-weight: normal;
+    }
+    }
   }
 }
 .add-item {
