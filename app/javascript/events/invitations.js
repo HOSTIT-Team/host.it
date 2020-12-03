@@ -27,7 +27,7 @@ const invitationAjax = () => {
           // handle JSON response from server
           const invitation = data.invitation;
           const newInvitation = `
-            <div class="invitee">
+            <div class="invitee" id="invitation-${invitation.id}">
               <div class="receiver-avatar">?</div>
               <div class="invitee-info">
                 ${invitation.receiver_email}
@@ -42,7 +42,16 @@ const invitationAjax = () => {
             </div>
             </div>`;
 
-          invitations.insertAdjacentHTML("afterbegin", newInvitation);
+            invitations.insertAdjacentHTML("afterbegin", newInvitation);
+          
+            const newInvitee = invitations.querySelector(`#invitation-${invitation.id}`);
+            console.log(newInvitee);
+            const newDeleteButton  = newInvitee.querySelector(".invite-delete a");
+
+            newDeleteButton.addEventListener("click", () => {
+              newInvitee.remove();
+            });
+
         });
     });
   }
@@ -57,6 +66,31 @@ const invitationAjax = () => {
         invitee.remove();
       });
     });
+  }
+
+  const inviteOptions = document.querySelector(".invite-options");
+
+  if (inviteOptions) {
+    const acceptButton = inviteOptions.querySelector(".accepting");
+    const declineButton = inviteOptions.querySelector(".declining");
+
+    acceptButton.addEventListener("click", () => {
+      inviteOptions.remove();
+    });
+
+    declineButton.addEventListener("click", () => {
+      inviteOptions.remove();
+    });
+  }
+
+  const inviteInput = document.querySelector("#invitation_receiver_email");
+  const InviteForm = document.querySelector("#new_invitation");
+
+  if (InviteForm) {
+
+  InviteForm.addEventListener("submit", () => {
+    inviteInput.value = "";
+  })
   }
 };
 
