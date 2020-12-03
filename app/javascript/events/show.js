@@ -10,9 +10,12 @@ const inviteModal = () => {
       modal.style.display = "flex";
     });
   })
-  closeList.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
+
+  if (closeList) {
+    closeList.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+  }
  }
 
  if (modal) {
