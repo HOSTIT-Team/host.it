@@ -13,6 +13,46 @@
     display: flex;
     border-radius: 2px;
 
+    .section-header {
+      display: flex;
+      font-size: 1.5rem;
+      color: #fffdf7;
+      position: absolute;
+      top: -24px;
+      left: -24px;
+      background-color: transparent;
+      border: none;
+      border-radius: 0;
+
+      #details-header {
+        padding: 8px;
+        background-color: black;
+        border-radius: 2px;
+        margin-right: 24px;
+      }
+
+      .invitee-status-accepted,
+      .invitee-status-pending,
+      .invitee-status-declined {
+        padding: 8px;
+        border-radius: 2px;
+        color: black;
+        border: solid 1.5px black;
+      }
+
+      .invitee-status-accepted {
+        background-color: $green;
+      }
+
+      .invitee-status-pending {
+        background-color: $blue;
+      }
+
+      .invitee-status-declined {
+        background-color: $magenta;
+      }
+    }
+
     .event-info {
       width: 80%;
 
@@ -101,58 +141,62 @@
   .invite-options {
     background-color: $beige;
     padding: 48px;
-    width: 40%;
+    width: 67.5vw;
     display: flex;
     border-radius: 2px;
     margin-bottom: 80px;
     position: relative;
     justify-content: center;
 
-    .accept-invitation, .decline-invitation {
-      width: 200px;
-      height: 200px;
-      background-size: cover;
-      border: 1.5px black solid;
-      border-radius: 2px;
+    .invitation-text {
+      width: 50%;
+      font-size: 2rem;
+      align-self: center;
+    }
 
-      .accepting, .declining {
-        display: none;
+    .invite-choices {
+      width: 50%;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .accept-invitation,
+    .decline-invitation {
+      width: max-content;
+
+      .accepting,
+      .declining {
         width: 100%;
         height: 100%;
         color: $white;
-        font-size: 1.5rem;
-        margin-bottom: 8px;
-        justify-content: center;
-        align-items: center;
+        font-size: 1.2rem;
+        border: 1.5px black solid;
+        border-radius: 2px;
+        padding: 8px;
       }
 
-      &:hover {
-        background: none;
-        border: none;
-        .accepting, .declining {
-          border: 1.5px solid black;
-          border-radius: 2px;
-          display: flex;
-          text-decoration: none;
+      .accepting,
+      .declining {
+        text-decoration: none;
+        &:hover {
+          background-color: black;
         }
+      }
 
-        .accepting {
-          background-color: #57886c;
-        }
+      .accepting {
+        background-color: #57886c;
+      }
 
-        .declining {
-          background-color: #dd1155;
-        }
+      .declining {
+        background-color: #dd1155;
       }
     }
 
     .accept-invitation {
-      background-image: image-url("accept.png");
-      margin-right: 48px;
     }
 
     .decline-invitation {
-      background-image: image-url("decline.png");
     }
   }
 
