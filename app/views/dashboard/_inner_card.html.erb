@@ -3,16 +3,16 @@
     <%= "#{day_event.title}" %>
   </h6>
   <% if day_event.user == current_user %>
-    <div class="event-card-status-circle-hosting">
-      <div id='popup'>I'm hosting this event!</div>
+    <div class="event-card-status-circle-hosting circle">
+      <div id='popup' class="d-none">hosting</div>
     </div>
   <% elsif invitations_data.include?([day_event.id, "accepted"]) %>
-    <div class="event-card-status-circle-accepted">
-      <div id='popup'>You're going to this event!</div>
+    <div class="event-card-status-circle-accepted circle">
+      <div id='popup' class="d-none">attending</div>
     </div>
   <% elsif invitations_data.include?([day_event.id, "pending"]) %>
-    <div class="event-card-status-circle-pending pulsate-fwd">
-      <div id='popup'>You've been invited to this event!</div>
+    <div class="event-card-status-circle-pending pulsate-fwd circle">
+      <div id='popup' class="d-none">pending</div>
     </div>
   <% end %>
 </div>
