@@ -28,6 +28,8 @@ class Event < ApplicationRecord
   end
 
   def chop_playlist
-    self.spotify_playlist = self.spotify_playlist.split(":").last
+    if self.spotify_playlist
+      self.spotify_playlist = self.spotify_playlist.split(":").last
+    end
   end
 end
