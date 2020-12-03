@@ -214,10 +214,6 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rspotify (2.10.0)
-      addressable (~> 2.5.2)
-      omniauth-oauth2 (>= 1.6)
-      rest-client (~> 2.0.2)
     ruby2_keywords (0.0.2)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
@@ -305,7 +301,6 @@ DEPENDENCIES
   rails (~> 6.0.3, >= 6.0.3.4)
   redis (~> 4.0)
   rest-client
-  rspotify
   sass-rails (>= 6)
   selenium-webdriver
   simple_form
