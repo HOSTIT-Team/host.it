@@ -11,10 +11,8 @@ class InvitationsController < ApplicationController
     authorize @invitation
     @invitation.status = params[:status]
     if @invitation.save
-      redirect_to dashboard_index_path
-      flash.alert = "Invitation status changed"
+      
     else
-      redirect_to dashboard_path
       flash.alert = "Error changing invitation status"
     end
   end

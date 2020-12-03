@@ -10,21 +10,21 @@
 
     <%= render "events/details" %>
 
-    <%# if @event.is_invited?(current_user) && @event.invitations.where(receiver: current_user).status == "pending" %>
+    <% if @event.is_invited?(current_user) && @event.invitations.where(receiver: current_user).first.status == "pending" %>
       <div class="invite-options">
         <div class="section-header">The Invitation</div>
         <div class="accept-invitation">
-          <%= link_to invitation_path(@event.invitations.where(receiver: current_user), status: "accepted") , class: "accepting", method: "patch" do %>
+          <%= link_to invitation_path(@event.invitations.where(receiver: current_user).first, status: "accepted") , class: "accepting", method: "patch", remote: true do %>
             Accept
           <% end %>
         </div>
         <div class="decline-invitation">
-         <%= link_to invitation_path(@event.invitations.where(receiver: current_user), status: "declined") , class: "declining", method: "patch" do %>
+          <%= link_to invitation_path(@event.invitations.where(receiver: current_user).first, status: "declined") , class: "declining", method: "patch", remote: true do %>
             Decline
-          <% end %>
+        <% end %>
        </div>
       </div>
-    <%# end %>
+    <% end %>
 
     <div class="guestlist-map-section">
       <div class="event-guestlist">
