@@ -26,17 +26,18 @@
   <div class="overlay-hosting">
     <p><i class="far fa-clock"></i> <%= day_event.scheduled_at.strftime("%l:%M %p") %></p>
     <p><i class="fas fa-map-marker-alt"></i> <%= day_event.location %></p>
-    <p><i class="fas fa-portrait"></i> Host name </p>
   </div>
 <% elsif invitations_data.include?([day_event.id, "accepted"]) %>
   <div class="overlay-accepted">
     <p><i class="far fa-clock"></i> <%= day_event.scheduled_at.strftime("%l:%M %p") %></p>
     <p><i class="fas fa-map-marker-alt"></i> <%= day_event.location %></p>
+    <p><i class="fas fa-portrait"></i> <%= day_event.user.full_name %></p>
   </div>
 <% elsif invitations_data.include?([day_event.id, "pending"]) %>
   <div class="overlay-pending">
     <p><i class="far fa-clock"></i> <%= day_event.scheduled_at.strftime("%l:%M %p") %></p>
     <p><i class="fas fa-map-marker-alt"></i> <%= day_event.location %></p>
+    <p><i class="fas fa-portrait"></i> <%= day_event.user.full_name %></p>
   </div>
 <% end %>
 

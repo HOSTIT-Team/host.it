@@ -345,6 +345,9 @@ i.fas.fa-filter {
   color: white;
   text-align: center;
   transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  p {
+    margin-bottom: 0px;
+  }
 }
 
 .overlay-accepted {
@@ -358,6 +361,9 @@ i.fas.fa-filter {
   color: white;
   text-align: center;
   transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  p {
+    margin-bottom: 0px;
+  }
 }
 
 .overlay-pending {
@@ -368,9 +374,12 @@ i.fas.fa-filter {
   height: 150px;
   opacity: 0;
   padding: 15px;
-  color: white;
+  color: black;
   text-align: center;
   transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  p {
+    margin-bottom: 0px;
+  }
 }
 
 .overlay-hosting:hover {
