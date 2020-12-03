@@ -32,8 +32,8 @@ import { initMapbox } from "../plugins/init_mapbox";
 import { initSlides } from "../plugins/slides";
 import { navbarScroll } from "../pages/navbar_scroll";
 import { collapseDayBoxes } from "../dashboard/index";
-import { initChatroomCable } from "../channels/chatroom_channel"
-import { invitationAjax } from "../events/invitations"
+import { initChatroomCable } from "../channels/chatroom_channel";
+import { invitationAjax } from "../events/invitations";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
