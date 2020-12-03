@@ -48,7 +48,7 @@
 
 #filter-icon {
   i {
-    color: rgba(0, 0, 0, 0.4);
+    color: rgba(0, 0, 0, 0.1);
     font-size: 18px;
   }
   i:hover {
@@ -65,7 +65,7 @@ i.fas.fa-filter {
 
 .filter-row {
   display: flex;
-  margin-bottom: 4px;
+  margin-bottom: 18px;
   justify-content: flex-end;
   .filter-form {
     padding-top: 3px;

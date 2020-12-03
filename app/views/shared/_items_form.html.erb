@@ -1,4 +1,4 @@
-<div class="list-container">
+<div class="list-container" background-color: white >
   <div class="items-list">
       <table>
       <% @event.items.each do |item| %>
@@ -18,11 +18,13 @@
       <% end %>
       </table>
   </div>
-  <div class="items-form m-3">
+  <div class="items-form">
       <%= simple_form_for([@event, Item.new], remote: true) do |f| %>
       <div class="add-item">
-        <%= f.input :name, :placeholder => "Enter item", label: false %>
-        <%= f.submit "Add Item", class: "button-map" %>
+        <%= f.input :name, :placeholder => "What do we need?", label: false %>
+        <%= button_tag type: :submit, class: "add-button" do %>
+          <i class="fas fa-plus-square"></i>              
+        <% end %>
       </div>
       <% end %>
   </div>
