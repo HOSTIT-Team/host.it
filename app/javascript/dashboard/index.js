@@ -7,7 +7,7 @@ const collapseDayBoxes = () => {
     coll[i].addEventListener("click", function() {
       this.classList.toggle("active");
       var content = this.nextElementSibling;
-      console.log(content)
+      
       if (content.style.display === "flex") {
         content.style.display = "none";
       } else {
