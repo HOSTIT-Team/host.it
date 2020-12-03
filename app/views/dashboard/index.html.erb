@@ -16,11 +16,11 @@
           <button type="button" class= "collapsible" id="today-anchor">
             <%= day[0].strftime("%A, %b %d") %>
           </button>
-          <div style="<%= @active %>" id="event-card-section-inner">
+              <% collapse_today = day[0].today? ? "display: flex;" : "" %>
+          <div style="<%= @active %> <%= collapse_today %>" id="event-card-section-inner" >
             <% day[1].each do |day_event| %>
-              <% collapse_today = day_event.scheduled_at.today? ? "display: flex;" : "" %>
 
-              <div class="event-card" style=<%= collapse_today %> >
+              <div class="event-card">
 
                 <%= link_to event_path(day_event.id), class: "event-card-link" do %>
 

@@ -3,13 +3,16 @@
     <%= "#{day_event.title}" %>
   </h6>
   <% if day_event.user == current_user %>
-    <div class="event-card-status-circle-hosting">
+    <div class="event-card-status-circle-hosting circle">
+      <div id='popup' class="d-none">hosting</div>
     </div>
   <% elsif invitations_data.include?([day_event.id, "accepted"]) %>
-    <div class="event-card-status-circle-accepted">
+    <div class="event-card-status-circle-accepted circle">
+      <div id='popup' class="d-none">attending</div>
     </div>
   <% elsif invitations_data.include?([day_event.id, "pending"]) %>
-    <div class="event-card-status-circle-pending pulsate-fwd">
+    <div class="event-card-status-circle-pending pulsate-fwd circle">
+      <div id='popup' class="d-none">pending</div>
     </div>
   <% end %>
 </div>
@@ -26,17 +29,18 @@
   <div class="overlay-hosting">
     <p><i class="far fa-clock"></i> <%= day_event.scheduled_at.strftime("%l:%M %p") %></p>
     <p><i class="fas fa-map-marker-alt"></i> <%= day_event.location %></p>
-    <p><i class="fas fa-portrait"></i> Host name </p>
   </div>
 <% elsif invitations_data.include?([day_event.id, "accepted"]) %>
   <div class="overlay-accepted">
     <p><i class="far fa-clock"></i> <%= day_event.scheduled_at.strftime("%l:%M %p") %></p>
     <p><i class="fas fa-map-marker-alt"></i> <%= day_event.location %></p>
+    <p><i class="fas fa-portrait"></i> <%= day_event.user.full_name %></p>
   </div>
 <% elsif invitations_data.include?([day_event.id, "pending"]) %>
   <div class="overlay-pending">
     <p><i class="far fa-clock"></i> <%= day_event.scheduled_at.strftime("%l:%M %p") %></p>
     <p><i class="fas fa-map-marker-alt"></i> <%= day_event.location %></p>
+    <p><i class="fas fa-portrait"></i> <%= day_event.user.full_name %></p>
   </div>
 <% end %>
 
