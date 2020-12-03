@@ -27,8 +27,6 @@ const inviteModal = () => {
 }
 };
 
-
-
 const copyLink = () => {
 
     const copyText = document.querySelector(".event-url");
