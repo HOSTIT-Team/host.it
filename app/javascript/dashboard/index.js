@@ -21,15 +21,21 @@ const collapseDayBoxes = () => {
   if(accept) {
     accept.forEach(button => {
       button.addEventListener("click", event => {
-        const cardStatus = event.currentTarget.parentElement.parentElement.querySelector(".event-card-pending");
-        const circle = cardStatus.querySelector(".event-card-status-circle-pending");
-        console.log(cardStatus);
+        const card  = event.currentTarget.parentElement.parentElement;
+        const cardStatus = card.querySelector(".event-card-pending");
+        const circle = card.querySelector(".event-card-status-circle-pending");
+        const overlay = card.querySelector(".overlay-pending");
+        const footerButtons = card.querySelector(".event-card-footer-symbols");
+        
+        overlay.classList.remove("overlay-pending");
+        overlay.classList.add("overlay-accepted");
         cardStatus.classList.remove("event-card-pending");
         cardStatus.classList.add("event-card-accepted");
         circle.classList.remove("event-card-status-circle-pending");
         circle.classList.remove("pulsate-fwd");
         circle.classList.remove("circle");
         circle.classList.add("event-card-status-circle-accepted");
+        footerButtons.remove();
       })
     })
   }
@@ -37,9 +43,13 @@ const collapseDayBoxes = () => {
   if(decline) {
     decline.forEach(button => {
       button.addEventListener("click", event => {
-        const cardStatus = event.currentTarget.parentElement.parentElement;
-        console.log(cardStatus);
-        cardStatus.remove();
+        const card = event.currentTarget.parentElement.parentElement;
+        const section = card.parentElement.parentElement
+        const innerSection = section.querySelector("#event-card-section-inner");
+        card.remove();
+        if (innerSection.childElementCount < 3) {
+          section.remove();
+        }
       })
     })
   }
