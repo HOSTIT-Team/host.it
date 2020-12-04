@@ -1,25 +1,19 @@
-<div class="list-container" >
+<div class="list-container"  >
   <div class="items-list">
-    <table>
     <% @event.items.each do |item| %>
-    <tr>
-      <td><%= link_to '✖️', item_path(item), method: :delete, remote: true %></td>
-      <td> <%= item.name %></td>
-      <% if item.user_id != nil %>
-        <% if item.user.first_name == nil %>
-        <td>Somebody</td>
-        <% else %>                    
-        <td><%= item.user.first_name %></td>
-        <% end %>
+      <div class="item-row">
+        <%= link_to '✖️', item_path(item), method: :delete, title: 'Delete item from list', class: "item-delete-button", remote: true %>
+      <div class="list-item-name"><%= item.name %></div>
+      <% if item.user %>
+          <div class="item-bringer"><%= item.user.first_name == nil ? "Somebody" : item.user.first_name %></div>
       <% else %>
-        <td><%= button_to 'Bring it', item_path(item), class:"button-map", method: :patch, remote: true %></td>         
+        <%= button_to 'Bring it', item_path(item), class:"bring-button", method: :patch, remote: true %>
       <% end %>
-      </tr>
+      </div>
     <% end %>
-    </table>
   </div>
   <div class="items-form">
-    <%= simple_form_for([@event, Item.new], remote: true) do |f| %>
+    <%= simple_form_for [@event, Item.new], remote: true do |f| %>
     <div class="add-item">
       <%= f.input :name, :placeholder => "What do we need?", label: false %>
       <%= button_tag type: :submit, class: "add-button" do %>

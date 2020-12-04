@@ -13,46 +13,33 @@
     display: flex;
     border-radius: 2px;
 
-    .section-header {
-      display: flex;
-      font-size: 1.5rem;
-      color: #fffdf7;
-      position: absolute;
-      top: -24px;
-      left: -24px;
-      background-color: transparent;
-      border: none;
-      border-radius: 0;
-
-      #details-header {
-        padding: 8px;
-        background-color: black;
-        border-radius: 2px;
-        margin-right: 24px;
-        font-weight: 500;
-      }
-
-      .invitee-status-accepted,
+    .invitee-status-accepted,
       .invitee-status-pending,
       .invitee-status-declined {
-        padding: 8px;
+        font-size: 1.5rem;
+        color: $white;
+        padding: 6px 8px;
+        display: flex;
+        align-items: center;
         border-radius: 2px;
-        color: black;
         border: solid 1.5px black;
+        position: absolute;
+        top: -24px;
+        right: -24px;
       }
 
       .invitee-status-accepted {
         background-color: $green;
       }
 
-      .invitee-status-pending {
-        background-color: $blue;
-      }
+      // .invitee-status-pending {
+      //   background-color: $blue;
+      // }
 
       .invitee-status-declined {
         background-color: $magenta;
       }
-    }
+
 
     .event-info {
       width: 80%;
