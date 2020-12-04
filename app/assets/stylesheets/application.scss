@@ -19,7 +19,7 @@
 
 .main-wraper {
   padding-top: 130px;
-  padding-bottom: 160px;
+  min-height: calc(100vh - 160px);
 }
 
 body {
