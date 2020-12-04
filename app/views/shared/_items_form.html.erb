@@ -7,7 +7,7 @@
       <% if item.user %>
           <div class="item-bringer"><%= item.user.first_name == nil ? "Somebody" : item.user.first_name %></div>
       <% else %>
-        <%= button_to 'Bring it', item_path(item), class:"bring-button", method: :patch, remote: true %>
+        <%= button_to 'Bring.it', item_path(item), class:"bring-button", method: :patch, remote: true %>
       <% end %>
       </div>
     <% end %>
