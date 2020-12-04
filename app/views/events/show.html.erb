@@ -13,7 +13,7 @@
     <% if @event.is_invited?(current_user) && @event.invitations.where(receiver: current_user).first.status == "pending" %>
       <div class="invite-options">
         <div class="section-header">The Invitation</div>
-        <div class="invitation-text">Hey <%= current_user.full_name.strip.empty? ? "Somebody" : current_user.full_name %>! You are invited to the event. You wanna join?</div>
+        <div class="invitation-text">Hey <%= current_user.first_name == nil || current_user.first_name.strip.empty? ? "Somebody" : current_user.first_name %>! <%= @event.user.first_name.strip.empty? ? "Someone" : @event.user.first_name %> invited you to this event. Do you want to join?</div>
         <div class="invite-choices">
           <div class="accept-invitation">
             <%= link_to invitation_path(@event.invitations.where(receiver: current_user).first, status: "accepted") , class: "accepting", method: "patch", remote: true do %>
