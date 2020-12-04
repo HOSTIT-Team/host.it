@@ -42,17 +42,37 @@ const invitationAjax = () => {
             </div>
             </div>`;
 
-            invitations.insertAdjacentHTML("afterbegin", newInvitation);
-          
-            const newInvitee = invitations.querySelector(`#invitation-${invitation.id}`);
-            console.log(newInvitee);
-            const newDeleteButton  = newInvitee.querySelector(".invite-delete a");
+          invitations.insertAdjacentHTML("afterbegin", newInvitation);
 
-            newDeleteButton.addEventListener("click", () => {
-              newInvitee.remove();
-            });
+          const newInvitee = invitations.querySelector(
+            `#invitation-${invitation.id}`
+          );
+          // console.log(newInvitee);
+          const newDeleteButton = newInvitee.querySelector(".invite-delete a");
 
+          newDeleteButton.addEventListener("click", () => {
+            newInvitee.remove();
+          });
         });
+    });
+  }
+
+  const acceptButton = document.querySelector(".accepting");
+  const declineButton = document.querySelector(".declining");
+  const eventDetails = document.querySelector(".event-details");
+
+  if (eventDetails) {
+    // console.log(eventDetails);
+    acceptButton.addEventListener("click", () => {
+      const acceptBanner = '<div class="invitee-status-accepted>Accepted</div>';
+      // console.log(acceptButton);
+      eventDetails.insertAdjacentHTML("afterbegin", acceptBanner);
+    });
+
+    declineButton.addEventListener("click", () => {
+      const declineBanner = '<div class="invitee-status-declined>Declined</div>';
+      // console.log(declineButton);
+      eventDetails.insertAdjacentHTML("afterbegin", declineBanner);
     });
   }
 
@@ -87,10 +107,9 @@ const invitationAjax = () => {
   const InviteForm = document.querySelector("#new_invitation");
 
   if (InviteForm) {
-
-  InviteForm.addEventListener("submit", () => {
-    inviteInput.value = "";
-  })
+    InviteForm.addEventListener("submit", () => {
+      inviteInput.value = "";
+    });
   }
 };
 
