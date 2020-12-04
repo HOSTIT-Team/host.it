@@ -13,7 +13,7 @@
             <div class="message-username">
               <%= link_to user_path(message.user) do %>
                 <% if message.user != current_user  %>
-                  <%= message.user.full_name.strip.empty? ? "Nemo" : message.user.full_name %>
+                  <%= message.user.full_name.strip.empty? ? "Somebody" : message.user.full_name %>
                 <% else %>
                   You
                 <% end %>

@@ -26,7 +26,6 @@ gem 'faker'
 gem 'rest-client'
 gem 'geocoder'
 gem 'mapbox-gl-rails'
-gem 'rspotify'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -38,6 +37,7 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'pundit'
 gem 'cloudinary'
+gem 'rspotify'
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'

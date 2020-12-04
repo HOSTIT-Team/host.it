@@ -46,12 +46,12 @@
       <div class ='playlist-container'>
         <div class="section-header">The Playlist</div>
         <div class="playlist">
-          <% if @event.spotify_playlist %>
+          <% unless @event.spotify_playlist == nil || @event.spotify_playlist.strip.empty? %>
             <iframe src="https://open.spotify.com/embed/playlist/<%= @event.spotify_playlist %>" width="350" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
           <% else %>
             <div class="no-playlist">
               <% if current_user == @event.user %>
-                <%= link_to "Add a Playlist", edit_event_path(@event), title: "Update event", class: "list-button button-invite" %>
+                <%= link_to "Add a Playlist", edit_event_path(@event), title: "Update event", class: "spotify-button" %>
               <% else %>
                 No playlist added yet
               <% end %>
@@ -69,5 +69,5 @@
   <div class="event-error">
     <i class="fas fa-exclamation-triangle"></i>
     <div class="event-error-message">Sorry, but You are not invited to this event!</div>
-    </div>
+  </div>
 <% end %>

@@ -1,10 +1,12 @@
 <div class="event-details">
-  <div class="section-header">
-    <div id="details-header">The Details</div>
-    <% if @event.is_invited?(current_user) %>
-      <div class="invitee-status-<%= @event.invitations.where(receiver: current_user).first.status %>"><%= @event.invitations.where(receiver: current_user).first.status.capitalize %></div>
-    <% end %>
+  <div class="section-header">The Details
   </div>
+  <% if @event.is_invited?(current_user) %>
+  <% status = @event.invitations.where(receiver: current_user).first.status %>
+    <% if status == "accepted" || status == "declined" %>
+      <div class="invitee-status-<%= status %>"><%= status.capitalize %></div>
+    <% end %>
+  <% end %>
   <div class="event-info">
     <% if @event.user == current_user || current_user.admin? %>
       <div id="event-edit-delete">
