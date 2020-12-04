@@ -47,7 +47,7 @@ const collapseDayBoxes = () => {
         const section = card.parentElement.parentElement
         const innerSection = section.querySelector("#event-card-section-inner");
         card.remove();
-        if (innerSection.childElementCount < 3) {
+        if (innerSection.childElementCount < 1) {
           section.remove();
         }
       })

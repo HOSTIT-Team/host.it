@@ -63,17 +63,23 @@ const invitationAjax = () => {
 
   if (eventDetails) {
     // console.log(eventDetails);
-    acceptButton.addEventListener("click", () => {
-      const acceptBanner = '<div class="invitee-status-accepted>Accepted</div>';
-      // console.log(acceptButton);
-      eventDetails.insertAdjacentHTML("afterbegin", acceptBanner);
-    });
-
-    declineButton.addEventListener("click", () => {
-      const declineBanner = '<div class="invitee-status-declined>Declined</div>';
-      // console.log(declineButton);
-      eventDetails.insertAdjacentHTML("afterbegin", declineBanner);
-    });
+    // console.log(acceptButton);
+    const acceptBanner = '<div class="invitee-status-accepted">Accepted</div>';
+    const declineBanner = '<div class="invitee-status-declined">Declined</div>';
+    if (acceptButton) {
+      acceptButton.addEventListener("click", () => {
+        //  console.log(acceptButton);
+        eventDetails.insertAdjacentHTML("afterbegin", acceptBanner);
+      });
+    }
+    
+    // console.log(declineButton);
+    if (declineButton) {
+      declineButton.addEventListener("click", () => {
+        // console.log(declineButton);
+        eventDetails.insertAdjacentHTML("afterbegin", declineBanner);
+      });
+    }
   }
 
   const inviteDeleteButtons = document.querySelectorAll(".invite-delete a");
