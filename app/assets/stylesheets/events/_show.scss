@@ -250,6 +250,8 @@
           left: 0;
           border-radius: 2px;
           .guest-name {
+            display: flex;
+            justify-content: center;
             margin: 12px 0;
             align-self: center;
             text-align: center;
@@ -259,6 +261,15 @@
             max-height: 42px;
             overflow: hidden;
             width: 300px;
+
+            .host-logo {
+              margin-left: 8px;
+
+              img {
+                height: 30px;
+                width: 30px;
+              }
+            }
 
             a {
               color: $white;

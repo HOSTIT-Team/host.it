@@ -51,7 +51,7 @@
           <% else %>
             <div class="no-playlist">
               <% if current_user == @event.user %>
-                <%= link_to "Add a Playlist", edit_event_path(@event), title: "Update event", class: "list-button button-invite" %>
+                <%= link_to "Add a Playlist", edit_event_path(@event), title: "Update event", class: "spotify-button" %>
               <% else %>
                 No playlist added yet
               <% end %>
