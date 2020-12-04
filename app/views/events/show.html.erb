@@ -46,7 +46,7 @@
       <div class ='playlist-container'>
         <div class="section-header">The Playlist</div>
         <div class="playlist">
-          <% unless @event.spotify_playlist.strip.empty? %>
+          <% unless @event.spotify_playlist == nil || @event.spotify_playlist.strip.empty? %>
             <iframe src="https://open.spotify.com/embed/playlist/<%= @event.spotify_playlist %>" width="350" height="500" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
           <% else %>
             <div class="no-playlist">
