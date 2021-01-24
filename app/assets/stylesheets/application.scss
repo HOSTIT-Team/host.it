@@ -16,12 +16,11 @@
 @import "events/index";
 @import "dashboard/dashboard";
 
-
 .main-wraper {
   padding-top: 130px;
   min-height: calc(100vh - 160px);
 }
 
-body {
-  background-color: $white!important;
+body  {
+  background-color: $white !important;
 }
