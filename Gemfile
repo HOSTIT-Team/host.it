@@ -1,23 +1,23 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.6'
+ruby '3.4.2'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
+gem 'rails', '~> 8.0.1'
 # Use postgresql as the database for Active Record
-gem 'pg', '>= 0.18', '< 2.0'
+gem 'pg', '~> 1.5', '>= 1.5.9'
 # Use Puma as the app server
-gem 'puma', '~> 4.1'
+gem 'puma', '~> 6.0'
 # Use SCSS for stylesheets
-gem 'sass-rails', '>= 6'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 4.0'
+gem 'cssbundling-rails'
+# JavaScript bundling
+gem 'jsbundling-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
+gem 'jbuilder', '~> 2.11'
 # Use Redis adapter to run Action Cable in production
-gem 'redis', '~> 4.0'
+gem 'redis', '~> 5.4'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
@@ -28,12 +28,12 @@ gem 'geocoder'
 gem 'mapbox-gl-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootsnap', '>= 1.4.4', require: false
 
 gem 'devise'
 
 gem 'autoprefixer-rails'
-gem 'font-awesome-sass'
+# gem 'font-awesome-sass', '~> 6.5.1'
 gem 'simple_form'
 gem 'pundit'
 gem 'cloudinary'
@@ -48,6 +48,7 @@ group :development, :test do  gem 'pry-byebug'
 end
 
 group :development do
+  gem 'mutex_m'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.2'

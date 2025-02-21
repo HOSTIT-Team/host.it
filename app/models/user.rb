@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :invitations_as_sender, source: :invitations, foreign_key: :sender_id
-  has_many :invitations_as_receiver, source: :invitations, foreign_key: :receiver_id
+  has_many :invitations_as_sender, class_name: 'Invitation', foreign_key: :sender_id
+  has_many :invitations_as_receiver, class_name: 'Invitation', foreign_key: :receiver_id
   has_many :events
   has_many :items
   serialize :spotify_login
